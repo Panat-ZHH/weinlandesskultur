@@ -1,0 +1,887 @@
+function showMainPage() {
+    // Close mobile menu if open
+    closeMobileMenu();
+    
+    // Verstecke alle Restaurant-Seiten
+    const restaurantPages = document.querySelectorAll('.restaurant-page');
+    restaurantPages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Zeige die Hauptseite
+    document.getElementById('mainPage').classList.remove('hidden');
+    
+    // Scroll nach oben
+    window.scrollTo(0, 0);
+}
+
+function showRestaurant(restaurantId) {
+    // Close mobile menu if open
+    closeMobileMenu();
+    
+    // Verstecke die Hauptseite
+    document.getElementById('mainPage').classList.add('hidden');
+    
+    // Verstecke alle Restaurant-Seiten
+    const restaurantPages = document.querySelectorAll('.restaurant-page');
+    restaurantPages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Zeige die gewählte Restaurant<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weinland Esskultur</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    z-index: 1001;
+    overflow: hidden;
+    top: 100%;
+    margin-top: 10px;
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: dropdownFade 0.3s ease;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    transform: translateX(5px);
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar.restaurant-nav {
+    justify-content: space-between;
+}
+
+.nav-button {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8B4513;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #2C1810 0%, #8B4513 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* Restaurant Cards */
+.restaurants-section {
+    padding: 5rem 2rem;
+    background: #f8f8f8;
+}
+
+.restaurants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.restaurant-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    height: 200px;
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #8B4513;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.card-button {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+/* Restaurant Pages */
+.restaurant-page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.restaurant-page.active {
+    display: block;
+}
+
+.restaurant-hero {
+    height: 60vh;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.restaurant-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.restaurant-content {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Über uns Section */
+.about-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: #8B4513;
+    margin-bottom: 2rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.company-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8B4513;
+    margin-bottom: 3rem;
+}
+
+/* Geschäftsführer Section */
+.management-section {
+    padding: 5rem 2rem;
+    background: white;
+}
+
+.management-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.manager-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.manager-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.manager-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.manager-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #8B4513;
+}
+
+.manager-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .management-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .company-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-desktop {
+        display: none;
+    }
+    
+    .nav-mobile {
+        display: block;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    .restaurants-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .about-content h2 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .mobile-menu {
+        width: 250px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+}
+
+/* Main page visibility */
+.main-page {
+    display: block;
+}
+
+.main-page.hidden {
+    display: none;
+}
+</style>
+</head>
+<body>
+<!-- Main Page -->
+<div class="main-page" id="mainPage">
+<!-- Navigation für Hauptseite -->
+<nav class="navbar" id="mainNav">
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
+        <button class="nav-button" onclick="scrollToAbout()">Über uns</button>
+    </div>
+    
+    <div class="logo" onclick="showMainPage()">Weinland Esskultur</div>
+    
+    <div class="nav-desktop">
+        <div class="dropdown">
+            <button class="nav-button">Restaurants ▼</button>
+            <div class="dropdown-content">
+                <div class="dropdown-item" onclick="showRestaurant('bella-vista')">Bella Vista</div>
+                <div class="dropdown-item" onclick="showRestaurant('goldener-hirsch')">Goldener Hirsch</div>
+                <div class="dropdown-item" onclick="showRestaurant('urban-kitchen')">Urban Kitchen</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <button class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-item" onclick="scrollToAbout(); closeMobileMenu();">Über uns</div>
+    <div class="mobile-menu-item">Restaurants</div>
+    <div class="mobile-restaurants">
+        <div class="mobile-menu-item" onclick="showRestaurant('bella-vista'); closeMobileMenu();">Bella Vista</div>
+        <div class="mobile-menu-item" onclick="showRestaurant('goldener-hirsch'); closeMobileMenu();">Goldener Hirsch</div>
+        <div class="mobile-menu-item" onclick="showRestaurant('urban-kitchen'); closeMobileMenu();">Urban Kitchen</div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Weinland Esskultur</h1>
+        <p>Drei einzigartige Restaurants - Ein außergewöhnliches Erlebnis</p>
+    </div>
+</section>
+
+<!-- Restaurants Section -->
+<section class="restaurants-section">
+    <div class="restaurants-grid">
+        <div class="restaurant-card" onclick="showRestaurant('bella-vista')">
+            <div class="card-image">BV</div>
+            <div class="card-content">
+                <h3>Bella Vista</h3>
+                <p>Italienische Küche mit mediterranem Flair und erstklassigen Weinen aus der Region.</p>
+                <button class="card-button">Restaurant besuchen</button>
+            </div>
+        </div>
+
+        <div class="restaurant-card" onclick="showRestaurant('goldener-hirsch')">
+            <div class="card-image">GH</div>
+            <div class="card-content">
+                <h3>Goldener Hirsch</h3>
+                <p>Traditionelle deutsche Küche in gemütlicher Atmosphäre mit ausgewählten lokalen Spezialitäten.</p>
+                <button class="card-button">Restaurant besuchen</button>
+            </div>
+        </div>
+
+        <div class="restaurant-card" onclick="showRestaurant('urban-kitchen')">
+            <div class="card-image">UK</div>
+            <div class="card-content">
+                <h3>Urban Kitchen</h3>
+                <p>Moderne Fusionsküche mit innovativen Kreationen und zeitgemäßem Design.</p>
+                <button class="card-button">Restaurant besuchen</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Über uns / Unternehmen Section -->
+<section class="about-section" id="aboutSection">
+    <div class="about-container">
+        <div class="about-content">
+            <h2>Über Weinland Esskultur</h2>
+            <p>Seit über einem Jahrzehnt steht Weinland Esskultur für außergewöhnliche Gastronomie und Genusskultur. Unser Unternehmen vereint drei einzigartige Restaurant-Konzepte unter einem Dach und bietet unseren Gästen vielfältige kulinarische Erlebnisse.</p>
+            
+            <div class="company-stats">
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Restaurants</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Jahre Erfahrung</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Mitarbeiter</p>
+                </div>
+            </div>
+            
+            <p>Unsere Vision ist es, durch qualitativ hochwertige Küche, erstklassigen Service und eine einladende Atmosphäre unvergessliche Momente zu schaffen. Jedes unserer Restaurants hat seinen eigenen Charakter, aber alle teilen unsere Leidenschaft für Exzellenz.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Geschäftsführer Section -->
+<section class="management-section">
+    <h2 class="section-title">Unsere Geschäftsführung</h2>
+    <div class="management-container">
+        <div class="manager-card" id="manager1">
+            <div class="manager-photo">M1</div>
+            <h3>Max Mustermann</h3>
+            <p>Mit über 20 Jahren Erfahrung in der Gastronomie bringt Max Mustermann seine Leidenschaft für kulinarische Exzellenz in jedes unserer Restaurants ein. Seine Vision ist es, Gästen unvergessliche Geschmackserlebnisse zu bieten.</p>
+        </div>
+
+        <div class="manager-card" id="manager2">
+            <div class="manager-photo">E2</div>
+            <h3>Elena Beispiel</h3>
+            <p>Elena Beispiel ist Expertin für Weinkultur und Gastfreundschaft. Sie sorgt dafür, dass jeder Besuch in unseren Restaurants zu einem besonderen Erlebnis wird und unsere Gäste sich wie zu Hause fühlen.</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- Restaurant Pages -->
+<!-- Bella Vista -->
+<div class="restaurant-page" id="bella-vista">
+<nav class="navbar restaurant-nav">
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('goldener-hirsch')">Goldener Hirsch</a>
+    </div>
+    
+    <div class="logo" onclick="showMainPage()">Weinland Esskultur</div>
+    
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('urban-kitchen')">Urban Kitchen</a>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <button class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu für Restaurant Seiten -->
+<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-item" onclick="showMainPage(); closeMobileMenu();">Startseite</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('goldener-hirsch'); closeMobileMenu();">Goldener Hirsch</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('urban-kitchen'); closeMobileMenu();">Urban Kitchen</div>
+</div>
+
+<div class="restaurant-hero">
+    <div>
+        <h1>Bella Vista</h1>
+        <p>Italienische Küche mit mediterranem Flair</p>
+    </div>
+</div>
+
+<div class="restaurant-content">
+    <h2>Willkommen im Bella Vista</h2>
+    <p>Genießen Sie authentische italienische Küche in einem einladenden Ambiente. Unsere Küche verwendet nur die frischesten Zutaten, um Ihnen ein unvergessliches kulinarisches Erlebnis zu bieten.</p>
+    
+    <h3>Unsere Spezialitäten</h3>
+    <p>Hausgemachte Pasta, wood-fired Pizza, frische Meeresfrüchte und eine exquisite Auswahl italienischer Weine.</p>
+    
+    <h3>Öffnungszeiten</h3>
+    <p>Montag - Sonntag: 17:00 - 23:00 Uhr</p>
+</div>
+</div>
+
+<!-- Goldener Hirsch -->
+<div class="restaurant-page" id="goldener-hirsch">
+<nav class="navbar restaurant-nav">
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('bella-vista')">Bella Vista</a>
+    </div>
+    
+    <div class="logo" onclick="showMainPage()">Weinland Esskultur</div>
+    
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('urban-kitchen')">Urban Kitchen</a>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <button class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu für Restaurant Seiten -->
+<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-item" onclick="showMainPage(); closeMobileMenu();">Startseite</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('bella-vista'); closeMobileMenu();">Bella Vista</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('urban-kitchen'); closeMobileMenu();">Urban Kitchen</div>
+</div>
+
+<div class="restaurant-hero">
+    <div>
+        <h1>Goldener Hirsch</h1>
+        <p>Traditionelle deutsche Küche</p>
+    </div>
+</div>
+
+<div class="restaurant-content">
+    <h2>Willkommen im Goldenen Hirsch</h2>
+    <p>Erleben Sie die Gemütlichkeit traditioneller deutscher Gasthauskultur. Unser Restaurant bietet herzhafte Gerichte aus regionalen Zutaten in rustikaler Atmosphäre.</p>
+    
+    <h3>Unsere Spezialitäten</h3>
+    <p>Schnitzel, Sauerbraten, Schweinebraten, saisonale Wild- und Fischgerichte sowie regionale Biere und Weine.</p>
+    
+    <h3>Öffnungszeiten</h3>
+    <p>Dienstag - Sonntag: 16:00 - 22:00 Uhr</p>
+</div>
+</div>
+
+<!-- Urban Kitchen -->
+<div class="restaurant-page" id="urban-kitchen">
+<nav class="navbar restaurant-nav">
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('bella-vista')">Bella Vista</a>
+    </div>
+    
+    <div class="logo" onclick="showMainPage()">Weinland Esskultur</div>
+    
+    <div class="nav-desktop">
+        <a href="#" class="nav-button" onclick="showRestaurant('goldener-hirsch')">Goldener Hirsch</a>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <button class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu für Restaurant Seiten -->
+<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-item" onclick="showMainPage(); closeMobileMenu();">Startseite</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('bella-vista'); closeMobileMenu();">Bella Vista</div>
+    <div class="mobile-menu-item" onclick="showRestaurant('goldener-hirsch'); closeMobileMenu();">Goldener Hirsch</div>
+</div>
+
+<div class="restaurant-hero">
+    <div>
+        <h1>Urban Kitchen</h1>
+        <p>Moderne Fusionsküche</p>
+    </div>
+</div>
+
+<div class="restaurant-content">
+    <h2>Willkommen in der Urban Kitchen</h2>
+    <p>Entdecken Sie innovative Geschmackskombinationen in modernem Ambiente. Unsere Küche verbindet internationale Einflüsse mit lokalen Produkten.</p>
+    
+    <h3>Unsere Spezialitäten</h3>
+    <p>Asian-Fusion Gerichte, moderne Interpretationen klassischer Speisen, vegane und vegetarische Optionen, Craft Beer und ausgewählte Cocktails.</p>
+    
+    <h3>Öffnungszeiten</h3>
+    <p>Mittwoch - Samstag: 18:00 - 24:00 Uhr</p>
+</div>
+</div>
+
+<script>
+function toggleMobileMenu() {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const overlay = document.querySelector('.mobile-overlay');
+    
+    burgerMenu.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const overlay = document.querySelector('.mobile-overlay');
+    
+    burgerMenu.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function showMainPage() {
+    // Verstecke alle Restaurant-Seiten
+    const restaurantPages = document.querySelectorAll('.restaurant-page');
+    restaurantPages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Zeige die Hauptseite
+    document.getElementById('mainPage').classList.remove('hidden');
+    
+    // Scroll nach oben
+    window.scrollTo(0, 0);
+}
+
+function showRestaurant(restaurantId) {
+    // Verstecke die Hauptseite
+    document.getElementById('mainPage').classList.add('hidden');
+    
+    // Verstecke alle Restaurant-Seiten
+    const restaurantPages = document.querySelectorAll('.restaurant-page');
+    restaurantPages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Zeige die gewählte Restaurant-Seite
+    document.getElementById(restaurantId).classList.add('active');
+    
+    // Scroll nach oben
+    window.scrollTo(0, 0);
+}
+
+function scrollToAbout() {
+    const element = document.getElementById('aboutSection');
+    element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+function scrollToManager(managerId) {
+    const element = document.getElementById(managerId);
+    element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center'
+    });
+}
+
+// Smooth scrolling für bessere UX
+document.addEventListener('DOMContentLoaded', function() {
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+    });
+});
+</script>
+</body>
+</html>
