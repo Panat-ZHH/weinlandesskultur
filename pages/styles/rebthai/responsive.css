@@ -1,0 +1,138 @@
+@media all and (max-width: 1060px) {
+	#navigation {
+		position: fixed;
+		top: 0;
+		left: -320px;
+		bottom: 0;
+		height: 100vh;
+		z-index: 1000;
+		background-color: var(--color-dark);
+		width: 320px;
+		padding: 20px 30px;
+		overflow: auto;
+		display: block;
+	}
+
+	#navigation .social-link {
+		display: none;
+	}
+
+	#closemenu {
+		float: right;
+	}
+
+	.menu {
+		clear: both;
+		padding-top: 30px;
+	}
+
+	.menu li {
+		float: none;
+		margin-left: 0;
+		margin-bottom: 10px;
+	}
+
+	#openmenu,
+	#closemenu {
+		display: inline-block;
+	}
+}
+
+@media all and (max-width: 930px) {
+	.aboutus-img {
+		display: none;
+	}
+
+	.aboutus-content {
+		width: 100%;
+		padding: 30px;
+	}
+
+	.wrapper-services > div {
+		width: calc(50% - 20px);
+	}
+
+	.item-product {
+		width: calc(100% - 20px);
+	}
+
+	.portfolio-img {
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	.portfolio-content {
+		width: 100%;
+		padding-left: 0px;
+	}
+
+	.wrapper-contact > div {
+		width: 50%;
+	}
+
+	.item-product-img {
+		width: 100%;
+		margin-bottom: 10px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.item-product-text {
+		width: 100%;
+		padding-left: 0px;
+	}
+}
+
+@media all and (max-width: 500px) {
+	.wrapper-services > div {
+		width: calc(100% - 20px);
+	}
+
+	.wrapper-booking input {
+		width: 100%;
+		margin: 0 0px 20px 0;
+	}
+
+	.wrapper-contact > div {
+		width: 100%;
+	}
+
+	.item-product {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.item-product-img > a {
+		margin-bottom: 30px;
+	}
+
+	.item-product-text {
+		width: 100%;
+		padding-left: 0px;
+	}
+
+	h1 {
+		font-size: 60px;
+	}
+
+	h2 {
+		font-size: 35px;
+	}
+
+	.wrapper-header-content {
+		height: 650px;
+	}
+}
