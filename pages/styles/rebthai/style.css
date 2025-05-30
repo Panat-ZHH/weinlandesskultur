@@ -247,6 +247,25 @@ h2 {
 	animation-iteration-count: infinite;
 }
 
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid #ccc;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.dropdown-menu li a {
+	padding: 10px;
+	white-space: nowrap;
+}
+
 .res-booking {
 	display: none;
 	font-size: 14px;
@@ -286,6 +305,11 @@ header {
 	left: 0;
 	right: 0;
 	z-index: 1000;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
 }
 
 .bg-header {
@@ -346,10 +370,9 @@ header {
 ***************************************/
 
 .wrapper-header-content {
-	background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.7)), to(transparent)),
-		url('../images/bg-header.png');
-	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.7), transparent), url('../images/bg-header.png');
-	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent), url('../images/bg-header.png');
+	background-image: url('./bg-1.jpg');
+	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.7), transparent), url('./bg-1.jpg');
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent), url('./bg-1.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -369,7 +392,7 @@ header {
 ***************************************/
 
 #aboutus {
-	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('../images/bg-pattern.jpg');
+	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('./bg-pattern.jpg');
 	background-repeat: no-repeat, no-repeat, repeat;
 	background-position: -140px bottom, top right, left top;
 	background-attachment: scroll, scroll, fixed;
@@ -429,7 +452,7 @@ header {
 ***************************************/
 
 #menu {
-	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('../images/bg-pattern.jpg');
+	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('./bg-pattern.jpg');
 	background-repeat: no-repeat, no-repeat, repeat;
 	background-position: -140px bottom, top right, left top;
 	background-attachment: scroll, scroll, fixed;
@@ -560,6 +583,23 @@ header {
 	font-weight: 400;
 	color: var(--color-red);
 	font-size: 18px;
+}
+
+.karte-btn {
+	text-decoration: none;
+	background-color: #8f0000;
+	border: none;
+	color: white;
+	margin: 5px;
+	width: 150px;
+	height: 50px;
+	border-radius: 10px;
+	font-size: large;
+	transition: ease-in-out 0.2s;
+}
+
+.karte-btn:hover {
+	background-color: #ff3737;
 }
 
 /**************************************
@@ -730,7 +770,7 @@ button[type='submit']:hover {
 ***************************************/
 
 #contacts {
-	background-image: url('../images/bg-pattern.jpg');
+	background-image: url('./bg-pattern.jpg');
 	background-repeat: repeat;
 	background-position: left top;
 	background-attachment: fixed;
