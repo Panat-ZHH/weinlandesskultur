@@ -20,16 +20,21 @@
 			/* Navigation */
 			.navbar {
 				position: fixed;
-				top: 0;
-				width: 100%;
-				background: rgba(255, 255, 255, 0.95);
-				backdrop-filter: blur(10px);
-				padding: 1rem 2rem;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 95%;
+				background: rgba(10, 10, 10, 0.2);
+				backdrop-filter: blur(20px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				color: var(--text-primary);
+				padding: 1.2rem 2rem;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+				border-radius: 20px;
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 				z-index: 1000;
-				box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 				transition: all 0.3s ease;
 			}
 
@@ -85,8 +90,8 @@
 			}
 
 			.dropdown-item:hover {
-				background: linear-gradient(135deg, #8b4513, #a0522d);
-				color: white;
+				background: rgba(218, 218, 218, 0.8);
+				color: rgb(0, 0, 0);
 				transform: translateX(5px);
 			}
 
@@ -102,9 +107,9 @@
 			}
 
 			.nav-button {
-				background: linear-gradient(135deg, #8b4513, #a0522d);
+				background: none;
 				color: white;
-				border: none;
+				border: 1px solid white;
 				padding: 0.8rem 1.5rem;
 				border-radius: 25px;
 				cursor: pointer;
@@ -116,20 +121,36 @@
 
 			.nav-button:hover {
 				transform: translateY(-2px);
-				box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+				background-color: white;
+				color: black;
 			}
 
 			.logo {
 				font-size: 1.8rem;
-				font-weight: bold;
-				color: #8b4513;
-				cursor: pointer;
-				transition: all 0.3s ease;
+				font-weight: 800;
+				background: rgba(255, 255, 255, 0.8);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
 				text-decoration: none;
+				transition: all 0.3s ease;
+				position: relative;
 			}
 
-			.logo:hover {
-				transform: scale(1.05);
+			.logo::after {
+				content: '';
+				position: absolute;
+				bottom: -5px;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background: white;
+				transition: width 0.3s ease;
+			}
+
+			.logo:hover::after {
+				width: 100%;
 			}
 
 			/* Mobile Menu Styles */
@@ -157,7 +178,7 @@
 				display: block;
 				height: 3px;
 				width: 100%;
-				background: #8b4513;
+				background: #ffffff;
 				transition: all 0.3s ease;
 				transform-origin: center;
 			}
@@ -234,7 +255,7 @@
 			/* Hero Section */
 			.hero {
 				height: 100vh;
-				background: linear-gradient(135deg, #2c1810 0%, #8b4513 100%);
+				background-image: url('./styles/hirschen/bg.png');
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -251,8 +272,8 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-				opacity: 0.3;
+				background: black;
+				opacity: 0.8;
 			}
 
 			.hero-content {
@@ -274,189 +295,56 @@
 				animation: fadeInUp 1s ease 0.3s forwards;
 			}
 
-			/* Restaurant Cards */
-			.restaurants-section {
-				padding: 5rem 2rem;
-				background: #f8f8f8;
+			/* Countdown Timer Styles */
+			.countdown-container {
+				margin-top: 2rem;
+				opacity: 0;
+				animation: fadeInUp 1s ease 0.6s forwards;
 			}
 
-			.restaurants-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-				gap: 2rem;
-				max-width: 1200px;
-				margin: 0 auto;
-			}
-
-			.restaurant-card {
-				background: white;
-				border-radius: 15px;
-				overflow: hidden;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-				transition: all 0.3s ease;
-				cursor: pointer;
-				text-decoration: none;
-				color: inherit;
-			}
-
-			.restaurant-card:hover {
-				transform: translateY(-10px);
-				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-			}
-
-			.card-image {
-				height: 200px;
-				background: linear-gradient(45deg, #8b4513, #a0522d);
+			.countdown-timer {
 				display: flex;
-				align-items: center;
 				justify-content: center;
-				color: white;
-				font-size: 2rem;
-				font-weight: bold;
-			}
-
-			.card-content {
-				padding: 2rem;
-			}
-
-			.card-content h3 {
-				font-size: 1.5rem;
-				margin-bottom: 1rem;
-				color: #8b4513;
-			}
-
-			.card-content p {
-				color: #666;
-				margin-bottom: 1.5rem;
-			}
-
-			.card-button {
-				background: linear-gradient(135deg, #8b4513, #a0522d);
-				color: white;
-				border: none;
-				padding: 0.8rem 2rem;
-				border-radius: 25px;
-				cursor: pointer;
-				font-weight: bold;
-				width: 100%;
-				transition: all 0.3s ease;
-			}
-
-			.card-button:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
-			}
-
-			/* Über uns Section */
-			.about-section {
-				padding: 5rem 2rem;
-				background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-			}
-
-			.about-container {
-				max-width: 1000px;
-				margin: 0 auto;
-				text-align: center;
-			}
-
-			.about-content h2 {
-				font-size: 2.5rem;
-				color: #8b4513;
-				margin-bottom: 2rem;
-			}
-
-			.about-content p {
-				font-size: 1.1rem;
-				line-height: 1.8;
-				color: #666;
-				margin-bottom: 2rem;
-			}
-
-			.company-stats {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
 				gap: 2rem;
-				margin: 3rem 0;
-				padding: 2rem;
-				background: white;
+				flex-wrap: wrap;
+			}
+
+			.time-unit {
+				background: rgba(255, 255, 255, 0.1);
+				backdrop-filter: blur(10px);
 				border-radius: 15px;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-			}
-
-			.stat-item {
+				padding: 1.5rem;
+				min-width: 120px;
 				text-align: center;
-			}
-
-			.stat-item h3 {
-				font-size: 3rem;
-				color: #8b4513;
-				margin-bottom: 0.5rem;
-				font-weight: bold;
-			}
-
-			.stat-item p {
-				font-size: 1rem;
-				color: #666;
-				margin: 0;
-			}
-
-			.section-title {
-				text-align: center;
-				font-size: 2.5rem;
-				color: #8b4513;
-				margin-bottom: 3rem;
-			}
-
-			/* Geschäftsführer Section */
-			.management-section {
-				padding: 5rem 2rem;
-				background: white;
-			}
-
-			.management-container {
-				max-width: 1200px;
-				margin: 0 auto;
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 4rem;
-			}
-
-			.manager-card {
-				text-align: center;
-				padding: 2rem;
-				border-radius: 15px;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.2);
 				transition: all 0.3s ease;
 			}
 
-			.manager-card:hover {
+			.time-unit:hover {
 				transform: translateY(-5px);
-				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+				background: rgba(255, 255, 255, 0.15);
 			}
 
-			.manager-photo {
-				width: 150px;
-				height: 150px;
-				border-radius: 50%;
-				background: linear-gradient(135deg, #8b4513, #a0522d);
-				margin: 0 auto 1.5rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: white;
+			.time-value {
 				font-size: 3rem;
 				font-weight: bold;
-			}
-
-			.manager-card h3 {
-				font-size: 1.5rem;
+				display: block;
 				margin-bottom: 0.5rem;
-				color: #8b4513;
+				color: #ffffff;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			}
 
-			.manager-card p {
-				color: #666;
-				line-height: 1.6;
+			.time-label {
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: rgba(255, 255, 255, 0.8);
+			}
+
+			.countdown-expired {
+				font-size: 2rem;
+				color: #ffffff;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			}
 
 			/* Animations */
@@ -471,20 +359,24 @@
 				}
 			}
 
+			@keyframes pulse {
+				0%,
+				100% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.05);
+				}
+			}
+
+			.pulse {
+				animation: pulse 2s infinite;
+			}
+
 			/* Responsive */
 			@media (max-width: 768px) {
 				.hero h1 {
 					font-size: 2.5rem;
-				}
-
-				.management-container {
-					grid-template-columns: 1fr;
-					gap: 2rem;
-				}
-
-				.company-stats {
-					grid-template-columns: 1fr;
-					gap: 1rem;
 				}
 
 				.navbar {
@@ -503,17 +395,21 @@
 					font-size: 1.4rem;
 				}
 
-				.restaurants-grid {
-					grid-template-columns: 1fr;
-					gap: 1.5rem;
+				.countdown-timer {
+					gap: 1rem;
 				}
 
-				.about-content h2 {
-					font-size: 2rem;
+				.time-unit {
+					min-width: 100px;
+					padding: 1rem;
 				}
 
-				.section-title {
-					font-size: 2rem;
+				.time-value {
+					font-size: 2.5rem;
+				}
+
+				.time-label {
+					font-size: 0.9rem;
 				}
 			}
 
@@ -533,32 +429,46 @@
 				.navbar {
 					padding: 0.8rem 1rem;
 				}
+
+				.countdown-timer {
+					gap: 0.8rem;
+				}
+
+				.time-unit {
+					min-width: 80px;
+					padding: 0.8rem;
+				}
+
+				.time-value {
+					font-size: 2rem;
+				}
+
+				.time-label {
+					font-size: 0.8rem;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<!-- Navigation für Hauptseite -->
 		<nav class="navbar">
-			<!-- Desktop Navigation -->
 			<div class="nav-desktop">
-				<a href="#aboutSection" class="nav-button">ThaiLodge</a>
-				<a href="#aboutSection" class="nav-button">RebThai</a>
+				<a href="../Index.html" class="nav-button">Zurück</a>
 			</div>
 
-			<a href="index.html" class="logo">Weinland Esskultur</a>
+			<a href="../Index.html" class="logo">Weinland Esskultur</a>
 
 			<div class="nav-desktop">
 				<div class="dropdown">
 					<button class="nav-button">Restaurants ▼</button>
 					<div class="dropdown-content">
-						<a href="pages/thaiLodge.html" class="dropdown-item">ThaiLodge</a>
-						<a href="pages/rebthai.html" class="dropdown-item">RebThai</a>
-						<a href="pages/hirschen.html" class="dropdown-item">Hirschen</a>
+						<a href="#" class="dropdown-item">ThaiLodge</a>
+						<a href="#" class="dropdown-item">RebThai</a>
+						<a href="#" class="dropdown-item">Coming soon</a>
 					</div>
 				</div>
 			</div>
 
-			<!-- Mobile Navigation -->
 			<div class="nav-mobile">
 				<button class="burger-menu" onclick="toggleMobileMenu()">
 					<span></span>
@@ -574,113 +484,78 @@
 			<div class="mobile-menu-item" onclick="scrollToAbout(); closeMobileMenu();">Über uns</div>
 			<div class="mobile-menu-item">Restaurants</div>
 			<div class="mobile-restaurants">
+				<div class="mobile-menu-item"><a href="#" style="color: inherit; text-decoration: none">ThaiLodge</a></div>
+				<div class="mobile-menu-item"><a href="#" style="color: inherit; text-decoration: none">RebThai</a></div>
+				<div class="mobile-menu-item"><a href="#" style="color: inherit; text-decoration: none">Coming soon</a></div>
+			</div>
+		</div>
+
+		<!-- Mobile Menu -->
+		<div class="mobile-overlay" onclick="closeMobileMenu()"></div>
+		<div class="mobile-menu">
+			<div class="mobile-menu-item" onclick="scrollToAbout(); closeMobileMenu();">Zurück</div>
+			<div class="mobile-menu-item">Restaurants</div>
+			<div class="mobile-restaurants">
 				<div class="mobile-menu-item"><a href="pages/thaiLodge.html">ThaiLodge</a></div>
 				<div class="mobile-menu-item"><a href="pages/rebthai.html">RebThai</a></div>
-				<div class="mobile-menu-item"><a href="pages/hirschen.html">Hirschen</a></div>
 			</div>
 		</div>
 
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="hero-content">
-				<h1>Weinland Esskultur</h1>
-				<p>Drei einzigartige Restaurants - Ein außergewöhnliches Erlebnis</p>
-			</div>
-		</section>
-
-		<!-- Restaurants Section -->
-		<section class="restaurants-section">
-			<div class="restaurants-grid">
-				<a href="bella-vista.html" class="restaurant-card">
-					<div class="card-image">BV</div>
-					<div class="card-content">
-						<h3>ThaiLodge</h3>
-						<p>Italienische Küche mit mediterranem Flair und erstklassigen Weinen aus der Region.</p>
-						<button class="card-button">Restaurant besuchen</button>
+				<h1>Coming soon...</h1>
+				<div class="countdown-container">
+					<div id="countdown" class="countdown-timer">
+						<!-- Timer wird hier eingefügt -->
 					</div>
-				</a>
-
-				<a href="pages/rebthai.html" class="restaurant-card">
-					<div class="card-image">GH</div>
-					<div class="card-content">
-						<h3>RebThai</h3>
-						<p>Traditionelle deutsche Küche in gemütlicher Atmosphäre mit ausgewählten lokalen Spezialitäten.</p>
-						<button class="card-button">Restaurant besuchen</button>
-					</div>
-				</a>
-
-				<a href="pages/hirschen.html" class="restaurant-card">
-					<div class="card-image">UK</div>
-					<div class="card-content">
-						<h3>Hirschen</h3>
-						<p>Moderne Fusionsküche mit innovativen Kreationen und zeitgemäßem Design.</p>
-						<button class="card-button">Restaurant besuchen</button>
-					</div>
-				</a>
-			</div>
-		</section>
-
-		<!-- Über uns / Unternehmen Section -->
-		<section class="about-section" id="aboutSection">
-			<div class="about-container">
-				<div class="about-content">
-					<h2>Über Weinland Esskultur</h2>
-					<p>
-						Seit über einem Jahrzehnt steht Weinland Esskultur für außergewöhnliche Gastronomie und Genusskultur. Unser
-						Unternehmen vereint drei einzigartige Restaurant-Konzepte unter einem Dach und bietet unseren Gästen
-						vielfältige kulinarische Erlebnisse.
-					</p>
-
-					<div class="company-stats">
-						<div class="stat-item">
-							<h3>3</h3>
-							<p>Restaurants</p>
-						</div>
-						<div class="stat-item">
-							<h3>15+</h3>
-							<p>Jahre Erfahrung</p>
-						</div>
-						<div class="stat-item">
-							<h3>50+</h3>
-							<p>Mitarbeiter</p>
-						</div>
-					</div>
-
-					<p>
-						Unsere Vision ist es, durch qualitativ hochwertige Küche, erstklassigen Service und eine einladende
-						Atmosphäre unvergessliche Momente zu schaffen. Jedes unserer Restaurants hat seinen eigenen Charakter, aber
-						alle teilen unsere Leidenschaft für Exzellenz.
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Geschäftsführer Section -->
-		<section class="management-section">
-			<h2 class="section-title">Unsere Geschäftsführung</h2>
-			<div class="management-container">
-				<div class="manager-card">
-					<div class="manager-photo">M1</div>
-					<h3>Max Mustermann</h3>
-					<p>
-						Mit über 20 Jahren Erfahrung in der Gastronomie bringt Max Mustermann seine Leidenschaft für kulinarische
-						Exzellenz in jedes unserer Restaurants ein. Seine Vision ist es, Gästen unvergessliche Geschmackserlebnisse
-						zu bieten.
-					</p>
-				</div>
-
-				<div class="manager-card">
-					<div class="manager-photo">E2</div>
-					<h3>Elena Beispiel</h3>
-					<p>
-						Elena Beispiel ist Expertin für Weinkultur und Gastfreundschaft. Sie sorgt dafür, dass jeder Besuch in
-						unseren Restaurants zu einem besonderen Erlebnis wird und unsere Gäste sich wie zu Hause fühlen.
-					</p>
 				</div>
 			</div>
 		</section>
 
 		<script>
+			// Countdown Timer Funktion
+			function updateCountdown() {
+				const targetDate = new Date('2025-10-01T00:00:00').getTime();
+				const now = new Date().getTime();
+				const distance = targetDate - now;
+
+				const countdownElement = document.getElementById('countdown');
+
+				if (distance < 0) {
+					countdownElement.innerHTML = '<div class="countdown-expired">🎉 Es ist soweit! 🎉</div>';
+					return;
+				}
+
+				const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+				countdownElement.innerHTML = `
+					<div class="time-unit">
+						<span class="time-value">${days}</span>
+						<span class="time-label">Tage</span>
+					</div>
+					<div class="time-unit">
+						<span class="time-value">${hours.toString().padStart(2, '0')}</span>
+						<span class="time-label">Stunden</span>
+					</div>
+					<div class="time-unit">
+						<span class="time-value">${minutes.toString().padStart(2, '0')}</span>
+						<span class="time-label">Minuten</span>
+					</div>
+					<div class="time-unit ${seconds < 10 ? 'pulse' : ''}">
+						<span class="time-value">${seconds.toString().padStart(2, '0')}</span>
+						<span class="time-label">Sekunden</span>
+					</div>
+				`;
+			}
+
+			// Timer alle Sekunde aktualisieren
+			updateCountdown();
+			setInterval(updateCountdown, 1000);
+
 			function toggleMobileMenu() {
 				const burgerMenu = document.querySelector('.burger-menu');
 				const mobileOverlay = document.querySelector('.mobile-overlay');
