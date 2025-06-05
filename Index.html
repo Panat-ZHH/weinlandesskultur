@@ -51,6 +51,10 @@
 
 		<!-- Hero Section -->
 		<section class="hero">
+			<div class="hero-bg active"></div>
+			<div class="hero-bg"></div>
+			<div class="hero-bg"></div>
+			<div class="hero-bg"></div>
 			<div class="hero-bg"></div>
 			<div class="hero-content">
 				<h1>Weinland Esskultur</h1>
@@ -731,6 +735,118 @@
 				const cv = document.getElementById('lebenslauf');
 				cv.classList.toggle('show');
 			}
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const backgrounds = document.querySelectorAll('.hero-bg');
+				let currentIndex = 0;
+
+				function switchBackground() {
+					// Entferne active Klasse von allen Hintergründen
+					backgrounds.forEach((bg) => bg.classList.remove('active'));
+
+					// Setze nächsten Index
+					currentIndex = (currentIndex + 1) % backgrounds.length;
+
+					// Füge active Klasse zum nächsten Hintergrund hinzu
+					backgrounds[currentIndex].classList.add('active');
+				}
+
+				// Wechsle alle 5 Sekunden das Hintergrundbild
+				setInterval(switchBackground, 5000);
+			});
+
+			// Verbesserte Navbar Scroll-Funktion
+			document.addEventListener('DOMContentLoaded', function () {
+				let lastScrollTop = 0;
+				let scrollTimeout;
+				const navbar = document.querySelector('.navbar');
+
+				function handleNavbarScroll() {
+					const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+					// Wenn ganz oben auf der Seite (erste 100px), immer anzeigen
+					if (currentScrollTop <= 100) {
+						navbar.style.transform = 'translateX(-50%) translateY(0)';
+						navbar.style.opacity = '1';
+						return;
+					}
+
+					// Nach unten scrollen - Navbar verstecken
+					if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+						navbar.style.transform = 'translateX(-50%) translateY(-100%)';
+						navbar.style.opacity = '0.7';
+					}
+					// Nach oben scrollen - Navbar anzeigen
+					else if (currentScrollTop < lastScrollTop) {
+						navbar.style.transform = 'translateX(-50%) translateY(0)';
+						navbar.style.opacity = '1';
+					}
+
+					lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Für Mobile Safari
+				}
+
+				// Throttled Scroll Event für bessere Performance
+				function throttledScroll() {
+					if (scrollTimeout) {
+						return;
+					}
+
+					scrollTimeout = setTimeout(() => {
+						handleNavbarScroll();
+						scrollTimeout = null;
+					}, 10);
+				}
+
+				// Scroll Event Listener
+				window.addEventListener('scroll', throttledScroll, { passive: true });
+
+				// Navbar anzeigen wenn Maus oben am Bildschirm ist
+				document.addEventListener('mousemove', (e) => {
+					if (e.clientY <= 80 && window.pageYOffset > 100) {
+						navbar.style.transform = 'translateX(-50%) translateY(0)';
+						navbar.style.opacity = '1';
+					}
+				});
+
+				// Touch-Geräte: Navbar anzeigen bei Touch am oberen Bildschirmrand
+				document.addEventListener('touchstart', (e) => {
+					if (e.touches[0].clientY <= 80 && window.pageYOffset > 100) {
+						navbar.style.transform = 'translateX(-50%) translateY(0)';
+						navbar.style.opacity = '1';
+					}
+				});
+			});
+
+			// Alternative kompakte Version:
+			function initNavbarScroll() {
+				let lastScroll = 0;
+				const navbar = document.querySelector('.navbar');
+
+				window.addEventListener(
+					'scroll',
+					() => {
+						const currentScroll = window.pageYOffset;
+
+						if (currentScroll <= 100) {
+							// Oben der Seite - immer anzeigen
+							navbar.style.transform = 'translateX(-50%) translateY(0)';
+						} else if (currentScroll > lastScroll) {
+							// Nach unten scrollen - verstecken
+							navbar.style.transform = 'translateX(-50%) translateY(-100%)';
+						} else {
+							// Nach oben scrollen - anzeigen
+							navbar.style.transform = 'translateX(-50%) translateY(0)';
+						}
+
+						lastScroll = currentScroll;
+					},
+					{ passive: true },
+				);
+			}
+
+			// Funktion aufrufen
+			// initNavbarScroll();
 		</script>
 	</body>
 </html>
