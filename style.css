@@ -218,8 +218,18 @@ body {
 	}
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown.active .dropdown-content {
 	display: block;
+}
+
+.dropdown-arrow {
+	transition: transform 0.3s ease;
+	display: inline-block;
+	margin-left: 0.5rem;
+}
+
+.dropdown.active .dropdown-arrow {
+	transform: rotate(180deg);
 }
 
 .dropdown-item {
