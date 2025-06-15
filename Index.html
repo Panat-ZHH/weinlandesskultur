@@ -74,46 +74,14 @@
 		</section>
 
 		<!-- Restaurants Section -->
-		<section class="restaurants-section" id="restaurantsSection">
-			<!-- Floating Elements Container -->
-			<div class="floating-elements">
-				<!-- Wine Grapes -->
-				<div class="floating-element wine-grape" style="left: 10%; top: 20%">🍇</div>
-				<div class="floating-element wine-grape" style="left: 80%; top: 60%">🍇</div>
-				<div class="floating-element wine-grape" style="left: 30%; top: 80%">🍇</div>
-
-				<!-- Wine Glasses -->
-				<div class="floating-element wine-glass" style="left: 60%; top: 10%">🍷</div>
-				<div class="floating-element wine-glass" style="left: 20%; top: 70%">🍷</div>
-				<div class="floating-element wine-glass" style="left: 90%; top: 30%">🍷</div>
-
-				<!-- Thai Food Elements -->
-				<div class="floating-element thai-food" style="left: 40%; top: 15%">🍜</div>
-				<div class="floating-element thai-food" style="left: 70%; top: 75%">🍲</div>
-				<div class="floating-element thai-food" style="left: 15%; top: 45%">🥘</div>
-
-				<!-- Rice Bowls -->
-				<div class="floating-element rice" style="left: 50%; top: 25%">🍚</div>
-				<div class="floating-element rice" style="left: 85%; top: 85%">🍚</div>
-
-				<!-- Chili Peppers -->
-				<div class="floating-element chili" style="left: 25%; top: 35%">🌶️</div>
-				<div class="floating-element chili" style="left: 75%; top: 55%">🌶️</div>
-
-				<!-- Additional Elements -->
-				<div class="floating-element thai-food" style="left: 5%; top: 65%">🥢</div>
-				<div class="floating-element wine-grape" style="left: 95%; top: 15%">🍇</div>
-				<div class="floating-element wine-glass" style="left: 35%; top: 90%">🍷</div>
-			</div>
-
+		<section class="restaurants-section fade-in" id="restaurantsSection">
+			<div class="floating-leaves"></div>
+			<div class="vineyard-silhouette"></div>
+			<div class="wine-ambiance"></div>
 			<h1>Unsere Restaurants</h1>
 			<div class="restaurants-grid">
 				<a href="#" class="restaurant-card">
-					<img
-						src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop"
-						alt="Thai Lodge"
-						class="card-image"
-					/>
+					<img src="./img/sonne.png" alt="Thai Lodge" class="card-image" />
 					<div class="card-content">
 						<h3>Thai Lodge</h3>
 						<p>
@@ -125,11 +93,7 @@
 				</a>
 
 				<a href="#" class="restaurant-card">
-					<img
-						src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=250&fit=crop"
-						alt="RebThai"
-						class="card-image"
-					/>
+					<img src="./img/rebthai.png" alt="RebThai" class="card-image" />
 					<div class="card-content">
 						<h3>RebThai</h3>
 						<p>
@@ -140,12 +104,8 @@
 					</div>
 				</a>
 
-				<a href="#" class="restaurant-card">
-					<img
-						src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=400&h=250&fit=crop"
-						alt="Hirschen"
-						class="card-image"
-					/>
+				<a href="./pages/hirschen.html" class="restaurant-card">
+					<img src="./img/hirschen.png" alt="Hirschen" class="card-image" />
 					<div class="card-content">
 						<h3>Coming Soon 🔒</h3>
 						<p>
@@ -513,60 +473,5 @@
 				<div id="modal-body"></div>
 			</div>
 		</div>
-		<script>
-			// Create additional floating elements dynamically for more variety
-			function createFloatingElement() {
-				const elements = ['🍇', '🍷', '🍜', '🍲', '🥘', '🍚', '🌶️', '🥢'];
-				const colors = [
-					'wine-grape',
-					'wine-glass',
-					'thai-food',
-					'thai-food',
-					'thai-food',
-					'rice',
-					'chili',
-					'thai-food',
-				];
-
-				const container = document.querySelector('.floating-elements');
-
-				setInterval(() => {
-					const element = document.createElement('div');
-					const randomIndex = Math.floor(Math.random() * elements.length);
-
-					element.className = `floating-element ${colors[randomIndex]}`;
-					element.style.left = Math.random() * 100 + '%';
-					element.style.top = '100%';
-					element.innerHTML = elements[randomIndex];
-					element.style.animationDuration = 15 + Math.random() * 10 + 's';
-
-					container.appendChild(element);
-
-					// Remove element after animation
-					setTimeout(() => {
-						if (element.parentNode) {
-							element.parentNode.removeChild(element);
-						}
-					}, 25000);
-				}, 3000); // Create new element every 3 seconds
-			}
-
-			// Start creating floating elements
-			createFloatingElement();
-
-			// Add intersection observer for better performance
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach((entry) => {
-					const floatingElements = entry.target.querySelector('.floating-elements');
-					if (entry.isIntersecting) {
-						floatingElements.style.animationPlayState = 'running';
-					} else {
-						floatingElements.style.animationPlayState = 'paused';
-					}
-				});
-			});
-
-			observer.observe(document.querySelector('.restaurants-section'));
-		</script>
 	</body>
 </html>
