@@ -1255,3 +1255,197 @@ body {
 	max-height: 5000px;
 	opacity: 1;
 }
+
+/*Lieferanten*/
+/* Suppliers Section */
+.suppliers-section {
+	padding: 6rem 2rem;
+	background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(20, 20, 25, 0.95) 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.suppliers-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(135deg, #6c0f35 0%, #9a1855 100%);
+	opacity: 0.3;
+}
+
+.suppliers-container {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.suppliers-title {
+	font-size: clamp(2.5rem, 6vw, 3.5rem);
+	color: #ffffff;
+	margin-bottom: 3rem;
+	font-weight: 800;
+	position: relative;
+}
+
+.suppliers-title::after {
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 4px;
+	background: linear-gradient(135deg, #6c0f35 0%, #9a1855 100%);
+	border-radius: 2px;
+}
+
+.suppliers-subtitle {
+	font-size: 1.2rem;
+	color: #b0b0b0;
+	margin-bottom: 4rem;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.slider-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding: 2rem 0;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.02);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-track {
+	display: flex;
+	animation: slide 30s linear infinite;
+	gap: 4rem;
+	align-items: center;
+	width: max-content;
+}
+
+.slider-container:hover .slider-track {
+	animation-play-state: paused;
+}
+
+.supplier-logo {
+	flex-shrink: 0;
+	width: 180px;
+	height: 120px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.supplier-logo::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, #6c0f35 0%, #9a1855 100%);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.supplier-logo:hover {
+	transform: translateY(-10px) scale(1.05);
+	box-shadow: 0 20px 40px rgba(108, 15, 53, 0.4);
+	border-color: rgba(139, 0, 0, 0.5);
+}
+
+.supplier-logo:hover::before {
+	opacity: 0.1;
+}
+
+.supplier-logo img {
+	width: 80%;
+	height: 80%;
+	object-fit: contain;
+	filter: brightness(0.8) contrast(1.2);
+	transition: all 0.3s ease;
+	z-index: 1;
+	position: relative;
+}
+
+.supplier-logo:hover img {
+	filter: brightness(1) contrast(1.4);
+}
+
+.logo-placeholder {
+	color: #b0b0b0;
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	z-index: 1;
+	position: relative;
+}
+
+.supplier-logo:hover .logo-placeholder {
+	color: #ffffff;
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+/* Duplicate the logos for seamless loop */
+.slider-track::after {
+	content: '';
+	display: block;
+	width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.suppliers-section {
+		padding: 4rem 1rem;
+	}
+
+	.supplier-logo {
+		width: 140px;
+		height: 100px;
+	}
+
+	.slider-track {
+		gap: 2rem;
+	}
+
+	.suppliers-title {
+		margin-bottom: 2rem;
+	}
+
+	.suppliers-subtitle {
+		margin-bottom: 3rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.supplier-logo {
+		width: 120px;
+		height: 80px;
+	}
+
+	.slider-track {
+		gap: 1.5rem;
+	}
+}
