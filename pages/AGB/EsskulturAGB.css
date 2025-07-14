@@ -1,0 +1,116 @@
+
+        :root {
+            --primary: #A30046;
+            --bg: #18171c;
+            --card-bg: #232129;
+            --text: #f2f2f2;
+            --muted: #b0aeb8;
+            --radius: 18px;
+            --shadow: 0 8px 32px 0 rgba(30, 0, 32, 0.22);
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+        }
+        .header {
+            width: 100%;
+            padding: 38px 0 18px 0;
+            text-align: center;
+        }
+        .logo {
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 38px 30px 30px 30px;
+            max-width: 700px;
+            width: 94vw;
+            margin: 0 auto 48px auto;
+			padding-top: 110px;
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 2.3rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        h2 {
+            color: var(--text);
+            font-size: 1.35rem;
+            margin-top: 38px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        p, li {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        .contact {
+            margin-top: 28px;
+            background: rgba(163,0,70,0.10);
+            padding: 14px 18px;
+            border-radius: 13px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+        @media (max-width: 650px) {
+            .card {
+                padding: 20px 7vw;
+                max-width: 99vw;
+				padding-top: 150px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .header {
+                padding-top: 16px;
+            }
+        }
+        /* Button for return navigation */
+        .btn-main {
+            margin: 24px 0 0 0;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(30, 0, 32, 0.10);
+            cursor: pointer;
+            transition: background 0.22s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-main:hover {
+            background: #820038;
+        }
