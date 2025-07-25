@@ -1007,6 +1007,30 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
+.hero .cta-btn2 {
+  color: var(--default-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  border: 2px solid var(--accent-color);
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.hero .cta-btn2:first-child {
+  margin-right: 10px;
+}
+
+.hero .cta-btn2:hover {
+  background: none;
+
+}
+
 @media (max-width: 480px) {
   .hero .cta-btn {
     font-size: 12px;
@@ -1442,16 +1466,16 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.book-a-table .php-email-form button[type=submit] {
+.reservieren-btn{
   color: var(--default-color);
   border: 2px solid var(--accent-color);
   background: transparent;
   padding: 14px 60px;
   transition: 0.4s;
-  border-radius: 50px;
+  width: 100%;
 }
 
-.book-a-table .php-email-form button[type=submit]:hover {
+.reservieren-btn:hover {
   background: var(--accent-color);
 }
 
