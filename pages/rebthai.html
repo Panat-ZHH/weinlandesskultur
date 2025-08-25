@@ -642,45 +642,30 @@
 				<!-- ====== End Portfolio ====== -->
 
 				<!-- ====== Booking ====== -->
-				<section id="booking" class="ptb">
-					<div class="container align-center">
-						<span class="suptitle">Booking</span>
-						<h2>Tisch Reservieren</h2>
-					</div>
-					<div class="wrapper-booking container">
-						<form method="POST">
-							<div class="wrapper-input flex">
-								<input type="text" name="Anrede" placeholder="Herr/Frau" required />
-								<input type="text" name="Vollständiger Name" placeholder="Vollständiger Name" required />
-							</div>
-							<!--/.wrapper-input-->
-							<div class="wrapper-input flex">
-								<input type="email" name="Email" placeholder="Email" required />
-								<input type="tel" name="Telefon" placeholder="Telefon" required />
-							</div>
-							<!--/.wrapper-input-->
-							<div class="wrapper-input flex">
-								<input type="number" name="Anzahl Personen" placeholder="Anzahl Personen" min="1" max="20" required />
-								<input type="time" name="Uhrzeit" placeholder="Uhrzeit" required />
-							</div>
-							<!--/.wrapper-input-->
-							<div class="wrapper-input flex">
-								<input type="date" name="Datum" placeholder="Datum" required />
-								<input type="text" name="Anmerkungen" placeholder="Anmerkungen (optional)" />
-							</div>
-							<!--/.wrapper-input-->
-							<div class="align-center">
-								<button class="btn" id="sendbook" type="submit">Tisch Reservieren</button>
-							</div>
-							<p class="res-booking"></p>
-						</form>
-						<div class="align-center">
-							<h3>oder</h3>
-							<a href="tel:+41523172525"><button class="btn">Anrufen</button></a>
-						</div>
-					</div>
-					<!--/.wrapper-booking-->
-				</section>
+				 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="mail.js"></script>
+
+				<section id="booking">
+        <div class="wrapper-booking">
+            <h2 class="booking-title">Tisch Reservierung</h2>
+            <form id="booking-form">
+                <div class="wrapper-input">
+                    <input type="text" name="full_name" placeholder="Vollständiger Name" required />
+                    <input type="tel" name="phone" placeholder="Telefon" required />
+                </div>
+                <div class="wrapper-input">
+                    <input type="number" name="guests" placeholder="Anzahl Personen" min="1" max="20" required />
+                    <input type="date" name="date" required />
+                </div>
+                <div class="wrapper-input">
+                    <input type="time" name="time" required />
+                    <input type="text" name="notes" placeholder="Anmerkungen (optional)" />
+                </div>
+                <button type="submit">Tisch Reservieren</button>
+            </form>
+
+        </div>
+    </section>
 				<!-- ====== End Booking ====== -->
 			</main>
 
@@ -747,45 +732,7 @@
 		<script src="js/owl.carousel.min.js"></script>
 		<!-- ====== Custom js ======  -->
 		<script src="styles/rebthai/main.js"></script>
-		<script>
-			// Simple form validation and submission handling
-			document.getElementById('sendbook').addEventListener('click', function (e) {
-				e.preventDefault();
 
-				const form = this.closest('form');
-				const formData = new FormData(form);
-				const resBooking = document.querySelector('.res-booking');
-
-				// Simple validation
-				const requiredFields = form.querySelectorAll('input[required]');
-				let isValid = true;
-
-				requiredFields.forEach((field) => {
-					if (!field.value.trim()) {
-						isValid = false;
-						field.style.borderColor = 'var(--color-red)';
-					} else {
-						field.style.borderColor = 'var(--color-white)';
-					}
-				});
-
-				if (!isValid) {
-					resBooking.innerHTML = '<span class="error">Bitte füllen Sie alle erforderlichen Felder aus.</span>';
-					resBooking.style.display = 'block';
-					return;
-				}
-
-				// Simulate form submission
-				resBooking.innerHTML = '<span class="send">Ihre Reservierung wurde erfolgreich übermittelt!</span>';
-				resBooking.style.display = 'block';
-
-				// Reset form after successful submission
-				setTimeout(() => {
-					form.reset();
-					resBooking.style.display = 'none';
-				}, 3000);
-			});
-		</script>
 		<script>
 			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 				anchor.addEventListener('click', function (e) {
