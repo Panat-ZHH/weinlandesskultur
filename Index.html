@@ -160,172 +160,306 @@
 			</div>
 		</section>
 
-		<!-- Management Section -->
-		<section class="management-section fade-in">
-			<h2 class="section-title">Unsere Geschäftsführung</h2>
-			<div class="management-container">
-				<div class="manager-card">
-					<div class="manager-photo">M1</div>
-					<h3>Bruno Greuter</h3>
-					<p>
-						Mit über 20 Jahren Erfahrung in der Gastronomie bringt Max Mustermann seine Leidenschaft für kulinarische
-						Exzellenz in jedes unserer Restaurants ein. Seine Vision ist es, Gästen unvergessliche Geschmackserlebnisse
-						zu bieten.
-					</p>
-					<button class="show-cv-button" onclick="toggleLebenslauf()">Lebenslauf anzeigen</button>
+<section class="management-section fade-in">
+<h2 class="section-title">Unsere Geschäftsführung</h2>
+<div class="management-container">
+<div class="manager-wrapper">
+<!-- Cards Row -->
+<div class="managers-row">
+<!-- Bruno's Section -->
+<div class="manager-item">
+<div class="manager-card" data-name="bruno">
+<div class="manager-photo">M1</div>
+<h3>Bruno Greuter</h3>
+<p>
+Mit über 20 Jahren Erfahrung in der Gastronomie bringt Bruno Greuter seine Leidenschaft für kulinarische
+Exzellenz in jedes seiner Projekte ein. Seine Vision ist es, Gästen unvergessliche Genussmomente und
+ein authentisches Schweizer Erlebnis zu bieten.
+</p>
+<button class="card-button mobile-only" onclick="toggleBrunoLebenslauf()">Lebenslauf anzeigen</button>
+</div>
+<!-- Bruno's CV -->
+<div class="cv-container desktop-visible" id="lebenslauf-bruno">
+<div class="timeline-line"></div>
+<div class="flow-step" style="animation-delay: 0.2s">
+<div class="flow-node">
+<div class="timeline-indicator1">2021–Heute</div>
+<div class="node-title">🍴 Inhaber</div>
+<div class="node-content">
+<strong>Restaurant Guggere · Selbstständig</strong><br/>
+Benken, ZH<br/>
+Ausflugsrestaurant mit 250 Sitzplätzen, Schweizer Küche und Panorama-Terrasse.
+</div>
+</div>
+</div>
+<!-- Erstes Praktikum -->
+<div class="flow-step" style="animation-delay: 0.4s">
+<div class="flow-node">
+<div class="timeline-indicator">2020–Heute</div>
+<div class="node-title">🥢 Pächter</div>
+<div class="node-content">
+<strong>Reb-Thai Andelfingen · G+D Gastro GmbH</strong><br/>
+Andelfingen, ZH<br/>
+Klassisches Thairestaurant mit Take-Away.
+</div>
+</div>
+</div>
+<!-- Verwaltungsrat Bergtrotte -->
+<div class="flow-step" style="animation-delay: 0.6s">
+<div class="flow-node">
+<div class="timeline-indicator1">2021–2024</div>
+<div class="node-title">🏢 Verwaltungsrat</div>
+<div class="node-content">
+<strong>Bergtrotte Gastronomie AG</strong><br/>
+Osterfingen<br/>
+Strategische Leitung in einem traditionsreichen Weingut- und Gastronomiebetrieb.
+</div>
+</div>
+</div>
 
-					<div class="cv-container" id="lebenslauf">
-						<div class="timeline-line"></div>
+<!-- SV Group - Operations Manager -->
+<div class="flow-step" style="animation-delay: 0.8s">
+<div class="flow-node">
+<div class="timeline-indicator">2018–2021</div>
+<div class="node-title">⚙️ Operations Manager</div>
+<div class="node-content">
+<strong>SV Group</strong><br/>
+Dachsen/ <br>
+Schaffhausen<br/>
+Leitung Schloss Laufen am Rheinfall, Güterhof & Park Casino Schaffhausen.
+</div>
+</div>
+</div>
 
-						<!-- Studium -->
-						<div class="flow-step" style="animation-delay: 0.2s">
-							<div class="flow-node" id="education">
-								<div class="timeline-indicator">2018-2022</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">🎓 Studium</div>
-								<div class="node-content">
-									<strong>Informatik B.Sc.</strong><br />
-									Universität Zürich<br />
-									Abschlussnote: 1.8
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="85"></div>
-								</div>
-							</div>
-						</div>
+<!-- Geschäftsführer Schloss Laufen -->
+<div class="flow-step" style="animation-delay: 1s">
+<div class="flow-node">
+<div class="timeline-indicator1">2011–2017</div>
+<div class="node-title">🏰 Geschäftsführer</div>
+<div class="node-content">
+<strong>SV Group – Schloss Laufen am Rheinfall</strong><br/>
+Gesamterlebnis aus Natur, Kultur & Gastronomie verantwortet.
+</div>
+</div>
+</div>
+<!-- District Manager Starbucks -->
+<div class="flow-step" style="animation-delay: 1.2s">
+<div class="flow-node">
+<div class="timeline-indicator">2008–2011</div>
+<div class="node-title">☕ District Manager</div>
+<div class="node-content">
+<strong>Starbucks Coffee Schweiz/Österreich</strong><br/>
+Verantwortlich für 11 Filialen in Zürich City.
+</div>
+</div>
+</div>
 
-						<!-- Erstes Praktikum -->
-						<div class="flow-step" style="animation-delay: 0.4s">
-							<div class="flow-node" id="internship">
-								<div class="timeline-indicator">2021</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">👨‍💻 Praktikum</div>
-								<div class="node-content">
-									<strong>Software Development Intern</strong><br />
-									StartupTech GmbH<br />
-									6 Monate Frontend Development
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="60"></div>
-								</div>
-							</div>
-						</div>
+<!-- Merkur Confiserien -->
+<div class="flow-step" style="animation-delay: 1.4s">
+<div class="flow-node">
+<div class="timeline-indicator1">2006–2008</div>
+<div class="node-title">🍫 Regionaler Verkaufsleiter</div>
+<div class="node-content">
+<strong>Merkur Confiserien AG</strong><br/>
+Leitung von 16 Filialen, Beschaffung Non-Food Betriebsmaterialien.
+</div>
+</div>
+</div>
 
-						<!-- Junior Developer -->
-						<div class="flow-step" style="animation-delay: 0.6s">
-							<div class="flow-node" id="junior">
-								<div class="timeline-indicator">2022-2023</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">💼 Junior Developer</div>
-								<div class="node-content">
-									<strong>TechStart AG</strong><br />
-									Frontend Development<br />
-									React, TypeScript, Node.js
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="75"></div>
-								</div>
-							</div>
-						</div>
+<div class="flow-step" style="animation-delay: 1.6s">
+<div class="flow-node">
+<div class="timeline-indicator">2004–2005</div>
+<div class="node-title">🛍️ Verkaufsleiter Detailhandel</div>
+<div class="node-content">
+<strong>Jelmoli AG – Gourmet Factory</strong><br/>
+Führung von 9 Teamleitern in der Delikatessenabteilung.
+</div>
+</div>
+</div>
 
-						<!-- Weiterbildung -->
-						<div class="flow-step" style="animation-delay: 0.8s">
-							<div class="flow-node" id="training">
-								<div class="timeline-indicator">2023</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">📚 Weiterbildung</div>
-								<div class="node-content">
-									<strong>AWS Certified Developer</strong><br />
-									Scrum Master Zertifizierung<br />
-									Advanced React & Node.js
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="80"></div>
-								</div>
-							</div>
-						</div>
+<!-- Jelmoli Assistent -->
+<div class="flow-step" style="animation-delay: 1.8s">
+<div class="flow-node">
+<div class="timeline-indicator1">1999–2004</div>
+<div class="node-title">📦 Einkaufsassistent / Teamleiter</div>
+<div class="node-content">
+<strong>Jelmoli AG / Bon Appetit Group</strong><br/>
+Zürich<br/>
+Wechsel von Frimago AG zur Jelmoli AG, Stationen vom Verkäufer bis Teamleiter.
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="./main.js"></script>
+<div class="manager-item">
+<div class="manager-card" data-name="ingrid">
+<div class="manager-photo" data-name="ingrid">E2</div>
+<h3>Ingrid Lüthi</h3>
+<p>Compliance- &amp; Risk-Managerin mit 25 Jahren Bankerfahrung. Langjährige VP/Compliance Managerin (BBH), Schwerpunkte: Regulatorik, Governance, Datenschutz (DSB), Überwachung &amp; Schulungen, sowie Führung internationaler Teams.</p>
+<button class="card-button mobile-only" onclick="toggleIngridLebenslauf()">Lebenslauf anzeigen</button>
+</div>
+<!-- Ingrid's CV -->
+<div class="cv-container desktop-visible" id="lebenslauf-ingrid">
+<div class="timeline-line"></div>
 
-						<!-- Senior Developer -->
-						<div class="flow-step" style="animation-delay: 1s">
-							<div class="flow-node" id="senior">
-								<div class="timeline-indicator">2024-Heute</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">⭐ Senior Developer</div>
-								<div class="node-content">
-									<strong>InnovateTech GmbH</strong><br />
-									Full-Stack Development<br />
-									Team Lead (5 Entwickler)
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="90"></div>
-								</div>
-							</div>
-						</div>
 
-						<!-- Side Projects -->
-						<div class="flow-step" style="animation-delay: 1.2s">
-							<div class="flow-node" id="projects">
-								<div class="timeline-indicator">Portfolio</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">🚀 Side Projects</div>
-								<div class="node-content">
-									<strong>Eigene Projekte</strong><br />
-									E-Commerce Platform<br />
-									AI Chat Bot, Mobile Apps
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="85"></div>
-								</div>
-							</div>
-						</div>
+<div class="flow-step" style="animation-delay: 1.6s">
+<div class="flow-node">
+<div class="timeline-indicator1">Sprachen</div>
+<div class="node-title">🌍 Sprachen</div>
+<div class="node-content">
+Englisch (Muttersprache), Deutsch (sehr gut), Afrikaans (sehr gut), Niederländisch (gut).
+</div>
+</div>
+</div>
 
-						<!-- Zukunftspläne -->
-						<div class="flow-step" style="animation-delay: 1.4s">
-							<div class="flow-node" id="future">
-								<div class="timeline-indicator">Zukunft</div>
-								<div class="node-connector"></div>
-								<div class="timeline-dot"></div>
-								<div class="node-title">🎯 Ziele & Vision</div>
-								<div class="node-content">
-									<strong>Nächste Schritte</strong><br />
-									CTO Position anstreben<br />
-									Startup-Gründung planen
-								</div>
-								<div class="skill-bar">
-									<div class="skill-progress" data-width="95"></div>
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<!-- Modal -->
-					<div id="modal" class="modal">
-						<div class="modal-content">
-							<span class="close">&times;</span>
-							<h2 id="modal-title"></h2>
-							<div id="modal-body"></div>
-						</div>
-					</div>
-				</div>
+<div class="flow-step" style="animation-delay: 1.4s">
+<div class="flow-node">
+<div class="timeline-indicator">2022–heute</div>
+<div class="node-title">🤝 Ehrenämter</div>
+<div class="node-content">
+Präsidentin RPK Thalheim a. d. Thur; Kassierin Dorfmärtverein (seit 2017); Revisorin Dorfverein (2005–2025).
+</div>
+</div>
+</div>
 
-				<div class="manager-card">
-					<div class="manager-photo">E2</div>
-					<h3>Ingrid Lüthi</h3>
-					<p>
-						Elena Beispiel ist Expertin für Weinkultur und Gastfreundschaft. Sie sorgt dafür, dass jeder Besuch in
-						unseren Restaurants zu einem besonderen Erlebnis wird und unsere Gäste sich wie zu Hause fühlen.
-					</p>
-				</div>
-			</div>
-		</section>
 
-		<!-- Floating Action Button -->
+<div class="flow-step" style="animation-delay: 1.2s">
+<div class="flow-node">
+<div class="timeline-indicator1">1991–1993</div>
+<div class="node-title">🎓 Bachelor of Commerce (Accounting)</div>
+<div class="node-content">
+Universität Pretoria, Hauptfächer: Rechnungswesen, Controlling, Audit, Steuern.
+</div>
+</div>
+</div>
+
+
+<div class="flow-step" style="animation-delay: 1.0s">
+<div class="flow-node">
+<div class="timeline-indicator">1997–1999</div>
+<div class="node-title">🎓 Nachdiplom Bankmanagement (IFZ HSLU)</div>
+<div class="node-content">
+Diplomarbeit: Quality Controlling (Zahlungsverkehr).
+</div>
+</div>
+</div>
+
+
+<div class="flow-step" style="animation-delay: 0.8s">
+<div class="flow-node">
+<div class="timeline-indicator1">1995–1999</div>
+<div class="node-title">📊 Finanzielles Rechnungswesen</div>
+<div class="node-content">
+<strong>Schwyzer Kantonalbank</strong><br>
+SNB-Statistiken, Bilanzabstimmungen, Weiterentwicklung Prozesse.
+</div>
+</div>
+</div>
+<div class="flow-step" style="animation-delay: 0.6s">
+<div class="flow-node">
+<div class="timeline-indicator">2000–2005</div>
+<div class="node-title">💼 Leiterin Compliance &amp; Risk</div>
+<div class="node-content">
+<strong>State Street Bank Europe Ltd, Zurich Branch</strong><br>
+Aufbau der Funktion, interne Prüfungen &amp; Überwachung, Risikoanalysen (inkl. Kreditrisiken), Revisoren/Behörden, Projekte.
+</div>
+</div>
+</div>
+
+
+<div class="flow-step" style="animation-delay: 0.4s">
+<div class="flow-node">
+<div class="timeline-indicator1">2005–2025</div>
+<div class="node-title">⭐ Vice President, Compliance Manager</div>
+<div class="node-content">
+<strong>Brown Brothers Harriman Services AG</strong><br>
+Weisungen &amp; Prozesse, Compliance-Überwachung &amp; Risikobewertung, Corporate Governance/Board Reporting, Führung CH/PL, Auditoren &amp; Aufsichtsbehörden.
+</div>
+</div>
+</div>
+
+
+<div class="flow-step" style="animation-delay: 0.2s">
+<div class="flow-node">
+<div class="timeline-indicator">Kurzprofil</div>
+<div class="node-title">🧭 Schwerpunkt</div>
+<div class="node-content">
+<strong>Compliance &amp; Risk Management</strong><br>
+Regulatorik, Governance &amp; Datenschutz (DSB); Schulungen; internationale Zusammenarbeit (EU/US/Asien).
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<script>
+        function toggleBrunoLebenslauf() {
+            if (window.innerWidth >= 929) return; // Nur für kleine Screens aktiv
+
+            const cv = document.getElementById('lebenslauf-bruno');
+            const card = document.querySelector('.manager-card[data-name="bruno"]');
+            if (!cv || !card) return;
+
+            const isOpen = cv.classList.contains('show');
+
+            if (isOpen) {
+                cv.style.maxHeight = '0px';
+                cv.style.opacity = '0';
+                cv.classList.remove('show');
+                card.classList.remove('hover-disabled');
+            } else {
+                cv.style.maxHeight = cv.scrollHeight + 'px';
+                cv.style.opacity = '1';
+                cv.classList.add('show');
+                card.classList.add('hover-disabled');
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            }
+        }
+
+        function toggleIngridLebenslauf() {
+            if (window.innerWidth >= 929) return; // Nur mobil
+
+            const cv = document.getElementById('lebenslauf-ingrid');
+            const card = document.querySelector('.manager-card[data-name="ingrid"]');
+            if (!cv || !card) return;
+
+            const isOpen = cv.classList.contains('show');
+
+            if (isOpen) {
+                cv.style.maxHeight = '0px';
+                cv.style.opacity = '0';
+                cv.classList.remove('show');
+                card.classList.remove('hover-disabled');
+            } else {
+                cv.style.maxHeight = cv.scrollHeight + 'px';
+                cv.style.opacity = '1';
+                cv.classList.add('show');
+                card.classList.add('hover-disabled');
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            }
+        }
+
+        // Initialize skill bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth >= 929) {
+                const skillBars = document.querySelectorAll('.gress');
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    if (width) {
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 500);
+                    }
+                });
+            }
+        });
+    </script>
+
+	<!-- Floating Action Button -->
 		<div class="floating-elements">
 			<button class="scroll-to-top" onclick="scrollToTop()" title="Nach oben">
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -339,138 +473,6 @@
 				</svg>
 			</button>
 		</div>
-		<script src="./main.js"></script>
-
-		<div class="cv-container">
-			<div class="timeline-line"></div>
-
-			<!-- Studium -->
-			<div class="flow-step" style="animation-delay: 0.2s">
-				<div class="flow-node" id="education">
-					<div class="timeline-indicator">2018-2022</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">🎓 Studium</div>
-					<div class="node-content">
-						<strong>Informatik B.Sc.</strong><br />
-						Universität Zürich<br />
-						Abschlussnote: 1.8
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="85"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Erstes Praktikum -->
-			<div class="flow-step" style="animation-delay: 0.4s">
-				<div class="flow-node" id="internship">
-					<div class="timeline-indicator">2021</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">👨‍💻 Praktikum</div>
-					<div class="node-content">
-						<strong>Software Development Intern</strong><br />
-						StartupTech GmbH<br />
-						6 Monate Frontend Development
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="60"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Junior Developer -->
-			<div class="flow-step" style="animation-delay: 0.6s">
-				<div class="flow-node" id="junior">
-					<div class="timeline-indicator">2022-2023</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">💼 Junior Developer</div>
-					<div class="node-content">
-						<strong>TechStart AG</strong><br />
-						Frontend Development<br />
-						React, TypeScript, Node.js
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="75"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Weiterbildung -->
-			<div class="flow-step" style="animation-delay: 0.8s">
-				<div class="flow-node" id="training">
-					<div class="timeline-indicator">2023</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">📚 Weiterbildung</div>
-					<div class="node-content">
-						<strong>AWS Certified Developer</strong><br />
-						Scrum Master Zertifizierung<br />
-						Advanced React & Node.js
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="80"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Senior Developer -->
-			<div class="flow-step" style="animation-delay: 1s">
-				<div class="flow-node" id="senior">
-					<div class="timeline-indicator">2024-Heute</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">⭐ Senior Developer</div>
-					<div class="node-content">
-						<strong>InnovateTech GmbH</strong><br />
-						Full-Stack Development<br />
-						Team Lead (5 Entwickler)
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="90"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Side Projects -->
-			<div class="flow-step" style="animation-delay: 1.2s">
-				<div class="flow-node" id="projects">
-					<div class="timeline-indicator">Portfolio</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">🚀 Side Projects</div>
-					<div class="node-content">
-						<strong>Eigene Projekte</strong><br />
-						E-Commerce Platform<br />
-						AI Chat Bot, Mobile Apps
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="85"></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Zukunftspläne -->
-			<div class="flow-step" style="animation-delay: 1.4s">
-				<div class="flow-node" id="future">
-					<div class="timeline-indicator">Zukunft</div>
-					<div class="node-connector"></div>
-					<div class="timeline-dot"></div>
-					<div class="node-title">🎯 Ziele & Vision</div>
-					<div class="node-content">
-						<strong>Nächste Schritte</strong><br />
-						CTO Position anstreben<br />
-						Startup-Gründung planen
-					</div>
-					<div class="skill-bar">
-						<div class="skill-progress" data-width="95"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- Modal -->
 		<div id="modal" class="modal">
 			<div class="modal-content">
