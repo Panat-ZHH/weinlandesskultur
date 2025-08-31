@@ -938,11 +938,151 @@ body {
 	box-sizing: border-box;
 }
 
+/* CV-Timeline in Management Cards angepasst */
 .cv-container {
-	max-width: 800px;
-	margin: 0 auto;
-	position: relative;
+    max-width: 100%;
+    margin: 2rem auto 0 auto;
+    position: relative;
+    padding: 0 10px;
 }
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-gradient);
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.flow-step {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.flow-step:nth-child(even) .flow-node {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.flow-step:nth-child(odd) .flow-node {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.flow-node {
+    width: calc(50% - 40px);
+    max-width: 320px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.flow-node:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-glow);
+    background: rgba(156, 16, 16, 0.08);
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background: var(--primary-gradient);
+    border: 3px solid var(--dark-bg);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    animation: pulse 2s infinite;
+}
+
+.node-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.node-content {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 12px;	
+}
+
+.timeline-indicator {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.timeline-indicator1 {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1.5s ease;
+}
+
+/* Mobile Anpassung für Timeline */
+@media (max-width: 768px) {
+    .flow-node {
+        width: 100%;
+        max-width: 100%;
+    }
+    .timeline-line {
+        left: 8px;
+        transform: none;
+    }
+    .flow-step:nth-child(even) .flow-node,
+    .flow-step:nth-child(odd) .flow-node {
+        margin: 0;
+    }
+}
+
 
 .timeline-line {
 	position: absolute;
@@ -997,7 +1137,7 @@ body {
 .flow-node:hover {
 	transform: translateY(-10px) scale(1.02);
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-	background: rgba(255, 255, 255, 1);
+	background: rgba(255, 255, 255, 0.182);
 	border-color: #ea6680;
 }
 
@@ -1075,16 +1215,29 @@ body {
 }
 
 .timeline-indicator {
-	position: absolute;
+	position: relative;
 	top: -10px;
-	right: -10px;
-	background: #667eea;
-	color: white;
+	right: -30px;
+	background: #7c0000;
+	color: rgb(95, 2, 2);
 	padding: 5px 12px;
 	border-radius: 20px;
 	font-size: 0.8rem;
 	font-weight: bold;
-	box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+	box-shadow: 0 4px 15px rgba(190, 3, 3, 0.371);
+}
+
+.timeline-indicator1 {
+	position: relative;
+	top: -10px;
+	right: -30px;
+	background: #7c0000;
+	color: rgb(95, 2, 2);
+	padding: 5px 12px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	box-shadow: 0 4px 15px rgba(190, 3, 3, 0.371);
 }
 
 .skill-bar {
@@ -1550,7 +1703,7 @@ body {
   letter-spacing: 0.03em;
 }
 .footer-bar a {
-  color: #7C517A;  /* Weinrot, wie dein Primärton */
+  color: #3c1b1b;  /* Weinrot, wie dein Primärton */
   text-decoration: underline;
   font-weight: 600;
   transition: color 0.18s;
@@ -1577,3 +1730,378 @@ body {
     margin-bottom: 0.5rem;
   }
 }
+
+        .management-section {
+            padding: 2rem;
+            background: #0a0a0a;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .management-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .manager-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .managers-row {
+            display: flex;
+            gap: 9rem;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .manager-item {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .manager-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .manager-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .manager-card.hover-disabled:hover {
+            transform: none;
+        }
+
+        .manager-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #610000 0%, #481919 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .manager-card h3 {
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .manager-card p {
+            text-align: center;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CV Container Styles */
+        .cv-container {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            position: relative;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+
+        .cv-container.show {
+            opacity: 1 !important;
+        }
+
+
+        /* Timeline Line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #f77889 0%, #5e010c 50%, #985058);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(106, 5, 5, 0.5);
+            z-index: 1;
+        }
+
+        /* Flow Steps */
+        .flow-step {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .flow-node {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 0 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .flow-node:nth-child(odd) {
+            margin-left: 0;
+            margin-right: 52%;
+        }
+
+        .flow-node:nth-child(even) {
+            margin-left: 52%;
+            margin-right: 0;
+        }
+
+        .timeline-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3f1111;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+		  .timeline-indicator1 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3f1111;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1.0rem;
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        .flow-node:nth-child(odd) .timeline-indicator {
+            right: -190px;
+        }
+
+		.flow-node:nth-child(odd) .timeline-indicator1 {
+            right: 270px;
+        }
+
+        .flow-node:nth-child(even) .timeline-indicator {
+            left: -120px;
+        }
+
+		.flow-node:nth-child(even) .timeline-indicator1 {
+            left: 120px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: #4a2020;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            border: 3px solid white;
+        }
+
+        .flow-node:nth-child(odd) .timeline-dot {
+            right: -62px;
+        }
+
+        .flow-node:nth-child(even) .timeline-dot {
+            left: -62px;
+        }
+
+        .node-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .node-content {
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Button Styles */
+        .card-button {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .card-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(139, 0, 0, 0.5);
+        }
+
+        .card-button:hover::before {
+            left: 0;
+        }
+
+        /* Mobile Button */
+        .mobile-only {
+            display: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 929px) {
+            .cv-container.desktop-visible {
+                display: block;
+                opacity: 1;
+                max-height: none;
+                overflow: visible;
+                margin-top: 2rem;
+            }
+
+            .cv-container.desktop-visible .timeline-line {
+                top: 0;
+            }
+
+            /* Animate skill bars on desktop */
+            .cv-container.desktop-visible .skill-progress {
+                animation: fillBar 2s ease forwards;
+            }
+
+            .cv-container.desktop-visible .skill-progress[data-width="85"] {
+                width: 85%;
+            }
+            .cv-container.desktop-visible .skill-progress[data-width="60"] {
+                width: 60%;
+            }
+            .cv-container.desktop-visible .skill-progress[data-width="75"] {
+                width: 75%;
+            }
+            .cv-container.desktop-visible .skill-progress[data-width="80"] {
+                width: 80%;
+            }
+            .cv-container.desktop-visible .skill-progress[data-width="90"] {
+                width: 90%;
+            }
+            .cv-container.desktop-visible .skill-progress[data-width="95"] {
+                width: 95%;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 928px) {
+            .mobile-only {
+                display: block;
+                width: 100%;
+                margin-top: 1.5rem;
+            }
+
+            .managers-row {
+                flex-direction: column;
+            }
+
+            .manager-item {
+                max-width: none;
+            }
+
+            .flow-node:nth-child(odd),
+            .flow-node:nth-child(even) {
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
+
+            .timeline-indicator {
+                position: static;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+                transform: none;
+            }
+
+			  .timeline-indicator1 {
+                position: static;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+                transform: none;
+            }
+
+            .timeline-dot {
+                display: none;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
