@@ -29,11 +29,11 @@ TABLE OF CONTENTS
 ***************************************/
 
 :root {
-	--color-white: #ffffff;
-	--color-dark: #000000;
-	--color-light-dark: #222222;
-	--color-red: #bf3f17;
-	--color-gray: #b4b4b4;
+	--color-white: #FFFFFF;
+	--color-dark: #1A1A1A;
+	--color-light-dark: #FFFFFF;
+	--color-red: #b74a01;
+	--color-gray: #333333;
 }
 
 ::-moz-selection {
@@ -72,7 +72,7 @@ body {
 	font-weight: 400;
 	line-height: 1.6;
 	color: var(--color-gray);
-	background-color: var(--color-dark);
+	background-color: #000000;
 	font-size: 16px;
 }
 
@@ -87,7 +87,7 @@ h6 {
 	line-height: 1.1;
 	text-transform: uppercase;
 	margin-bottom: 30px;
-	color: var(--color-white);
+	color: var(--color-dark);
 }
 
 h1 {
@@ -219,7 +219,7 @@ h2 {
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	background-color: var(--color-dark);
+	background-color: #FF7F00;
 	z-index: 100000;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -253,8 +253,8 @@ h2 {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	background: rgba(0, 0, 0, 0.5);
-	border: 1px solid #ccc;
+	background: rgba(255, 102, 0, 0.9);
+	border: 1px solid var(--color-red);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -277,7 +277,7 @@ h2 {
 #openmenu,
 #closemenu {
 	font-size: 30px;
-	color: var(--color-white);
+	color: var(--color-dark);
 	display: none;
 }
 
@@ -363,9 +363,7 @@ header {
 ***************************************/
 
 .wrapper-header-content {
-	background-image: url('./bg-1.jpg');
-	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.7), transparent), url('./bg-1.jpg');
-	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent), url('./bg-1.jpg');
+	background-image: url(./bg-1.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -378,6 +376,10 @@ header {
 	align-items: center;
 }
 
+.wrapper-header-content h1 {
+	color: var(--color-white);
+}
+
 /**************************************
 *
 *         ABOUT US 
@@ -385,10 +387,7 @@ header {
 ***************************************/
 
 #aboutus {
-	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('./bg-pattern.jpg');
-	background-repeat: no-repeat, no-repeat, repeat;
-	background-position: -140px bottom, top right, left top;
-	background-attachment: scroll, scroll, fixed;
+	background-color: #FFFFFF;
 }
 
 .wrapper-aboutus {
@@ -411,6 +410,7 @@ header {
 
 .aboutus-content p {
 	margin-bottom: 20px;
+	color: var(--color-gray);
 }
 
 /**************************************
@@ -418,6 +418,15 @@ header {
 *         SERVICES
 * 
 ***************************************/
+#services {
+  background-image: url("./thai_food1.jpg");
+  background-repeat: no-repeat;   /* verhindert Kachelung */
+  background-size: cover;         /* füllt den Bereich, Bild kann beschnitten werden */
+  background-position: center;    /* mittig platzieren */
+  background-attachment: fixed;   /* Hintergrund bleibt beim Scrollen stehen */
+}
+
+
 
 .wrapper-services > div {
 	width: calc(25% - 20px);
@@ -428,12 +437,13 @@ header {
 }
 
 .wrapper-services > div:hover {
-	background-color: #161616;
+	background-color: #F5F5F5;
 }
 
 .wrapper-services > div h3 {
 	font-size: 20px;
 	margin-bottom: 15px;
+	color: var(--color-dark);
 }
 
 .wrapper-services > div img {
@@ -443,6 +453,10 @@ header {
 	margin-bottom: 30px;
 }
 
+.wrapper-services > div p {
+	color: var(--color-gray);
+}
+
 /**************************************
 *
 *         MENU
@@ -450,10 +464,7 @@ header {
 ***************************************/
 
 #menu {
-	background-image: url('../images/bg-tomato.png'), url('../images/bg-basil.png'), url('./bg-pattern.jpg');
-	background-repeat: no-repeat, no-repeat, repeat;
-	background-position: -140px bottom, top right, left top;
-	background-attachment: scroll, scroll, fixed;
+	background-color: #FFFFFF;
 }
 
 .menu-list {
@@ -472,15 +483,16 @@ header {
 }
 
 .menu-list ul li a {
-	color: var(--color-white);
+	color: var(--color-dark);
 	text-transform: uppercase;
-	border: 1px solid var(--color-white);
+	border: 1px solid var(--color-dark);
 	padding: 8px 16px;
 }
 
 .menu-list ul li a:hover,
 .menu-list ul li .active {
-	color: var(--color-red);
+	color: var(--color-white);
+	background-color: var(--color-red);
 	border: 1px solid var(--color-red);
 }
 
@@ -528,7 +540,7 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 102, 0, 0.8);
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
@@ -549,7 +561,7 @@ header {
 }
 
 .menu-title {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	border-bottom: 1px solid rgba(51, 51, 51, 0.3);
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
@@ -561,10 +573,11 @@ header {
 .menu-title h3 {
 	font-size: 20px;
 	margin-bottom: 10px;
+	color: var(--color-dark);
 }
 
 .menu-title span {
-	color: var(--color-white);
+	color: var(--color-red);
 	font-size: 20px;
 	display: inline-block;
 	line-height: 1.1;
@@ -574,6 +587,7 @@ header {
 
 .item-product-text p {
 	margin-bottom: 5px;
+	color: var(--color-gray);
 }
 
 .menu-ingredients {
@@ -585,7 +599,7 @@ header {
 
 .karte-btn {
 	text-decoration: none;
-	background-color: #bf3f17;
+	background-color: #FF6600;
 	border: none;
 	color: white;
 	margin: 5px;
@@ -597,7 +611,7 @@ header {
 }
 
 .karte-btn:hover {
-	background-color: #6e1d00;
+	background-color: #CC5500;
 }
 
 /**************************************
@@ -605,6 +619,13 @@ header {
 *         PORTFOLIO
 * 
 ***************************************/
+#portfolio {
+  background-image: url("./thai_food2.jpg");
+  background-repeat: no-repeat;   /* verhindert Kachelung */
+  background-size: cover;         /* füllt den Bereich, Bild kann beschnitten werden */
+  background-position: center;    /* mittig platzieren */
+  background-attachment: fixed;   /* Hintergrund bleibt beim Scrollen stehen */
+}
 
 .portfolio-grid {
 	display: grid;
@@ -614,17 +635,17 @@ header {
 }
 
 .portfolio-card {
-	background: rgb(14, 14, 14);
+	background: #FFFFFF;
 	overflow: hidden;
 	position: relative;
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 	transition: all 0.4s ease;
 	cursor: pointer;
 }
 
 .portfolio-card:hover {
 	transform: translateY(-10px);
-	box-shadow: 0 30px 60px rgba(191, 63, 23, 0.2);
+	box-shadow: 0 30px 60px rgba(255, 102, 0, 0.2);
 }
 
 .portfolio-card-inner {
@@ -656,7 +677,7 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: var(--gradient-overlay);
+	background: linear-gradient(45deg, rgba(255, 102, 0, 0.9), rgba(204, 85, 0, 0.8));
 	opacity: 0;
 	transition: opacity 0.4s ease;
 	display: flex;
@@ -689,7 +710,7 @@ header {
 .portfolio-content h3 {
 	font-family: 'Suranna', serif;
 	font-size: 28px;
-	color: var(--color-white);
+	color: var(--color-dark);
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -802,182 +823,185 @@ header {
 * 
 ***************************************/
 
- #booking {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(255, 111, 0, 0.6));
-            background-position: center bottom;
-            background-size: cover;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
+#booking {
+  background: linear-gradient(135deg, #b74a01, #e67e22); /* dunkles Orange zu wärmerem Ton */
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
-        .wrapper-booking {
-            max-width: 1000px;
-            width: 100%;
-        }
 
-        .booking-title {
-            text-align: center;
-            color: var(--color-white);
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
 
-        #booking-form {
-            width: 100%;
-        }
 
-        .wrapper-input {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
+.wrapper-booking {
+	max-width: 1000px;
+	width: 100%;
+}
 
-        .wrapper-booking input {
-            background-color: transparent;
-            outline: none;
-            border: none;
-            display: block;
-            padding: 15px 0px;
-            margin: 0 20px 20px 0;
-            width: calc(50% - 40px);
-            color: var(--color-white);
-            border-bottom: 1px solid var(--color-white);
-            transition: all 0.5s ease;
-            font-size: 16px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-        }
+.booking-title {
+	text-align: center;
+	color: var(--color-white);
+	font-size: 2.5rem;
+	font-weight: 300;
+	margin-bottom: 50px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
 
-        .wrapper-booking input::placeholder {
-            color: var(--color-white);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            opacity: 0.8;
-        }
+#booking-form {
+	width: 100%;
+}
 
-        .wrapper-booking input:focus {
-            border-color: var(--color-white);
-            border-bottom-width: 2px;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        }
+.wrapper-input {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
 
-        .wrapper-booking input:hover {
-            border-color: rgba(255, 255, 255, 0.9);
-        }
+.wrapper-booking input {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	display: block;
+	padding: 15px 0px;
+	margin: 0 20px 20px 0;
+	width: calc(50% - 40px);
+	color: var(--color-white);
+	border-bottom: 1px solid var(--color-white);
+	transition: all 0.5s ease;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
 
-        /* Full-width inputs */
-        .wrapper-booking input.full-width {
-            width: calc(100% - 20px);
-        }
+.wrapper-booking input::placeholder {
+	color: var(--color-white);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	opacity: 0.8;
+}
 
-        /* Spezielle Styles für Date und Time Inputs */
-        .wrapper-booking input[type="date"], 
-        .wrapper-booking input[type="time"] {
-            color: var(--color-white);
-        }
+.wrapper-booking input:focus {
+	border-color: var(--color-white);
+	border-bottom-width: 2px;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 
-        .wrapper-booking input[type="date"]::-webkit-calendar-picker-indicator,
-        .wrapper-booking input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);
-            cursor: pointer;
-            opacity: 0.8;
-        }
+.wrapper-booking input:hover {
+	border-color: rgba(255, 255, 255, 0.9);
+}
 
-        button[type='submit'] {
-            background-color: transparent;
-            color: var(--color-white);
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 50px;
-            outline: none;
-            border: 1px solid var(--color-red);
-            transition: all 0.5s ease;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
+/* Full-width inputs */
+.wrapper-booking input.full-width {
+	width: calc(100% - 20px);
+}
 
-        button[type='submit']::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
+/* Spezielle Styles für Date und Time Inputs */
+.wrapper-booking input[type="date"], 
+.wrapper-booking input[type="time"] {
+	color: var(--color-white);
+}
 
-        button[type='submit']:hover {
-            border-color: var(--color-white);
-            background-color: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
+.wrapper-booking input[type="date"]::-webkit-calendar-picker-indicator,
+.wrapper-booking input[type="time"]::-webkit-calendar-picker-indicator {
+	filter: invert(1);
+	cursor: pointer;
+	opacity: 0.8;
+}
 
-        button[type='submit']:hover::before {
-            left: 100%;
-        }
+button[type='submit'] {
+	background-color: transparent;
+	color: var(--color-white);
+	padding: 15px 40px;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-top: 50px;
+	outline: none;
+	border: 1px solid var(--color-white);
+	transition: all 0.5s ease;
+	cursor: pointer;
+	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	overflow: hidden;
+}
 
-        button[type='submit']:active {
-            transform: translateY(0);
-        }
+button[type='submit']::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+	transition: left 0.5s;
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .wrapper-booking input {
-                width: calc(100% - 20px);
-                margin: 0 0 20px 0;
-            }
-            
-            .booking-title {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
+button[type='submit']:hover {
+	border-color: var(--color-white);
+	background-color: rgba(255, 255, 255, 0.1);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-            button[type='submit'] {
-                width: 100%;
-                margin-top: 30px;
-            }
+button[type='submit']:hover::before {
+	left: 100%;
+}
 
-            #booking {
-                padding: 20px;
-            }
-        }
+button[type='submit']:active {
+	transform: translateY(0);
+}
 
-        @media (max-width: 480px) {
-            .booking-title {
-                font-size: 1.8rem;
-            }
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+	.wrapper-booking input {
+		width: calc(100% - 20px);
+		margin: 0 0 20px 0;
+	}
+	
+	.booking-title {
+		font-size: 2rem;
+		margin-bottom: 30px;
+	}
 
-        /* Animationen */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+	button[type='submit'] {
+		width: 100%;
+		margin-top: 30px;
+	}
 
-        .wrapper-booking {
-            animation: fadeInUp 0.8s ease-out;
-        }
+	#booking {
+		padding: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.booking-title {
+		font-size: 1.8rem;
+	}
+}
+
+/* Animationen */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.wrapper-booking {
+	animation: fadeInUp 0.8s ease-out;
+}
 
 /**************************************
 *
@@ -986,10 +1010,7 @@ header {
 ***************************************/
 
 #contacts {
-	background-image: url('./bg-pattern.jpg');
-	background-repeat: repeat;
-	background-position: left top;
-	background-attachment: fixed;
+	background-color: #FFFFFF;
 }
 
 .wrapper-contact {
@@ -1014,10 +1035,12 @@ header {
 
 .wrapper-contact > div p {
 	margin-bottom: 10px;
+	color: var(--color-gray);
 }
 
 .wrapper-contact > div h3 {
 	font-size: 20px;
+	color: var(--color-dark);
 }
 
 .wrapper-contact > div a {
@@ -1039,5 +1062,6 @@ header {
 	padding: 30px 15px;
 	text-align: center;
 	font-size: 14px;
-	color: var(--color-gray);
+	color: rgb(188, 188, 188);
 }
+
