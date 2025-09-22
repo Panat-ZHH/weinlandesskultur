@@ -1,17 +1,6 @@
 /**
-* template: Catefood
-
-TABLE OF CONTENTS
-
-        + Global
-        + Header
-        + Header Content
-        + About Us
-        + Services
-        + Menu
-        + Portfolio
-        + Booking  
-        + Contacts    
+* Reb-Thai Restaurant CSS - Simple Version with Fade-Up Animation
+* Original design preserved with minimal, clean animations
 */
 
 @import 'reset.css';
@@ -23,9 +12,7 @@ TABLE OF CONTENTS
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Suranna&display=swap');
 
 /**************************************
-*
-*         GLOBAL 
-*
+*         GLOBAL
 ***************************************/
 
 :root {
@@ -49,6 +36,10 @@ TABLE OF CONTENTS
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 a {
@@ -191,6 +182,29 @@ h2 {
 	padding: 15px 20px;
 }
 
+/* SIMPLE FADE-UP ANIMATION */
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 @-webkit-keyframes load {
 	0% {
 		opacity: 0;
@@ -219,7 +233,7 @@ h2 {
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	background-color: #FF7F00;
+	background-color: #b74a01;
 	z-index: 100000;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -273,7 +287,6 @@ h2 {
 	text-align: center;
 }
 
-
 #openmenu,
 #closemenu {
 	font-size: 30px;
@@ -287,9 +300,7 @@ h2 {
 }
 
 /**************************************
-*
 *         HEADER 
-*
 ***************************************/
 
 header {
@@ -298,6 +309,7 @@ header {
 	left: 0;
 	right: 0;
 	z-index: 1000;
+	transition: all 0.3s ease;
 }
 
 .center {
@@ -318,6 +330,21 @@ header {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	transition: padding 0.3s ease;
+}
+
+.bg-header .wrapper-header {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#logo img {
+	width: 100px;
+	transition: width 0.3s ease;
+}
+
+.bg-header #logo img {
+	width: 75px;
 }
 
 #navigation {
@@ -337,6 +364,23 @@ header {
 	font-size: 25px;
 	font-family: 'Suranna', serif;
 	font-weight: 400;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.menu li a::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--color-red);
+	transition: width 0.3s ease;
+}
+
+.menu li a:hover::after {
+	width: 100%;
 }
 
 .social-link {
@@ -354,12 +398,11 @@ header {
 .menu li a:hover,
 .social-link li a:hover {
 	color: var(--color-red);
+	transform: translateY(-2px);
 }
 
 /**************************************
-*
 *         HEADER CONTENT 
-* 
 ***************************************/
 
 .wrapper-header-content {
@@ -381,9 +424,7 @@ header {
 }
 
 /**************************************
-*
 *         ABOUT US 
-* 
 ***************************************/
 
 #aboutus {
@@ -414,19 +455,15 @@ header {
 }
 
 /**************************************
-*
 *         SERVICES
-* 
 ***************************************/
 #services {
   background-image: url("./thai_food1.jpg");
-  background-repeat: no-repeat;   /* verhindert Kachelung */
-  background-size: cover;         /* füllt den Bereich, Bild kann beschnitten werden */
-  background-position: center;    /* mittig platzieren */
-  background-attachment: fixed;   /* Hintergrund bleibt beim Scrollen stehen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
-
-
 
 .wrapper-services > div {
 	width: calc(25% - 20px);
@@ -458,9 +495,7 @@ header {
 }
 
 /**************************************
-*
 *         MENU
-* 
 ***************************************/
 
 #menu {
@@ -509,10 +544,6 @@ header {
 	padding: 20px;
 }
 
-.item-product-img {
-	width: 20%;
-}
-
 .item-product-img > a {
 	position: relative;
 	max-width: 110px;
@@ -540,7 +571,7 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(255, 102, 0, 0.8);
+	background-color: rgba(183, 74, 1, 0.8);
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
@@ -617,16 +648,14 @@ header {
 }
 
 /**************************************
-*
 *         PORTFOLIO
-* 
 ***************************************/
 #portfolio {
   background-image: url("./thai_food2.jpg");
-  background-repeat: no-repeat;   /* verhindert Kachelung */
-  background-size: cover;         /* füllt den Bereich, Bild kann beschnitten werden */
-  background-position: center;    /* mittig platzieren */
-  background-attachment: fixed;   /* Hintergrund bleibt beim Scrollen stehen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .portfolio-grid {
@@ -647,7 +676,7 @@ header {
 
 .portfolio-card:hover {
 	transform: translateY(-10px);
-	box-shadow: 0 30px 60px rgba(255, 102, 0, 0.2);
+	box-shadow: 0 30px 60px rgba(183, 74, 1, 0.2);
 }
 
 .portfolio-card-inner {
@@ -679,7 +708,7 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: linear-gradient(45deg, rgba(255, 102, 0, 0.9), rgba(204, 85, 0, 0.8));
+	background: linear-gradient(45deg, rgba(183, 74, 1, 0.9), rgba(204, 85, 0, 0.8));
 	opacity: 0;
 	transition: opacity 0.4s ease;
 	display: flex;
@@ -761,72 +790,12 @@ header {
 	z-index: 10;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-	.portfolio-grid {
-		grid-template-columns: 1fr;
-		gap: 30px;
-	}
-
-	.portfolio-card-inner {
-		flex-direction: column;
-		min-height: auto;
-	}
-
-	.portfolio-image {
-		flex: 0 0 200px;
-	}
-
-	.portfolio-content {
-		padding: 30px 20px;
-	}
-
-	h2 {
-		font-size: 36px;
-	}
-
-	.suptitle {
-		font-size: 24px;
-	}
-}
-
-/* Animations */
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.portfolio-card {
-	animation: fadeInUp 0.6s ease forwards;
-}
-
-.portfolio-card:nth-child(1) {
-	animation-delay: 0.1s;
-}
-.portfolio-card:nth-child(2) {
-	animation-delay: 0.2s;
-}
-.portfolio-card:nth-child(3) {
-	animation-delay: 0.3s;
-}
-.portfolio-card:nth-child(4) {
-	animation-delay: 0.4s;
-}
-
 /**************************************
-*
 *         BOOKING
-* 
 ***************************************/
 
 #booking {
-  background: linear-gradient(135deg, #b74a01, #e67e22); /* dunkles Orange zu wärmerem Ton */
+  background: linear-gradient(135deg, #b74a01, #e67e22);
   background-position: center bottom;
   background-size: cover;
   background-attachment: fixed;
@@ -835,9 +804,6 @@ header {
   justify-content: center;
   padding: 40px 20px;
 }
-
-
-
 
 .wrapper-booking {
 	max-width: 1000px;
@@ -899,12 +865,6 @@ header {
 	border-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Full-width inputs */
-.wrapper-booking input.full-width {
-	width: calc(100% - 20px);
-}
-
-/* Spezielle Styles für Date und Time Inputs */
 .wrapper-booking input[type="date"], 
 .wrapper-booking input[type="time"] {
 	color: var(--color-white);
@@ -935,17 +895,6 @@ button[type='submit'] {
 	overflow: hidden;
 }
 
-button[type='submit']::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-	transition: left 0.5s;
-}
-
 button[type='submit']:hover {
 	border-color: var(--color-white);
 	background-color: rgba(255, 255, 255, 0.1);
@@ -953,62 +902,12 @@ button[type='submit']:hover {
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-button[type='submit']:hover::before {
-	left: 100%;
-}
-
 button[type='submit']:active {
 	transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-	.wrapper-booking input {
-		width: calc(100% - 20px);
-		margin: 0 0 20px 0;
-	}
-	
-	.booking-title {
-		font-size: 2rem;
-		margin-bottom: 30px;
-	}
-
-	button[type='submit'] {
-		width: 100%;
-		margin-top: 30px;
-	}
-
-	#booking {
-		padding: 20px;
-	}
-}
-
-@media (max-width: 480px) {
-	.booking-title {
-		font-size: 1.8rem;
-	}
-}
-
-/* Animationen */
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.wrapper-booking {
-	animation: fadeInUp 0.8s ease-out;
-}
-
 /**************************************
-*
 *         CONTACTS
-*
 ***************************************/
 
 #contacts {
@@ -1022,7 +921,7 @@ button[type='submit']:active {
 }
 
 .wrapper-contact > div {
-	width: 25%;
+	width: 33%;
 	padding: 20px;
 }
 
@@ -1067,3 +966,38 @@ button[type='submit']:active {
 	color: rgb(188, 188, 188);
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+	.wrapper-services > div {
+		width: calc(50% - 20px);
+	}
+	
+	.item-product {
+		width: calc(100% - 20px);
+	}
+	
+	.portfolio-grid {
+		grid-template-columns: 1fr;
+	}
+	
+	.portfolio-card-inner {
+		flex-direction: column;
+	}
+	
+	.wrapper-contact > div {
+		width: 100%;
+	}
+	
+	.wrapper-booking input {
+		width: calc(100% - 20px);
+		margin: 0 0 20px 0;
+	}
+	
+	h1 {
+		font-size: 50px;
+	}
+	
+	.menu li a {
+		font-size: 20px;
+	}
+}

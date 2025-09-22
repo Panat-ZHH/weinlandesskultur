@@ -112,9 +112,6 @@ window.addEventListener("load", function() {
     });
 });
 
-
-
-
 jQuery(document).ready(function () {
 	// Magnific Popup Menu
 	$('.image-popup-no-margins').magnificPopup({
@@ -122,75 +119,46 @@ jQuery(document).ready(function () {
 		closeOnContentClick: true,
 		closeBtnInside: false,
 		fixedContentPos: true,
-		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		mainClass: 'mfp-no-margins mfp-with-zoom',
 		image: {
 			verticalFit: true,
 		},
 		zoom: {
 			enabled: true,
-			duration: 300, // don't foget to change the duration also in CSS
+			duration: 300,
 		},
 	});
 
-	// Tabs Menu
-	$('.menu-list ul li a').click(function () {
-		$('.menu-list ul li a').removeClass('active');
-		$(this).addClass('active');
-	});
-
-	$('.menu-item > .item-list').not(':first-of-type').hide();
-	$('.menu-list ul li a').click(function (e) {
-		e.preventDefault();
-	});
-	$('.menu-list ul li').each(function (i) {
-		$(this).attr('data-tab', 'tab' + i);
-	});
-	$('.menu-item > .item-list').each(function (i) {
-		$(this).attr('data-tab', 'tab' + i);
-	});
-	$('.menu-list ul li').on('click', function () {
-		var datatab = $(this).data('tab');
-		$('.menu-item > .item-list').hide();
-		$('.menu-item > .item-list[data-tab=' + datatab + ']').show();
-	});
-
-	// Owl Carousel Portfolio
-	$('.portfolio-carousel').owlCarousel({
-		loop: true,
-		margin: 10,
-		nav: false,
-		dots: true,
-		responsive: {
-			0: {
-				items: 1,
-			},
-			600: {
-				items: 1,
-			},
-			1000: {
-				items: 1,
-			},
-		},
-	});
-
-	// Magnific Popup Video Portfolio
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
-		fixedContentPos: false,
-	});
+// MENU TABS - Einfache und funktionierende Implementierung
+$(document).ready(function() {
+    console.log("Menu tabs werden initialisiert...");
+    
+    // Menu Tab Click Handler
+    $('.menu-list ul li a').on('click', function(e) {
+        e.preventDefault();
+        
+        var targetTab = $(this).attr('data-tab');
+        console.log("Menu tab wurde geklickt:", targetTab);
+        
+        // Entferne active Klasse von allen Tab-Links
+        $('.menu-list ul li a').removeClass('active');
+        
+        // Füge active Klasse zum geklickten Link hinzu
+        $(this).addClass('active');
+        
+        // Entferne active Klasse von allen Content-Bereichen
+        $('.menu-tab-content').removeClass('active');
+        
+        // Füge active Klasse zum gewählten Content-Bereich hinzu
+        $('.menu-tab-content[data-tab="' + targetTab + '"]').addClass('active');
+    });
+});
 
 	// Scroll Top Button
 	$('#scroll-top').click(function () {
-		$('body,html').animate(
-			{
-				scrollTop: 0,
-			},
-			800,
-		);
+		$('body,html').animate({
+			scrollTop: 0,
+		}, 800);
 		return false;
 	});
 
@@ -213,60 +181,43 @@ jQuery(document).ready(function () {
 		}
 	});
 
-	// Scroll Menu
+	// Smooth Scroll Menu
 	$('.menu li a[href^="#"]').click(function (event) {
 		event.preventDefault();
 		var id = $(this).attr('href'),
 			top = $(id).offset().top;
-		$('body,html').animate(
-			{
-				scrollTop: top,
-			},
-			1500,
-		);
+		$('body,html').animate({
+			scrollTop: top,
+		}, 1500);
 	});
 
 	$('#logo[href^="#"], .header-content a[href^="#"]').click(function (event) {
 		event.preventDefault();
 		var id = $(this).attr('href'),
 			top = $(id).offset().top;
-		$('body,html').animate(
-			{
-				scrollTop: top,
-			},
-			1500,
-		);
+		$('body,html').animate({
+			scrollTop: top,
+		}, 1500);
 	});
-
-	
 
 	// Mobile Menu
 	$('#openmenu').click(function (event) {
 		event.preventDefault();
-		$('#navigation').animate(
-			{
-				left: 0,
-			},
-			800,
-		);
+		$('#navigation').animate({
+			left: 0,
+		}, 800);
 	});
 
 	$('#closemenu').click(function (event) {
 		event.preventDefault();
-		$('#navigation').animate(
-			{
-				left: '-320px',
-			},
-			800,
-		);
+		$('#navigation').animate({
+			left: '-320px',
+		}, 800);
 	});
 
 	$('#navigation a').on('click', function () {
-		$('#navigation').animate(
-			{
-				left: '-320px',
-			},
-			800,
-		);
+		$('#navigation').animate({
+			left: '-320px',
+		}, 800);
 	});
-}); // ready
+});
