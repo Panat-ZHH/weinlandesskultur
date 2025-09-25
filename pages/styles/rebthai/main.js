@@ -225,3 +225,71 @@ jQuery(document).ready(function () {
 		}, 800);
 	});
 });
+
+$(document).ready(function () {
+    // Responsive Navigation
+    const openmenu = $('#openmenu');
+    const closemenu = $('#closemenu');
+    const navigation = $('.menu');
+    const menuOverlay = $('#menuOverlay');
+    const header = $('header');
+    
+    // Open mobile menu
+    openmenu.on('click', function(e) {
+        e.preventDefault();
+        navigation.addClass('active');
+        menuOverlay.addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
+    
+    // Close mobile menu
+    function closeMenu() {
+        navigation.removeClass('active');
+        menuOverlay.removeClass('active');
+        $('body').css('overflow', 'auto');
+    }
+    
+    closemenu.on('click', function(e) {
+        e.preventDefault();
+        closeMenu();
+    });
+    
+    // Close menu when clicking overlay
+    menuOverlay.on('click', closeMenu);
+    
+    // Close menu when clicking navigation links (mobile only)
+    $('.menu a').on('click', function() {
+        if ($(window).width() <= 768) {
+            closeMenu();
+        }
+    });
+    
+    // Handle window resize
+    $(window).on('resize', function() {
+        if ($(window).width() > 768) {
+            closeMenu();
+        }
+    });
+
+    // Bestehende Funktionen bleiben erhalten...
+    
+    // Header background on scroll
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= 50) {
+            header.addClass('bg-header');
+        } else {
+            header.removeClass('bg-header');
+        }
+    });
+
+    // Smooth Scroll Menu
+    $('.menu li a[href^="#"]').click(function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            headerHeight = $('header').outerHeight(),
+            top = $(id).offset().top - headerHeight;
+        $('body,html').animate({
+            scrollTop: top,
+        }, 1500);
+    });
+});
