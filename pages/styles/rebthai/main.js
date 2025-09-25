@@ -129,30 +129,34 @@ jQuery(document).ready(function () {
 		},
 	});
 
-// MENU TABS - Einfache und funktionierende Implementierung
-$(document).ready(function() {
-    console.log("Menu tabs werden initialisiert...");
-    
-    // Menu Tab Click Handler
-    $('.menu-list ul li a').on('click', function(e) {
-        e.preventDefault();
-        
-        var targetTab = $(this).attr('data-tab');
-        console.log("Menu tab wurde geklickt:", targetTab);
-        
-        // Entferne active Klasse von allen Tab-Links
-        $('.menu-list ul li a').removeClass('active');
-        
-        // Füge active Klasse zum geklickten Link hinzu
-        $(this).addClass('active');
-        
-        // Entferne active Klasse von allen Content-Bereichen
-        $('.menu-tab-content').removeClass('active');
-        
-        // Füge active Klasse zum gewählten Content-Bereich hinzu
-        $('.menu-tab-content[data-tab="' + targetTab + '"]').addClass('active');
-    });
-});
+	// MENU TABS - Einfache und funktionierende Implementierung
+	$(document).ready(function() {
+		console.log("Menu tabs werden initialisiert...");
+		
+		// Zeige standardmäßig den ersten Tab (Vorspeisen)
+		$('.item-list').hide();
+		$('.item-list[data-tab="tab0"]').show();
+		
+		// Menu Tab Click Handler
+		$('.menu-list ul li a').on('click', function(e) {
+			e.preventDefault();
+			
+			var targetTab = $(this).attr('data-tab');
+			console.log("Menu tab wurde geklickt:", targetTab);
+			
+			// Entferne active Klasse von allen Tab-Links
+			$('.menu-list ul li a').removeClass('active');
+			
+			// Füge active Klasse zum geklickten Link hinzu
+			$(this).addClass('active');
+			
+			// Verstecke alle item-list Bereiche
+			$('.item-list').hide();
+			
+			// Zeige den gewählten item-list Bereich
+			$('.item-list[data-tab="' + targetTab + '"]').show();
+		});
+	});
 
 	// Scroll Top Button
 	$('#scroll-top').click(function () {

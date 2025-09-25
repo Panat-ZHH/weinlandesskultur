@@ -318,7 +318,7 @@ header {
 }
 
 .bg-header {
-	background-color: var(--color-dark);
+	background-color: #181818;
 }
 
 .wrapper-header {
@@ -907,64 +907,274 @@ button[type='submit']:active {
 }
 
 /**************************************
-*         CONTACTS
+*         CONTACTS - FINAL DESIGN
 ***************************************/
 
 #contacts {
-	background-color: #FFFFFF;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248, 249, 250, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="thai-pattern" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="2" fill="rgba(183,74,1,0.08)"/></pattern></defs><rect width="1200" height="600" fill="url(%23thai-pattern)"/></svg>');
+    background-size: cover, 40px 40px;
+    background-position: center, 0 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.wrapper-contact {
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
+#contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 249, 250, 0.9) 50%, rgba(255, 255, 255, 0.8) 100%);
+    z-index: 1;
 }
 
-.wrapper-contact > div {
-	width: 33%;
-	padding: 20px;
+.contact-header {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 80px;
 }
 
-.wrapper-contact > div .social-link {
-	margin-left: 0px;
+.contact-header h2 {
+    color: var(--color-dark);
 }
 
-.wrapper-contact > div .social-link li {
-	margin-left: 0px;
-	margin-right: 15px;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 60px;
 }
 
-.wrapper-contact > div p {
-	margin-bottom: 10px;
-	color: var(--color-gray);
+.contact-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(183, 74, 1, 0.15);
+    border-radius: 1px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(183, 74, 1, 0.1);
 }
 
-.wrapper-contact > div h3 {
-	font-size: 20px;
-	color: var(--color-dark);
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(183, 74, 1, 0.08), transparent);
+    transition: left 0.6s ease;
 }
 
-.wrapper-contact > div a {
-	color: var(--color-gray);
+.contact-card:hover::before {
+    left: 100%;
 }
 
-.wrapper-contact > div a:hover {
-	color: var(--color-red);
+.contact-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(183, 74, 1, 0.15);
+    border-color: var(--color-red);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, var(--color-red), #e67e22);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--color-white);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 8px 20px rgba(183, 74, 1, 0.2);
+}
+
+.contact-card h3 {
+    font-family: 'Suranna', serif;
+    font-size: 24px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.contact-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--color-red);
+    border-radius: 0px;
+    transition: width 0.3s ease;
+}
+
+.contact-card:hover h3::after {
+    width: 80px;
+}
+
+.contact-card p {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card a {
+    color: var(--color-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.contact-card a:hover {
+    color: var(--color-red);
+    transform: translateY(-1px);
+}
+
+.opening-hours {
+    background: linear-gradient(135deg, var(--color-red), #e67e22);
+    color: var(--color-white);
+    grid-column: span 3;
+    border: none;
+}
+
+.opening-hours h3,
+.opening-hours h3::after {
+    color: var(--color-white);
+}
+
+.opening-hours p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.opening-hours .contact-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.opening-hours .hours-section {
+    margin: 25px 0;
+}
+
+.opening-hours .hours-section h4 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+    font-family: 'Suranna', serif;
+}
+
+.time-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.time-block:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.day {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.time {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.wrapper-map {
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(183, 74, 1, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .wrapper-map iframe {
-	width: 100%;
-	height: 400px;
-	display: block;
+    width: 100%;
+    height: 400px;
+    display: block;
+    filter: grayscale(10%) contrast(1.05);
+    transition: filter 0.3s ease;
+}
+
+.wrapper-map:hover iframe {
+    filter: grayscale(0%) contrast(1.1);
 }
 
 .copyright {
-	background-color: var(--color-dark);
-	padding: 30px 15px;
-	text-align: center;
-	font-size: 14px;
-	color: rgb(188, 188, 188);
+    background-color: var(--color-dark);
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(188, 188, 188);
+    position: relative;
+    z-index: 2;
 }
+
+/* Responsive Design für Kontakt-Sektion */
+@media (max-width: 1200px) {
+    .opening-hours {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .opening-hours {
+        grid-column: span 1;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
+    
+    .contact-header h2 {
+        font-size: 32px;
+    }
+}
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1000,4 +1210,29 @@ button[type='submit']:active {
 	.menu li a {
 		font-size: 20px;
 	}
+}
+
+/* Menu Tab Ergänzungen - fügen Sie dies zu Ihrem bestehenden CSS hinzu */
+
+.menu-item .item-list {
+    display: none; /* Standardmäßig versteckt */
+}
+
+.menu-item .item-list:first-child {
+    display: flex; /* Erstes Element sichtbar */
+}
+
+.menu-list ul li a.active {
+    color: var(--color-white) !important;
+    background-color: var(--color-red) !important;
+    border: 1px solid var(--color-red) !important;
+}
+
+/* Wichtig: Stelle sicher, dass die item-product Elemente auch innerhalb versteckter Container sichtbar sind */
+.item-list .item-product {
+    display: flex !important;
+}
+
+.item-list.flex {
+    flex-wrap: wrap;
 }

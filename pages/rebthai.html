@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="styles/rebthai/Rebstock_Thai_Logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="styles/rebthai/style.css" />
     <link rel="stylesheet" href="styles/rebthai/responsive.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Preloader -->
@@ -102,362 +103,838 @@
                 </div>
             </section>
 
-            <!-- Menu -->
-            <section id="menu" class="ptb">
-                <div class="container align-center">
-                    <span class="suptitle fade-in">Unser Menü</span>
-                    <h2 class="fade-in">Speisekarte</h2>
+<!-- Menu -->
+<section id="menu" class="ptb">
+    <div class="container align-center">
+        <span class="suptitle fade-in">Unser Menü</span>
+        <h2 class="fade-in">Speisekarte</h2>
+    </div>
+    <div class="menu-list container flex">
+        <ul>
+            <li><a class="active" href="#" data-tab="tab0">Vorspeisen</a></li>
+            <li><a href="#" data-tab="tab1">Suppen</a></li>
+            <li><a href="#" data-tab="tab2">Kindermenü</a></li>
+            <li><a href="#" data-tab="tab3">Hauptgänge</a></li>
+        </ul>
+    </div>
+    <div class="menu-item container">
+        <!-- Vorspeisen -->
+        <div class="item-list flex" data-tab="tab0" style="display: flex;">
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-1.jpg">
+                        <img src="images/product-min-1.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
                 </div>
-                <div class="menu-list container flex">
-                    <ul>
-                        <li><a class="active" href="#" data-tab="tab0">Vorspeise</a></li>
-                        <li><a href="#" data-tab="tab1">Suppen</a></li>
-                        <li><a href="#" data-tab="tab2">Kindermenu</a></li>
-                        <li><a href="#" data-tab="tab3">Hauptgänge</a></li>
-                    </ul>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>01 Pho Pia Thod</h3>
+                        <span>€12.00</span>
+                    </div>
+                    <p>3 hausgemachte Gemüse Frühlingsrollen mit süss-saurer Sauce</p>
+                    <p class="menu-ingredients">Gemüse, Frühlingsrollenblatt, süss-saure Sauce</p>
                 </div>
-                <div class="menu-item container">
-                    <!-- Vorspeisen -->
-                    <div class="item-list flex" data-tab="tab0">
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-1.jpg">
-                                    <img src="images/product-min-1.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Pho Pia Thod</h3>
-                                    <span>€12.00</span>
-                                </div>
-                                <p>3 hausgemachte Gemüse Frühlingsrollen mit süss-saurer Sauce</p>
-                                <p class="menu-ingredients">Gemüse, Frühlingsrollenblatt, süss-saure Sauce</p>
-                            </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-2.jpg">
+                        <img src="images/product-min-2.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
                         </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-2.jpg">
-                                    <img src="images/product-min-2.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Gai Satay</h3>
-                                    <span>€13.00</span>
-                                </div>
-                                <p>3 hausgemachte Poulet Satay Spiessli mit Erdnusssauce</p>
-                                <p class="menu-ingredients">Poulet, Sataysauce, Erdnüsse</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-3.jpg">
-                                    <img src="images/product-min-3.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Thod Man Sam Sahai</h3>
-                                    <span>€13.00</span>
-                                </div>
-                                <p>3 gebratene Fischstäbchen mit roter Currypaste, grünen Bohnen und Kaffirblättern</p>
-                                <p class="menu-ingredients">Fisch, rote Currypaste, Kaffirblätter, Bohnen</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-4.jpg">
-                                    <img src="images/product-min-4.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Phuket Schmetterling</h3>
-                                    <span>€15.00</span>
-                                </div>
-                                <p>3 hausgemachte Crevetten frittiert im Teigkleid – serviert mit süss-saurer Sauce</p>
-                                <p class="menu-ingredients">Crevetten, Teig, süss-saure Sauce</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-5.jpg">
-                                    <img src="images/product-min-5.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Gebratener Tofu 🌿</h3>
-                                    <span>€13.00</span>
-                                </div>
-                                <p>Serviert mit süss-saurer Sauce</p>
-                                <p class="menu-ingredients">Tofu, süss-saure Sauce</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-6.jpg">
-                                    <img src="images/product-min-6.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Reb-Thai Ruammit (ab 2 Pers.)</h3>
-                                    <span>€26.00</span>
-                                </div>
-                                <p>
-                                    Gemischte Vorspeisenplatte: 2 Frühlingsrollen, 2 Poulet Spiessli, 2 Fischstäbchen und gebratener
-                                    Tofu mit verschiedenen Saucen
-                                </p>
-                                <p class="menu-ingredients">Gemüse, Poulet, Fisch, Tofu, Dipsaucen</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-6.jpg">
-                                    <img src="images/product-min-6.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Som Tam Thai 🌶️</h3>
-                                    <span>€18 / 28</span>
-                                </div>
-                                <p>Papayasalat mit Kohlrabi, Chili, Knoblauch, Crevetten, Limetten, Cherry-Tomaten und Erdnüssen</p>
-                                <p class="menu-ingredients">Grüne Papaya, Crevetten, Limette, Erdnüsse, Tomaten, Chili</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-6.jpg">
-                                    <img src="images/product-min-6.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Panierte Crevetten (4 Stk.)</h3>
-                                    <span>€13.00</span>
-                                </div>
-                                <p>Serviert mit süss-saurer Sauce</p>
-                                <p class="menu-ingredients">Crevetten, Panade, süss-saure Sauce</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-6.jpg">
-                                    <img src="images/product-min-6.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Yam Wun Sen 🌶️</h3>
-                                    <span>€15.00</span>
-                                </div>
-                                <p>
-                                    Glasnudelsalat mit Chili, Cashewnüssen, Zwiebeln, Koriander und Cherry-Tomaten, serviert mit
-                                    Limettensaft und Crevetten
-                                </p>
-                                <p class="menu-ingredients">Glasnudeln, Crevetten, Cashewnüsse, Limette, Chili, Koriander</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-6.jpg">
-                                    <img src="images/product-min-6.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Yam Mamuang 🌿</h3>
-                                    <span>€13.00</span>
-                                </div>
-                                <p>Grüner Mangosalat mit roten Zwiebeln, Chili und Cashewnüssen</p>
-                                <p class="menu-ingredients">Grüne Mango, Zwiebeln, Cashewnüsse, Chili</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Suppen -->
-                    <div class="item-list flex" data-tab="tab1" style="display: none;">
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-3.jpg">
-                                    <img src="images/product-min-3.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Tom Yam 🌶️</h3>
-                                    <span>€17 / 27</span>
-                                </div>
-                                <p>
-                                    Sauer-scharf Suppe mit Kokosmilch, Kaffirblättern, Zitronengras, Limettensaft, Chili, Tomaten,
-                                    Pilzen und Korianderblättern
-                                </p>
-                                <p class="menu-ingredients">
-                                    Kokosmilch, Chili, Zitronengras, Kaffirblätter, Tomaten, Limette, Koriander
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-4.jpg">
-                                    <img src="images/product-min-4.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Tom Kha Gai 🌿</h3>
-                                    <span>€17 / 27</span>
-                                </div>
-                                <p>
-                                    Kokosmilchsuppe mit Pouletstreifen und frischen Pilzen, Zitronengras, Galanga-Wurzel,
-                                    Kaffirlimettenblätter, Chili und Limettensaft
-                                </p>
-                                <p class="menu-ingredients">
-                                    Poulet, Kokosmilch, Galanga, Kaffirlimette, Zitronengras, Pilze, Limette
-                                </p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-5.jpg">
-                                    <img src="images/product-min-5.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Tom Kha Vegi 🌿</h3>
-                                    <span>€14 / 24</span>
-                                </div>
-                                <p>
-                                    Kokosmilchsuppe mit frischen Pilzen, Gemüse, Zitronengras, Galanga-Wurzel, Kaffirlimettenblätter,
-                                    Chili und Limettensaft
-                                </p>
-                                <p class="menu-ingredients">
-                                    Kokosmilch, Gemüse, Pilze, Zitronengras, Galanga, Kaffirlimette, Limette, Chili
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kindermenü -->
-                    <div class="item-list flex" data-tab="tab2" style="display: none;">
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-3.jpg">
-                                    <img src="images/product-min-3.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Gebratener Reis</h3>
-                                    <span>€13</span>
-                                </div>
-                                <p>Mit Ei und Gemüse oder Poulet</p>
-                                <p class="menu-ingredients">Jasminreis, Ei, Gemüse oder Poulet, Sojasauce</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-4.jpg">
-                                    <img src="images/product-min-4.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Pouletspiessli</h3>
-                                    <span>€13</span>
-                                </div>
-                                <p>2 Pouletspiessli mit Erdnusssauce, serviert mit Jasminreis und Gemüse</p>
-                                <p class="menu-ingredients">Poulet, Erdnusssauce, Jasminreis, Gemüse</p>
-                            </div>
-                        </div>
-                        <div class="item-product flex">
-                            <div class="item-product-img">
-                                <a class="image-popup-no-margins" href="images/product-big-4.jpg">
-                                    <img src="images/product-min-4.jpg" alt="" />
-                                    <div class="icon-search flex">
-                                        <i class="fas fa-search-plus"></i>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item-product-text">
-                                <div class="menu-title flex">
-                                    <h3>Gebratene Nudeln</h3>
-                                    <span>€13</span>
-                                </div>
-                                <p>Mit Gemüse oder Poulet</p>
-                                <p class="menu-ingredients">Eiernudeln, Sojasauce, Gemüse oder Poulet</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hauptgänge -->
-                    <div class="item-list" data-tab="tab3" style="display: none;">
-                        <div class="center">
-                            <img src="./styles/rebthai/speisekarten/hauptgang.png" alt="" width="800px" />
-                        </div>
-                    </div>
+                    </a>
                 </div>
-
-                <div class="center">
-                    <button class="karte-btn">
-                        <a style="color: white" href="./styles/rebthai/speisekarten/mittagsmenu.pdf">Mittagskarte</a>
-                    </button>
-                    <button class="karte-btn">
-                        <a style="color: white" href="./styles/rebthai/speisekarten/dessert.svg">Dessertkarte</a>
-                    </button>
-                    <button class="karte-btn">
-                        <a style="color: white" href="./styles/rebthai/speisekarten/speisekarte.svg">Speisekarte</a>
-                    </button>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>02 Gai Satay</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>3 hausgemachte Poulet Satay Spiessli mit Erdnusssauce</p>
+                    <p class="menu-ingredients">Poulet, Sataysauce, Erdnüsse</p>
                 </div>
-            </section>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>03 Thod Man Sam Sahai</h3>
+                        <span>€12.00</span>
+                    </div>
+                    <p>3 gebratene Fischstäbchen mit roter Currypaste, grünen Bohnen und Kaffirblättern</p>
+                    <p class="menu-ingredients">Fisch, rote Currypaste, Kaffirblätter, Bohnen</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-4.jpg">
+                        <img src="images/product-min-4.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>04 Phuket Schmetterling</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>3 hausgemachte Crevetten frittiert im Teigkleid – serviert mit süss-saurer Sauce</p>
+                    <p class="menu-ingredients">Crevetten, Teig, süss-saure Sauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-5.jpg">
+                        <img src="images/product-min-5.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>05 Gebratener Tofu 🌿</h3>
+                        <span>€12.00</span>
+                    </div>
+                    <p>Serviert mit süss-saurer Sauce</p>
+                    <p class="menu-ingredients">Tofu, süss-saure Sauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-6.jpg">
+                        <img src="images/product-min-6.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>06 Reb-Thai Ruammit (ab 2 Pers.)</h3>
+                        <span>€26.00</span>
+                    </div>
+                    <p>
+                        Gemischte Vorspeisenplatte: 2 Frühlingsrollen, 2 Poulet Spiessli, 2 Fischstäbchen und gebratener Tofu mit verschiedenen Saucen
+                    </p>
+                    <p class="menu-ingredients">Gemüse, Poulet, Fisch, Tofu, Dipsaucen</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-6.jpg">
+                        <img src="images/product-min-6.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>10 Som Tam Thai 🌶️</h3>
+                        <span>€18.00</span>
+                    </div>
+                    <p>Papayasalat mit Kohlrabi, Chili, Schlangenbohnen, Limetten, Cherry-Tomaten und Erdnüssen</p>
+                    <p class="menu-ingredients">Grüne Papaya, Limette, Erdnüsse, Tomaten, Chili</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-6.jpg">
+                        <img src="images/product-min-6.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>11 Panierte Crevetten (4 Stk.)</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>Serviert mit süss-saurer Sauce</p>
+                    <p class="menu-ingredients">Crevetten, Panade, süss-saure Sauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-6.jpg">
+                        <img src="images/product-min-6.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>12 Yam Wun Sen 🌶️</h3>
+                        <span>€15.00</span>
+                    </div>
+                    <p>
+                        Glasnudelsalat mit Chili, Cashewnüssen, Zwiebeln, Koriander und Cherrytomaten mit Crevetten und Poulet
+                    </p>
+                    <p class="menu-ingredients">Glasnudeln, Crevetten, Poulet, Cashewnüsse, Limette, Chili, Koriander</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-6.jpg">
+                        <img src="images/product-min-6.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>13 Yam Mamuang 🌿</h3>
+                        <span>€18.00</span>
+                    </div>
+                    <p>Grüner Mangosalat mit roten Zwiebeln, Chili und Cashewnüssen</p>
+                    <p class="menu-ingredients">Grüne Mango, Zwiebeln, Cashewnüsse, Chili</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>37 Panang Ped 🌶️</h3>
+                        <span>€37.00</span>
+                    </div>
+                    <p>Grillierte Entenbrust in Panang Curry, Chilisoßen, Kaffirblättern an Kokosschaum sauce</p>
+                    <p class="menu-ingredients">Entenbrust, Panang Curry, Chili, Kaffirblätter</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>38 Gäng Phet Pet Yang 🌶️</h3>
+                        <span>€37.00</span>
+                    </div>
+                    <p>Grillierte Entenbrust in rotem Curry, Mint-Auberginen, Ananas, Cherrytomaten, Kaffirblättern, Schlangenbohnen, Thai-Basilikum an Kokosmilchsauce</p>
+                    <p class="menu-ingredients">Entenbrust, rotes Curry, Ananas, Thai-Basilikum</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>39 Thai Thai</h3>
+                        <span>€36.00</span>
+                    </div>
+                    <p>Klebreis und Papayasalat mit gegrilltem Fleisch</p>
+                    <p class="menu-ingredients">Klebreis, Papayasalat, gegrilltes Fleisch</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>40 Süss and Sauer</h3>
+                        <span>€32.00</span>
+                    </div>
+                    <p>Süss-saure Sauce, Zwiebelstreifen, Ananas, Peperoni und Tomaten</p>
+                    <p class="menu-ingredients">Süss-saure Sauce, Zwiebeln, Ananas, Peperoni</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>41 Phad Khing</h3>
+                        <span>€32.00</span>
+                    </div>
+                    <p>Gebratenes Fleisch oder Tofu mit Ingwer und Peperoni an Austernsauce</p>
+                    <p class="menu-ingredients">Fleisch oder Tofu, Ingwer, Peperoni, Austernsauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>42 Reb-Thai Spaghetti 🌶️</h3>
+                        <span>€32.00</span>
+                    </div>
+                    <p>Würzige Spaghetti, Austernsauce, frische Peperli, Chili, Thai-Basilikum</p>
+                    <p class="menu-ingredients">Spaghetti, Austernsauce, Peperoni, Thai-Basilikum</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>43 Reb-Thai Omelette</h3>
+                        <span>€19.00</span>
+                    </div>
+                    <p>Mit Frühlingswiebeln, Zitronensaft, Sojasauce und Pfeffer</p>
+                    <p class="menu-ingredients">Ei, Frühlingswiebeln, Zitronensaft, Sojasauce</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suppen -->
+        <div class="item-list flex" data-tab="tab1" style="display: none;">
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>07 Tom Yam 🌶️</h3>
+                        <span>€17.00 / €27.00</span>
+                    </div>
+                    <p>
+                        Sauer-scharf Suppe mit Kokosmilch, Kaffirblättern, Zitronengras, Limettensaft, Chili, Tomaten, Pilzen und Korianderblättern
+                    </p>
+                    <p class="menu-ingredients">
+                        Kokosmilch, Chili, Zitronengras, Kaffirblätter, Tomaten, Limette, Koriander
+                    </p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-4.jpg">
+                        <img src="images/product-min-4.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>08 Tom Kha Gai 🌿</h3>
+                        <span>€17.00 / €27.00</span>
+                    </div>
+                    <p>
+                        Kokosmilchsuppe mit Pouletstreifen und frischen Pilzen, Zitronengras, Galanga-Wurzelstreifen, Kaffirlimettenblätter, Chili und Limettensaft
+                    </p>
+                    <p class="menu-ingredients">
+                        Poulet, Kokosmilch, Galanga, Kaffirlimette, Zitronengras, Pilze, Limette
+                    </p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-5.jpg">
+                        <img src="images/product-min-5.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>09 Tom Kha Vegi 🌿</h3>
+                        <span>€14.00 / €24.00</span>
+                    </div>
+                    <p>
+                        Kokosmilchsuppe mit frischen Pilzen, Gemüse, Zitronengras, Galanga-Wurzelstreifen, Kaffirlimettenblätter, Chili und Limettensaft
+                    </p>
+                    <p class="menu-ingredients">
+                        Kokosmilch, Gemüse, Pilze, Zitronengras, Galanga, Kaffirlimette, Limette, Chili
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kindermenü -->
+        <div class="item-list flex" data-tab="tab2" style="display: none;">
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>100 Gebratener Reis</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>Mit Ei und Pouletfleisch</p>
+                    <p class="menu-ingredients">Jasminreis, Ei, Poulet, Sojasauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-4.jpg">
+                        <img src="images/product-min-4.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>101 Pouletspiessli (3 Stk.)</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>Serviert mit Jasminreis und Erdnusssauce</p>
+                    <p class="menu-ingredients">Poulet, Erdnusssauce, Jasminreis</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-4.jpg">
+                        <img src="images/product-min-4.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>102 Gebratene Nudeln</h3>
+                        <span>€13.00</span>
+                    </div>
+                    <p>Mit Gemüse oder Poulet</p>
+                    <p class="menu-ingredients">Eiernudeln, Sojasauce, Gemüse oder Poulet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hauptgänge -->
+        <div class="item-list flex" data-tab="tab3" style="display: none;">
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>20 Lab Gai 🌶️</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Gehacktes Pouletfleisch, gemischt mit getrockneten Chilis, Zwiebeln, Mintblätter und Koriander</p>
+                    <p class="menu-ingredients">Poulet, Chili, Zwiebeln, Minze, Koriander</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>21 Phat Nue Namman Hoi</h3>
+                        <span>€30.00</span>
+                    </div>
+                    <p>Im Wok gebratenes Rindfleisch mit Zwiebeln, Paprika an Austernsauce</p>
+                    <p class="menu-ingredients">Rindfleisch, Zwiebeln, Paprika, Austernsauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>22 Massaman 🌶️</h3>
+                        <span>€30.00</span>
+                    </div>
+                    <p>Leicht scharfes Fleisch, Mintblätter, Petersilie, Koriander, Frühlingszwiebeln, Zitronengras</p>
+                    <p class="menu-ingredients">Fleisch, Massaman-Paste, Kokosmilch, Kartoffeln</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>23 Yam Wun Sen 🌶️</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Glasnudelsalat mit Crevetten, Chili, Cashewnüssen, Zwiebeln, Koriander und Cherrytomaten</p>
+                    <p class="menu-ingredients">Glasnudeln, Crevetten, Cashewnüsse, Chili</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>24 Phad See Ew 🌿</h3>
+                        <span>€25.00</span>
+                    </div>
+                    <p>Gebratene Nudeln mit Gemüse, Eiern (optional) und Zitrone</p>
+                    <p class="menu-ingredients">Breite Nudeln, Gemüse, Ei, dunkle Sojasauce</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>25 Phad Pak Ruam 🌿</h3>
+                        <span>€24.00</span>
+                    </div>
+                    <p>Im Wok gebratenes Gemüse an leichter Sojasauce</p>
+                    <p class="menu-ingredients">Gemischtes Gemüse, Sojasauce, Knoblauch</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>26 Phad Himmaphan 🌶️</h3>
+                        <span>€28.00</span>
+                    </div>
+                    <p>Im Wok gebratene Gemüse, Pilze und Cashewnüssen</p>
+                    <p class="menu-ingredients">Fleisch, Cashewnüsse, Gemüse, Chili</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>27 Phad Bai Krapao 🌶️</h3>
+                        <span>€28.00</span>
+                    </div>
+                    <p>Im Wok gebratene Chili, Thai-Basilikum, Schlangenbohnen an leichter Sojasauce</p>
+                    <p class="menu-ingredients">Fleisch, Thai-Basilikum, Chili, Bohnen</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>28 Phad Thai 🌿</h3>
+                        <span>€26.00</span>
+                    </div>
+                    <p>Thai-gebratene Reisnudeln mit Frühlingswiebeln, Soja-Sprossen, Ei und Erdnüssen</p>
+                    <p class="menu-ingredients">Reisnudeln, Ei, Tamarinde, Erdnüsse</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>29 Phad Thai Ho Khai 🌿</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Im Wok gebratene Reisnudeln mit Frühlingswiebeln, umwickelt mit Ei-Omelette</p>
+                    <p class="menu-ingredients">Reisnudeln, Ei-Omelette, Frühlingswiebeln</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>30 Khao Phad 🌿</h3>
+                        <span>€24.00</span>
+                    </div>
+                    <p>Gebratener Reis mit Ei und Gemüse</p>
+                    <p class="menu-ingredients">Jasminreis, Ei, Gemüse</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>31a Gaeng Khuea Sapparod 🌶️</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Rotes Khuea Curry mit frischen Ananas, Kokosmilch und Thai-Basilikum</p>
+                    <p class="menu-ingredients">Rote Currypaste, Ananas, Kokosmilch, Thai-Basilikum</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>31b Gaeng Gai-Satay</h3>
+                        <span>€30.00</span>
+                    </div>
+                    <p>Poulet in Erdnusssauce an roter Currypaste, Kokosmilch, Chili und Zitronengras</p>
+                    <p class="menu-ingredients">Poulet, Erdnusssauce, rote Currypaste, Kokosmilch</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>32 Phad Prik Kaeng Kai 🌶️</h3>
+                        <span>€30.00</span>
+                    </div>
+                    <p>Pouletfleisch mit rotem Curry, Chili, Bambus und Schlangenbohnen mit frischen Pfeffer</p>
+                    <p class="menu-ingredients">Poulet, rote Currypaste, Bambus, Schlangenbohnen</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>33A Gelbes Curry mit Ananas</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Ananas, Zitronengras, Zwiebeln und Kokosmilch</p>
+                    <p class="menu-ingredients">Gelbe Currypaste, Ananas, Kokosmilch, Zwiebeln</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>33B Gelbes Curry mit Lichi</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Mit Kurkuma, Zitronenblätter und Kartoffeln</p>
+                    <p class="menu-ingredients">Gelbe Currypaste, Lichi, Kurkuma, Kartoffeln</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>34A Massaman mit Kartoffeln</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Massaman Curry mit Zwiebeln, Erdnüssen</p>
+                    <p class="menu-ingredients">Massaman-Paste, Kartoffeln, Zwiebeln, Erdnüsse</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>34B Massaman mit Marroni</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Massaman Curry mit Zwiebeln, Erdnüssen</p>
+                    <p class="menu-ingredients">Massaman-Paste, Marroni, Zwiebeln, Erdnüsse</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>35 Gaeng Daeng</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Rotes Curry mit Bambus, Kokosmilch, Kaffirblättern, Schlangenbohnen, Thai-Basilikum</p>
+                    <p class="menu-ingredients">Rote Currypaste, Bambus, Kokosmilch, Thai-Basilikum</p>
+                </div>
+            </div>
+            <div class="item-product flex">
+                <div class="item-product-img">
+                    <a class="image-popup-no-margins" href="images/product-big-3.jpg">
+                        <img src="images/product-min-3.jpg" alt="" />
+                        <div class="icon-search flex">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="item-product-text">
+                    <div class="menu-title flex">
+                        <h3>36 Gaeng Khiaw Wan 🌶️</h3>
+                        <span>€29.00</span>
+                    </div>
+                    <p>Grünes Curry mit Kaffirblättern, Kokosmilch, Schlangenbohnen, Thai-Auberginen</p>
+                    <p class="menu-ingredients">Grüne Currypaste, Kokosmilch, Thai-Auberginen</p>
+            </div>
+    </div>
+	</div>
+	    <div class="center">
+        <button class="karte-btn">
+            <a style="color: white" href="./styles/rebthai/speisekarten/mittagsmenu.pdf">Mittagskarte</a>
+        </button>
+        <button class="karte-btn">
+            <a style="color: white" href="./styles/rebthai/speisekarten/dessert.svg">Dessertkarte</a>
+        </button>
+        <button class="karte-btn">
+            <a style="color: white" href="./styles/rebthai/speisekarten/speisekarte.svg">Speisekarte</a>
+        </button>
+    </div>
+</section>
 
             <!-- Portfolio -->
             <section id="portfolio" class="ptb">
@@ -585,42 +1062,91 @@
 
         <footer>
             <!-- Contacts -->
-            <div id="contacts" class="ptb">
-                <div class="container">
-                    <span class="suptitle fade-in">Adresse</span>
-                    <h2 class="fade-in">Kontakt</h2>
+           <!-- Contacts -->
+<!-- Contacts -->
+<div id="contacts" class="ptb">
+    <div class="container">
+        <div class="contact-header">
+            <span class="suptitle fade-in">Adresse</span>
+            <h2 class="fade-in">Kontakt</h2>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
                 </div>
-                <div class="container wrapper-contact flex">
-                    <div class="fade-in">
-                        <h3>Unsere Location</h3>
-                        <p>Landstrasse 35, 8450 Andelfingen</p>
+                <h3>Unsere Location</h3>
+                <p>Landstrasse 35<br>8450 Andelfingen</p>
+                <a href="https://maps.google.com/?q=Landstrasse+35,+8450+Andelfingen" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Auf Karte anzeigen
+                </a>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Telefon</h3>
+                <p><a href="tel:+41523172525">+41 52 317 25 25</a></p>
+                <p><small>Für Reservierungen & Take-Away</small></p>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:restaurant@rebstock-thai.ch">restaurant@rebstock-thai.ch</a></p>
+                <p><small>Für Catering-Anfragen</small></p>
+            </div>
+
+            <div class="contact-card opening-hours fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Öffnungszeiten</h3>
+                
+                <div class="hours-section">
+                    <h4>Restaurant</h4>
+                    <div class="time-block">
+                        <span class="day">Dienstag - Freitag</span>
+                        <span class="time">11:00 - 14:00 & 17:00 - 22:00</span>
                     </div>
-                    <div class="fade-in">
-                        <h3>Kontakt</h3>
-                        <p><a href="tel:+41523172525">+41 52 317 25 25</a></p>
-                        <p><a href="mailto:restaurant@rebstock-thai.ch">restaurant@rebstock-thai.ch</a></p>
+                    <div class="time-block">
+                        <span class="day">Samstag</span>
+                        <span class="time">17:00 - 22:30</span>
                     </div>
-                    <div class="fade-in">
-                        <h3>Datenschutz</h3>
-                        <p><a href="./AGB/RepthaiAGB.html">AGB & Datenschutz</a></p>
+                    <div class="time-block">
+                        <span class="day">Sonntag & Montag</span>
+                        <span class="time">Geschlossen</span>
                     </div>
-                    <div class="fade-in">
-                        <h3>Öffnungszeiten</h3>
-                        <p>Dienstag – Freitag: 11.00 - 14.00 Uhr, 17.00 - 22.00 Uhr</p>
-                        <p>Samstag: 17.00 - 22.30 Uhr</p>
+                </div>
+                
+                <div class="hours-section">
+                    <h4>Küche</h4>
+                    <div class="time-block">
+                        <span class="day">Dienstag - Freitag</span>
+                        <span class="time">11:30 - 13:30 & 17:30 - 21:00</span>
                     </div>
-                    <div class="fade-in">
-                        <h3>Öffnungszeiten Küche</h3>
-                        <p>Dienstag – Freitag: 11.30 - 13.30 Uhr, 17.30 - 21.00 Uhr</p>
-                        <p>Samstag: 17.00 - 21.00 Uhr</p>
+                    <div class="time-block">
+                        <span class="day">Samstag</span>
+                        <span class="time">17:00 - 21:00</span>
+                    </div>
+                    <div class="time-block">
+                        <span class="day">Sonntag & Montag</span>
+                        <span class="time">Geschlossen</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
             <div class="wrapper-map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2690.710220704826!2d8.678786299999999!3d47.5928782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a9ccb2fdcec27%3A0x6efa83aa376ccce1!2sRebstock%20Reb-Thai%20-%20Thail%C3%A4ndisches%20Restaurant%20%2F%20Take%20Away!5e0!3m2!1sen!2sch!4v1751628409162!5m2!1sen!2sch"
-                    style="border: 0"
+                    style="border: 0; border-radius: 0;"
                     allowfullscreen=""
                     loading="lazy"
                 ></iframe>
@@ -695,5 +1221,57 @@
             }
         });
     </script>
+<script>
+// Alternative Menu Tab Lösung - Vanilla JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Menu tabs werden mit Vanilla JS initialisiert...');
+    
+    // Alle Tab-Links und Content-Bereiche auswählen
+    const tabLinks = document.querySelectorAll('.menu-list ul li a');
+    const tabContents = document.querySelectorAll('.item-list');
+    
+    // Standardmäßig alle Inhalte verstecken außer dem ersten
+    tabContents.forEach((content, index) => {
+        if (index === 0) {
+            content.style.display = 'flex';
+        } else {
+            content.style.display = 'none';
+        }
+    });
+    
+    // Event Listener für jeden Tab-Link
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetTab = this.getAttribute('data-tab');
+            console.log('Tab geklickt:', targetTab);
+            
+            // Alle Links als inaktiv markieren
+            tabLinks.forEach(l => l.classList.remove('active'));
+            
+            // Aktuellen Link als aktiv markieren
+            this.classList.add('active');
+            
+            // Alle Content-Bereiche verstecken
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Gewählten Content-Bereich anzeigen
+            const targetContent = document.querySelector(`.item-list[data-tab="${targetTab}"]`);
+            if (targetContent) {
+                // Für Container mit flex-Layout (Vorspeisen, Suppen, Kindermenü)
+                if (targetContent.classList.contains('flex')) {
+                    targetContent.style.display = 'flex';
+                } else {
+                    // Für andere Container (Hauptgänge)
+                    targetContent.style.display = 'block';
+                }
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>
