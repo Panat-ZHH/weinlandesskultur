@@ -586,4 +586,17 @@ Regulatorik, Governance &amp; Datenschutz (DSB); Schulungen; internationale Zusa
     </div>
   </div>
 </footer>
+<script>
+	// Füge dies zu deinem JavaScript hinzu
+window.addEventListener('scroll', function() {
+	const navbar = document.querySelector('.navbar');
+	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	
+	if (scrollTop > 50) {
+		navbar.classList.add('scrolled');
+	} else {
+		navbar.classList.remove('scrolled');
+	}
+});
+</script>
 </html>
