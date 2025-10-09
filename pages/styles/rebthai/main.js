@@ -56,7 +56,7 @@ window.addEventListener("load", function() {
         // Dienstag – Freitag: 11:00 - 14:00 & 17:30 - 22:00
         if (day >= 2 && day <= 5) {
             if ((totalMinutes >= 11*60 && totalMinutes <= 14*60) ||
-                (totalMinutes >= 17*60+30 && totalMinutes <= 22*60)) {
+                (totalMinutes >= 17*60+30 && totalMinutes <= 21*60)) {
                 return true;
             }
         }
@@ -83,8 +83,8 @@ window.addEventListener("load", function() {
             showPopup(`
                 <h3 style="color:red;">⚠️ Außerhalb der Öffnungszeiten</h3>
                 <p>Unsere Reservierungszeiten sind:</p>
-                <p>Dienstag – Freitag: 11:00 - 14:00 & 17:30 - 22:00<br>
-                Samstag: 17:00 - 23:00</p>
+                <p>Dienstag – Freitag: 11:00 - 14:00 & 17:30 - 21:00<br>
+                Samstag: 17:00 - 21:00</p>
             `, "#f44336");
             return;
         }
@@ -94,7 +94,7 @@ window.addEventListener("load", function() {
         .then(function(response) {
             console.log("✅ EmailJS Response:", response);
             showPopup(`
-                <h3 style="color:green;">✅ Reservierung erfolgreich!</h3>
+                <h3 style="color:green;">✅ Reservierungsanfrage verschickt!</h3>
                 <p><strong>Name:</strong> ${fullName}</p>
                 <p><strong>Telefon:</strong> ${phone}</p>
                 <p><strong>Personen:</strong> ${guests}</p>
