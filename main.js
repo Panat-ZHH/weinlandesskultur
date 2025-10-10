@@ -118,10 +118,10 @@ window.addEventListener('scroll', function () {
 	const currentScroll = window.pageYOffset;
 
 	if (currentScroll > 100) {
-		navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+		navbar.style.background = 'rgba(107, 93, 79, 0.95)';
 		navbar.style.backdropFilter = 'blur(25px)';
 	} else {
-		navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+		navbar.style.background = 'rgba(107, 93, 79, 0.95)';
 		navbar.style.backdropFilter = 'blur(20px)';
 	}
 

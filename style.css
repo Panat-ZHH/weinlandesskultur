@@ -314,7 +314,7 @@ body {
 
 .cta-button {
 	padding: 1.2rem 3rem;
-	background: linear-gradient(135deg, #6B5D4F 0%, #8B7355 100%);
+	background: var(--primary-dark);
 	color: #FFFFFF;
 	text-decoration: none;
 	font-weight: 600;

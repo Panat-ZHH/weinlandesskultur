@@ -19,36 +19,36 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #0c0b09; /* Background color for the entire website, including individual sections */
-  --default-color: rgba(255, 255, 255, 0.7); /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #cda45e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #29261f; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #0c0b09; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff; /* Reines Weiß als Haupthintergrund */
+  --default-color: rgba(60, 60, 60, 0.85); /* Sanftes Dunkelgrau für Text */
+  --heading-color: #2d2d2d; /* Kräftiges Dunkelgrau für Überschriften */
+  --accent-color: #d4a574; /* Warmes, helles Gold */
+  --surface-color: #f9f7f4; /* Sehr helles Beige für Boxen */
+  --contrast-color: #ffffff; /* Weiß für Kontrast */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #cda45e; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #29261f; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #29261f; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #ffffff; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #cda45e; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #2d2d2d;  /* Dunkel für Navigation */
+  --nav-hover-color: #d4a574; /* Warmes Gold beim Hover */
+  --nav-mobile-background-color: #ffffff; /* Weiß für mobile Navigation */
+  --nav-dropdown-background-color: #ffffff; /* Weiß für Dropdown */
+  --nav-dropdown-color: #2d2d2d; /* Dunkel für Dropdown-Text */
+  --nav-dropdown-hover-color: #d4a574; /* Warmes Gold beim Hover */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #29261f;
-  --surface-color: #464135;
+  --background-color: #f9f7f4;
+  --surface-color: #ffffff;
 }
 
 .dark-background {
-  --background-color: #000000;
+  --background-color: #2d2d2d;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #1a1a1a;
+  --surface-color: #3d3d3d;
   --contrast-color: #ffffff;
 }
 
@@ -222,10 +222,11 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(12, 11, 9, 0.61);
+  --background-color: rgba(255, 255, 255, 0.98);
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .header .topbar {
@@ -297,7 +298,7 @@ h6 {
   min-height: 60px;
   padding: 10px 0;
   transition: 0.3s;
-  border-bottom: 1px solid var(--background-color);
+  border-bottom: 1px solid #ede8e0;
 }
 
 .header .logo {
@@ -318,7 +319,8 @@ h6 {
 
 .header .btn-book-a-table,
 .header .btn-book-a-table:focus {
-  color: var(--default-color);
+  color: #ffffff;
+  background: var(--accent-color);
   border: 2px solid var(--accent-color);
   text-transform: uppercase;
   font-size: 14px;
@@ -330,8 +332,8 @@ h6 {
 
 .header .btn-book-a-table:hover,
 .header .btn-book-a-table:focus:hover {
-  color: var(--default-color);
-  background: var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
 }
 
 .scrolled .header .topbar {
@@ -347,7 +349,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #0c0b09;
+  --background-color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -377,7 +379,7 @@ h6 {
     padding: 18px 15px;
     font-size: 14px;
     font-family: var(--nav-font);
-    font-weight: 400;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -416,6 +418,7 @@ h6 {
     transition: 0.3s;
     border-radius: 4px;
     z-index: 99;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   }
 
   .navmenu .dropdown ul li {
@@ -488,6 +491,7 @@ h6 {
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   }
 
   .navmenu a,
@@ -564,7 +568,7 @@ h6 {
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
+    color: #2d2d2d;
     position: absolute;
     font-size: 32px;
     top: 15px;
@@ -577,7 +581,7 @@ h6 {
     position: fixed;
     overflow: hidden;
     inset: 0;
-    background: rgba(33, 37, 41, 0.8);
+    background: rgba(255, 255, 255, 0.98);
     transition: 0.3s;
   }
 
@@ -591,7 +595,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #f9f7f4;
   font-size: 14px;
   padding-bottom: 50px;
   position: relative;
@@ -599,7 +603,7 @@ h6 {
 
 .footer .footer-top {
   padding-top: 50px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .footer .footer-about .logo {
@@ -632,15 +636,16 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  border: 1px solid var(--accent-color);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: var(--accent-color);
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .footer .social-links a:hover {
-  color: var(--accent-color);
+  color: #ffffff;
+  background: var(--accent-color);
   border-color: var(--accent-color);
 }
 
@@ -678,7 +683,7 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
   display: inline-block;
   line-height: 1;
 }
@@ -725,7 +730,7 @@ h6 {
   padding: 0 20px;
   margin: -7px -8px -7px 0;
   background: var(--accent-color);
-  color: var(--contrast-color);
+  color: #ffffff;
   transition: 0.3s;
   border-radius: 0 4px 4px 0;
 }
@@ -737,7 +742,7 @@ h6 {
 .footer .copyright {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .footer .copyright p {
@@ -766,7 +771,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
+  border: 6px solid #f0f0f0;
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
   width: 60px;
@@ -803,13 +808,13 @@ h6 {
 
 .scroll-top i {
   font-size: 24px;
-  color: var(--contrast-color);
+  color: #ffffff;
   line-height: 0;
 }
 
 .scroll-top:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+  color: #ffffff;
 }
 
 .scroll-top.active {
@@ -911,7 +916,7 @@ section,
   margin: 0;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
   position: relative;
 }
 
@@ -943,7 +948,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--default-color);
+  color: #ffffff;
 }
 
 .hero img {
@@ -958,7 +963,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 50%);
+  background: color-mix(in srgb, #000000, transparent 35%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -973,6 +978,7 @@ section,
   margin: 0;
   font-size: 48px;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .hero h2 span {
@@ -980,13 +986,13 @@ section,
 }
 
 .hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, #ffffff, transparent 15%);
   margin: 10px 0 0 0;
   font-size: 24px;
 }
 
 .hero .cta-btn {
-  color: var(--default-color);
+  color: #ffffff;
   border: 2px solid var(--accent-color);
   font-weight: 400;
   font-size: 14px;
@@ -1004,12 +1010,12 @@ section,
 }
 
 .hero .cta-btn:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: var(--accent-color);
 }
 
 .hero .cta-btn2 {
-  color: var(--default-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: #ffffff;
+  background: var(--accent-color);
   border: 2px solid var(--accent-color);
   font-weight: 400;
   font-size: 14px;
@@ -1027,8 +1033,7 @@ section,
 }
 
 .hero .cta-btn2:hover {
-  background: none;
-
+  background: transparent;
 }
 
 @media (max-width: 480px) {
@@ -1059,7 +1064,7 @@ section,
 
 .about:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 12%);
+  background: color-mix(in srgb, var(--background-color), transparent 5%);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1102,7 +1107,7 @@ section,
 }
 
 .about .about-img {
-  border: 6px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border: 6px solid color-mix(in srgb, var(--default-color), transparent 85%);
   transition: 0.3s;
 }
 
@@ -1114,11 +1119,12 @@ section,
 # Why Us Section
 --------------------------------------------------------------*/
 .why-us .card-item {
-  background: color-mix(in srgb, var(--default-color), transparent 95%);
+  background: #f9f7f4;
   padding: 50px 30px;
   transition: all ease-in-out 0.3s;
   height: 100%;
   position: relative;
+  border: 1px solid #ede8e0;
 }
 
 .why-us .card-item span {
@@ -1141,7 +1147,7 @@ section,
 
 .why-us .card-item p {
   font-size: 15px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
   margin: 0;
   padding: 0;
 }
@@ -1149,19 +1155,20 @@ section,
 .why-us .card-item:hover {
   background: var(--accent-color);
   padding: 30px 30px 70px 30px;
+  border-color: var(--accent-color);
 }
 
 .why-us .card-item:hover span,
 .why-us .card-item:hover h4 a,
 .why-us .card-item:hover p {
-  color: var(--contrast-color);
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
 # Menu Section
 --------------------------------------------------------------*/
 .menu {
-            background-color: color-mix(in srgb, var(--background-color) 90%, white 5%);
+            background-color: #f9f7f4;
             padding: 60px 0;
         }
 
@@ -1235,13 +1242,13 @@ section,
             right: 0;
             top: -4px;
             z-index: 1;
-            color: color-mix(in srgb, var(--default-color), transparent 60%);
+            color: color-mix(in srgb, var(--default-color), transparent 65%);
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         }
 
         .menu .menu-content a {
             color: var(--heading-color);
-            background: var(--background-color);
+            background: #f9f7f4;
             padding-right: 15px;
             position: relative;
             z-index: 3;
@@ -1255,7 +1262,7 @@ section,
         }
 
         .menu .menu-content span {
-            background: var(--background-color);
+            background: #f9f7f4;
             color: var(--accent-color);
             position: relative;
             z-index: 3;
@@ -1267,7 +1274,7 @@ section,
             font-style: italic;
             font-size: 14px;
             font-family: var(--nav-font);
-            color: color-mix(in srgb, var(--default-color), transparent 50%);
+            color: color-mix(in srgb, var(--default-color), transparent 35%);
             line-height: 1.4;
         }
 
@@ -1299,7 +1306,7 @@ section,
 }
 
 .specials .nav-link.active {
-  color: var(--contrast-color);
+  color: #ffffff;
   background-color: var(--accent-color);
 }
 
@@ -1314,7 +1321,7 @@ section,
 }
 
 .specials .details p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
 }
 
 .specials .details p:last-child {
@@ -1328,7 +1335,7 @@ section,
   }
 
   .specials .nav-link.active {
-    color: var(--accent-color);
+    color: #ffffff;
     background: var(--accent-color);
   }
 }
@@ -1356,7 +1363,7 @@ section,
 
 .events:before {
   content: "";
-  background-color: color-mix(in srgb, var(--background-color), transparent 30%);
+  background-color: color-mix(in srgb, var(--background-color), transparent 35%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -1384,7 +1391,7 @@ section,
 }
 
 .events .event-item .price span {
-  border-bottom: 2px solid var(--accent-color);
+  border-bottom: 2px solid #d4a574;
 }
 
 .events .event-item ul {
@@ -1399,7 +1406,7 @@ section,
 .events .event-item ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: var(--accent-color);
+  color: #d4a574;
 }
 
 .events .event-item p:last-child {
@@ -1418,12 +1425,12 @@ section,
 .events .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 70%);
+  background-color: color-mix(in srgb, #ffffff, transparent 65%);
   opacity: 1;
 }
 
 .events .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
+  background-color: #d4a574;
 }
 
 /*--------------------------------------------------------------
@@ -1436,7 +1443,7 @@ section,
 }
 
 .book-a-table .reservation-form-bg {
-  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  background: #f9f7f4;
 }
 
 .book-a-table .php-email-form {
@@ -1460,8 +1467,8 @@ section,
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 20%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  background-color: #ffffff;
+  border-color: color-mix(in srgb, var(--default-color), transparent 75%);
 }
 
 .book-a-table .php-email-form input[type=text]:focus,
@@ -1479,20 +1486,21 @@ section,
 .book-a-table .php-email-form input[type=date]::placeholder,
 .book-a-table .php-email-form input[type=time]::placeholder,
 .book-a-table .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
 }
 
 .reservieren-btn{
-  color: var(--default-color);
+  color: #ffffff;
   border: 2px solid var(--accent-color);
-  background: transparent;
+  background: var(--accent-color);
   padding: 14px 60px;
   transition: 0.4s;
   width: 100%;
 }
 
 .reservieren-btn:hover {
-  background: var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
@@ -1554,7 +1562,7 @@ section,
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
-  background: color-mix(in srgb, var(--default-color), transparent 97%);
+  background: #f9f7f4;
   position: relative;
   border-radius: 6px;
   position: relative;
@@ -1656,13 +1664,13 @@ section,
 
 .chefs .member .social a {
   transition: color 0.3s;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, #ffffff, transparent 20%);
   margin: 0 10px;
   display: inline-block;
 }
 
 .chefs .member .social a:hover {
-  color: var(--accent-color);
+  color: #d4a574;
 }
 
 .chefs .member .social i {
@@ -1690,8 +1698,8 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 .contact {
-  background-color: color-mix(in srgb, var(--background-color) 90%, white 5%);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+  background-color: #f9f7f4;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
 }
 
 .contact .info-item+.info-item {
@@ -1699,7 +1707,7 @@ section,
 }
 
 .contact .info-item i {
-  color: var(--contrast-color);
+  color: #ffffff;
   background: var(--accent-color);
   font-size: 20px;
   width: 44px;
@@ -1737,8 +1745,8 @@ section,
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  background-color: #ffffff;
+  border-color: color-mix(in srgb, var(--accent-color), transparent 65%);
 }
 
 .contact .php-email-form input[type=text]:focus,
@@ -1754,8 +1762,8 @@ section,
 }
 
 .contact .php-email-form button[type=submit] {
-  color: var(--default-color);
-  background: none;
+  color: #ffffff;
+  background: var(--accent-color);
   border: 2px solid var(--accent-color);
   padding: 8px 36px;
   transition: 0.4s;
@@ -1763,7 +1771,8 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
