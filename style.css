@@ -1640,3 +1640,126 @@ html {
 	padding: 4rem 3rem;
 	transition: right 0.3s ease;
 }
+
+/* Thai für Dihei Banner Styles */
+.thai-dihei-banner {
+	grid-column: span 2;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(20px);
+	border: 1px solid var(--glass-border);
+	padding: 2rem 2.5rem;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.4s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.thai-dihei-banner::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: var(--gold-gradient);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	z-index: -1;
+}
+
+.thai-dihei-banner:hover {
+	transform: translateY(-8px);
+	box-shadow: var(--shadow-deep);
+	border-color: rgba(139, 115, 85, 0.4);
+}
+
+.thai-dihei-banner:hover::before {
+	opacity: 0.15;
+}
+
+.banner-content {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.banner-icon {
+	font-size: 2.5rem;
+	flex-shrink: 0;
+	filter: grayscale(0.3) sepia(0.2);
+	transition: all 0.3s ease;
+}
+
+.thai-dihei-banner:hover .banner-icon {
+	transform: scale(1.1);
+	filter: grayscale(0) sepia(0);
+}
+
+.banner-text {
+	flex: 1;
+}
+
+.banner-text h3 {
+	font-family: 'Playfair Display', serif;
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+	color: var(--text-primary);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+.banner-text p {
+	color: var(--text-secondary);
+	line-height: 1.6;
+	font-size: 0.95rem;
+	margin: 0;
+}
+
+.banner-arrow {
+	font-size: 2rem;
+	color: var(--accent-copper);
+	flex-shrink: 0;
+	transition: all 0.3s ease;
+	font-weight: 300;
+}
+
+.thai-dihei-banner:hover .banner-arrow {
+	transform: translateX(8px);
+	color: var(--accent-gold);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+	.thai-dihei-banner {
+		grid-column: span 1;
+		padding: 2rem 1.5rem;
+	}
+	
+	.banner-content {
+		flex-direction: column;
+		text-align: center;
+		gap: 1.5rem;
+	}
+	
+	.banner-icon {
+		font-size: 3rem;
+	}
+	
+	.banner-text h3 {
+		font-size: 1.6rem;
+	}
+	
+	.banner-text p {
+		font-size: 1rem;
+	}
+	
+	.banner-arrow {
+		transform: rotate(90deg);
+		font-size: 2rem;
+	}
+	
+	.thai-dihei-banner:hover .banner-arrow {
+		transform: rotate(90deg) translateX(10px);
+	}
+}

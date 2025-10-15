@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thai für Dihei - Catering im Zürcher Weinland</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		:root {
+			--primary-white: #FFFFFF;
+			--secondary-white: #FAFAFA;
+			--accent-orange: #FF6B35;
+			--accent-orange-light: #FF8C61;
+			--accent-orange-dark: #E85A2A;
+			--text-dark: #2D2520;
+			--text-medium: #4A3F35;
+			--text-light: #6B5D4F;
+			--border-color: #E8E8E8;
+			--shadow-soft: 0 4px 20px rgba(255, 107, 53, 0.1);
+			--shadow-medium: 0 8px 32px rgba(255, 107, 53, 0.15);
+			--shadow-strong: 0 16px 48px rgba(255, 107, 53, 0.2);
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			line-height: 1.6;
+			color: var(--text-dark);
+			background: var(--primary-white);
+			overflow-x: hidden;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* Navigation */
+		.navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: rgba(255, 255, 255, 0.98);
+			backdrop-filter: blur(20px);
+			border-bottom: 1px solid var(--border-color);
+			padding: 1rem 3rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: var(--shadow-soft);
+			z-index: 1000;
+			transition: all 0.3s ease;
+		}
+
+		.logo {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--accent-orange);
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.logo-icon {
+			font-size: 2rem;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 2.5rem;
+			align-items: center;
+		}
+
+		.nav-link {
+			color: var(--text-dark);
+			text-decoration: none;
+			font-weight: 500;
+			font-size: 0.95rem;
+			transition: color 0.3s ease;
+			position: relative;
+		}
+
+		.nav-link::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--accent-orange);
+			transition: width 0.3s ease;
+		}
+
+		.nav-link:hover {
+			color: var(--accent-orange);
+		}
+
+		.nav-link:hover::after {
+			width: 100%;
+		}
+
+		.cta-nav {
+			background: var(--accent-orange);
+			color: white;
+			padding: 0.8rem 1.8rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.cta-nav:hover {
+			background: var(--accent-orange-dark);
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-medium);
+		}
+
+		/* Hero Section */
+		.hero {
+			height: 100vh;
+			background: linear-gradient(135deg, #FFE8E0 0%, #FFF5F2 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			padding-top: 80px;
+		}
+
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -20%;
+			width: 800px;
+			height: 800px;
+			background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+			border-radius: 50%;
+			animation: float 20s ease-in-out infinite;
+		}
+
+		.hero::after {
+			content: '';
+			position: absolute;
+			bottom: -30%;
+			left: -10%;
+			width: 600px;
+			height: 600px;
+			background: radial-gradient(circle, rgba(255, 140, 97, 0.08) 0%, transparent 70%);
+			border-radius: 50%;
+			animation: float 15s ease-in-out infinite reverse;
+		}
+
+		@keyframes float {
+			0%, 100% { transform: translate(0, 0) rotate(0deg); }
+			50% { transform: translate(30px, -30px) rotate(5deg); }
+		}
+
+		.hero-content {
+			max-width: 900px;
+			padding: 0 2rem;
+			z-index: 2;
+			position: relative;
+		}
+
+		.hero h1 {
+			font-family: 'Playfair Display', serif;
+			font-size: clamp(3rem, 7vw, 5.5rem);
+			font-weight: 700;
+			color: var(--text-dark);
+			margin-bottom: 1.5rem;
+			line-height: 1.1;
+		}
+
+		.hero h1 .highlight {
+			color: var(--accent-orange);
+		}
+
+		.hero p {
+			font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+			color: var(--text-medium);
+			margin-bottom: 3rem;
+			font-weight: 400;
+		}
+
+		.hero-cta {
+			display: flex;
+			gap: 1.5rem;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.btn-primary {
+			background: var(--accent-orange);
+			color: white;
+			padding: 1.2rem 3rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 1rem;
+			transition: all 0.3s ease;
+			border: 2px solid var(--accent-orange);
+		}
+
+		.btn-primary:hover {
+			background: var(--accent-orange-dark);
+			transform: translateY(-3px);
+			box-shadow: var(--shadow-strong);
+		}
+
+		.btn-secondary {
+			background: transparent;
+			color: var(--accent-orange);
+			padding: 1.2rem 3rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 1rem;
+			border: 2px solid var(--accent-orange);
+			transition: all 0.3s ease;
+		}
+
+		.btn-secondary:hover {
+			background: var(--accent-orange);
+			color: white;
+			transform: translateY(-3px);
+		}
+
+		/* About Section */
+		.about-section {
+			padding: 8rem 3rem;
+			background: var(--primary-white);
+		}
+
+		.about-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5rem;
+			align-items: center;
+		}
+
+		.about-content h2 {
+			font-family: 'Playfair Display', serif;
+			font-size: clamp(2.5rem, 5vw, 3.5rem);
+			color: var(--text-dark);
+			margin-bottom: 2rem;
+		}
+
+		.about-content h2 .highlight {
+			color: var(--accent-orange);
+		}
+
+		.about-content p {
+			font-size: 1.1rem;
+			line-height: 1.8;
+			color: var(--text-medium);
+			margin-bottom: 1.5rem;
+		}
+
+		.about-features {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+			margin-top: 3rem;
+		}
+
+		.feature-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.feature-icon {
+			font-size: 1.8rem;
+			flex-shrink: 0;
+		}
+
+		.feature-text h4 {
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--text-dark);
+			margin-bottom: 0.5rem;
+		}
+
+		.feature-text p {
+			font-size: 0.95rem;
+			color: var(--text-light);
+			margin: 0;
+		}
+
+		.about-image {
+			position: relative;
+		}
+
+		.about-image img {
+			width: 100%;
+			height: 600px;
+			object-fit: cover;
+			border-radius: 20px;
+			box-shadow: var(--shadow-medium);
+		}
+
+		.about-badge {
+			position: absolute;
+			bottom: -20px;
+			right: -20px;
+			background: var(--accent-orange);
+			color: white;
+			padding: 2rem;
+			border-radius: 50%;
+			width: 150px;
+			height: 150px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			box-shadow: var(--shadow-strong);
+			text-align: center;
+		}
+
+		.about-badge .number {
+			font-family: 'Playfair Display', serif;
+			font-size: 3rem;
+			font-weight: 700;
+			line-height: 1;
+		}
+
+		.about-badge .text {
+			font-size: 0.9rem;
+			font-weight: 600;
+		}
+
+		/* Services Section */
+		.services-section {
+			padding: 8rem 3rem;
+			background: var(--secondary-white);
+		}
+
+		.section-title {
+			text-align: center;
+			font-family: 'Playfair Display', serif;
+			font-size: clamp(2.5rem, 5vw, 3.5rem);
+			color: var(--text-dark);
+			margin-bottom: 1rem;
+		}
+
+		.section-subtitle {
+			text-align: center;
+			font-size: 1.2rem;
+			color: var(--text-medium);
+			margin-bottom: 5rem;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.services-grid {
+			max-width: 1300px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 3rem;
+		}
+
+		.service-card {
+			background: white;
+			padding: 3rem;
+			border-radius: 20px;
+			box-shadow: var(--shadow-soft);
+			transition: all 0.3s ease;
+			border: 2px solid transparent;
+		}
+
+		.service-card:hover {
+			transform: translateY(-10px);
+			box-shadow: var(--shadow-strong);
+			border-color: var(--accent-orange);
+		}
+
+		.service-icon {
+			font-size: 3.5rem;
+			margin-bottom: 1.5rem;
+			display: inline-block;
+		}
+
+		.service-card h3 {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.8rem;
+			color: var(--text-dark);
+			margin-bottom: 1rem;
+		}
+
+		.service-card p {
+			color: var(--text-medium);
+			line-height: 1.7;
+			margin-bottom: 1.5rem;
+		}
+
+		.service-card ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.service-card ul li {
+			color: var(--text-light);
+			margin-bottom: 0.8rem;
+			padding-left: 1.5rem;
+			position: relative;
+		}
+
+		.service-card ul li::before {
+			content: '✓';
+			position: absolute;
+			left: 0;
+			color: var(--accent-orange);
+			font-weight: bold;
+		}
+
+		/* Menu Section */
+		.menu-section {
+			padding: 8rem 3rem;
+			background: white;
+		}
+
+		.menu-container {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.menu-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 3rem;
+		}
+
+		.menu-category {
+			background: var(--secondary-white);
+			padding: 3rem;
+			border-radius: 20px;
+			border: 2px solid var(--border-color);
+			transition: all 0.3s ease;
+		}
+
+		.menu-category:hover {
+			border-color: var(--accent-orange);
+			box-shadow: var(--shadow-medium);
+		}
+
+		.menu-category h3 {
+			font-family: 'Playfair Display', serif;
+			font-size: 2rem;
+			color: var(--accent-orange);
+			margin-bottom: 0.5rem;
+		}
+
+		.menu-category .price {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--text-dark);
+			margin-bottom: 1.5rem;
+		}
+
+		.menu-category .description {
+			color: var(--text-medium);
+			margin-bottom: 2rem;
+			line-height: 1.7;
+		}
+
+		.menu-category ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.menu-category ul li {
+			color: var(--text-light);
+			padding: 0.8rem 0;
+			border-bottom: 1px solid var(--border-color);
+		}
+
+		.menu-category ul li:last-child {
+			border-bottom: none;
+		}
+
+		/* Process Section */
+		.process-section {
+			padding: 8rem 3rem;
+			background: linear-gradient(135deg, #FFE8E0 0%, #FFF5F2 100%);
+		}
+
+		.process-container {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.process-steps {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 3rem;
+			margin-top: 4rem;
+		}
+
+		.process-step {
+			text-align: center;
+			position: relative;
+		}
+
+		.step-number {
+			width: 80px;
+			height: 80px;
+			background: var(--accent-orange);
+			color: white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: 'Playfair Display', serif;
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin: 0 auto 2rem;
+			box-shadow: var(--shadow-medium);
+		}
+
+		.process-step h4 {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.5rem;
+			color: var(--text-dark);
+			margin-bottom: 1rem;
+		}
+
+		.process-step p {
+			color: var(--text-medium);
+			line-height: 1.7;
+		}
+
+		/* Contact Section */
+		.contact-section {
+			padding: 8rem 3rem;
+			background: white;
+		}
+
+		.contact-container {
+			max-width: 1000px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5rem;
+		}
+
+		.contact-info h3 {
+			font-family: 'Playfair Display', serif;
+			font-size: 2rem;
+			color: var(--text-dark);
+			margin-bottom: 2rem;
+		}
+
+		.contact-item {
+			margin-bottom: 2rem;
+		}
+
+		.contact-item h4 {
+			font-size: 1.1rem;
+			color: var(--accent-orange);
+			margin-bottom: 0.5rem;
+			font-weight: 600;
+		}
+
+		.contact-item p {
+			color: var(--text-medium);
+			font-size: 1.1rem;
+		}
+
+		.contact-item a {
+			color: var(--text-medium);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.contact-item a:hover {
+			color: var(--accent-orange);
+		}
+
+		.contact-form {
+			background: var(--secondary-white);
+			padding: 3rem;
+			border-radius: 20px;
+			box-shadow: var(--shadow-soft);
+		}
+
+		.form-group {
+			margin-bottom: 1.5rem;
+		}
+
+		.form-group label {
+			display: block;
+			font-weight: 600;
+			color: var(--text-dark);
+			margin-bottom: 0.5rem;
+		}
+
+		.form-group input,
+		.form-group textarea,
+		.form-group select {
+			width: 100%;
+			padding: 1rem;
+			border: 2px solid var(--border-color);
+			border-radius: 10px;
+			font-family: 'Inter', sans-serif;
+			font-size: 1rem;
+			transition: border-color 0.3s ease;
+		}
+
+		.form-group input:focus,
+		.form-group textarea:focus,
+		.form-group select:focus {
+			outline: none;
+			border-color: var(--accent-orange);
+		}
+
+		.form-group textarea {
+			resize: vertical;
+			min-height: 120px;
+		}
+
+		.submit-btn {
+			width: 100%;
+			background: var(--accent-orange);
+			color: white;
+			padding: 1.2rem;
+			border: none;
+			border-radius: 10px;
+			font-weight: 600;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.submit-btn:hover {
+			background: var(--accent-orange-dark);
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-medium);
+		}
+
+		/* Footer */
+		.footer {
+			background: var(--text-dark);
+			color: white;
+			padding: 3rem 3rem 2rem;
+		}
+
+		.footer-container {
+			max-width: 1400px;
+			margin: 0 auto;
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr;
+			gap: 4rem;
+			margin-bottom: 2rem;
+		}
+
+		.footer-col h4 {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.3rem;
+			color: var(--accent-orange);
+			margin-bottom: 1.5rem;
+		}
+
+		.footer-col p {
+			color: rgba(255, 255, 255, 0.8);
+			line-height: 1.7;
+			margin-bottom: 1rem;
+		}
+
+		.footer-col ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.footer-col ul li {
+			margin-bottom: 0.8rem;
+		}
+
+		.footer-col ul li a {
+			color: rgba(255, 255, 255, 0.8);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.footer-col ul li a:hover {
+			color: var(--accent-orange);
+		}
+
+		.footer-bottom {
+			text-align: center;
+			padding-top: 2rem;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		/* Mobile Menu */
+		.burger-menu {
+			display: none;
+			flex-direction: column;
+			gap: 5px;
+			cursor: pointer;
+			padding: 5px;
+		}
+
+		.burger-menu span {
+			width: 25px;
+			height: 3px;
+			background: var(--accent-orange);
+			border-radius: 3px;
+			transition: all 0.3s ease;
+		}
+
+		/* Responsive */
+		@media (max-width: 968px) {
+			.navbar {
+				padding: 1rem 2rem;
+			}
+
+			.nav-links {
+				position: fixed;
+				top: 0;
+				right: -100%;
+				width: 300px;
+				height: 100vh;
+				background: white;
+				flex-direction: column;
+				padding: 5rem 2rem;
+				box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+				transition: right 0.3s ease;
+				align-items: flex-start;
+			}
+
+			.nav-links.active {
+				right: 0;
+			}
+
+			.burger-menu {
+				display: flex;
+			}
+
+			.about-container,
+			.contact-container {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
+
+			.about-features {
+				grid-template-columns: 1fr;
+			}
+
+			.footer-container {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
+
+			.hero-cta {
+				flex-direction: column;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.hero {
+				height: auto;
+				min-height: 100vh;
+				padding: 8rem 1rem 4rem;
+			}
+
+			.about-section,
+			.services-section,
+			.menu-section,
+			.process-section,
+			.contact-section {
+				padding: 4rem 1.5rem;
+			}
+
+			.navbar {
+				padding: 1rem 1.5rem;
+			}
+
+			.services-grid,
+			.menu-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.process-steps {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar">
+		<a href="#" class="logo">
+			<span class="logo-icon">🏠</span>
+			Thai für Dihei
+		</a>
+		<div class="nav-links">
+			<a href="#about" class="nav-link">Über uns</a>
+			<a href="#services" class="nav-link">Angebote</a>
+			<a href="#menu" class="nav-link">Menüs</a>
+			<a href="#process" class="nav-link">So funktionierts</a>
+			<a href="#contact" class="cta-nav">Anfrage senden</a>
+		</div>
+		<div class="burger-menu" onclick="toggleMenu()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Authentisches <span class="highlight">Thai-Catering</span> für Ihr Event</h1>
+			<p>Wir liefern frisches, traditionelles Thai-Essen direkt zu Ihrem Anlass im Zürcher Weinland – perfekt für Events, Feiern und besondere Momente.</p>
+			<div class="hero-cta">
+				<a href="#contact" class="btn-primary">Jetzt anfragen</a>
+				<a href="#menu" class="btn-secondary">Unsere Menüs</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class="about-section" id="about">
+		<div class="about-container">
+			<div class="about-content">
+				<h2>Thai-Küche mit <span class="highlight">Herz</span> und <span class="highlight">Tradition</span></h2>
+				<p>
+					Seit Jahren bringen wir die authentischen Aromen Thailands direkt zu Ihnen nach Hause. 
+					Unser Team bereitet jedes Gericht mit frischen Zutaten und traditionellen Rezepten zu.
+				</p>
+				<p>
+					Ob Firmenanlass, Geburtstag, Hochzeit oder private Feier – wir sorgen dafür, dass Ihr 
+					Event kulinarisch zu einem unvergesslichen Erlebnis wird.
+				</p>
+				<div class="about-features">
+					<div class="feature-item">
+						<div class="feature-icon">🌶️</div>
+						<div class="feature-text">
+							<h4>Authentisch</h4>
+							<p>Originalrezepte aus Thailand</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">🥗</div>
+						<div class="feature-text">
+							<h4>Frisch</h4>
+							<p>Täglich frische Zutaten</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">🚚</div>
+						<div class="feature-text">
+							<h4>Zuverlässig</h4>
+							<p>Pünktliche Lieferung</p>
+						</div>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">👨‍🍳</div>
+						<div class="feature-text">
+							<h4>Professionell</h4>
+							<p>Erfahrenes Küchen-Team</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="about-image">
+				<img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&h=1000&fit=crop" alt="Thai Food">
+				<div class="about-badge">
+					<span class="number">5+</span>
+					<span class="text">Jahre Erfahrung</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section class="services-section" id="services">
+		<h2 class="section-title">Unsere Angebote</h2>
+		<p class="section-subtitle">Für jeden Anlass das passende Thai-Catering im Zürcher Weinland</p>
+		<div class="services-grid">
+			<div class="service-card">
+				<div class="service-icon">🎉</div>
+				<h3>Private Feiern</h3>
+				<p>Geburtstage, Jubiläen, Familienanlässe – wir machen Ihre Feier zu etwas Besonderem.</p>
+				<ul>
+					<li>Flexible Menügestaltung</li>
+					<li>Individuell anpassbar</li>
+					<li>Ab 10 Personen</li>
+					<li>Lieferung oder Abholung</li>
+				</ul>
+			</div>
+
+			<div class="service-card">
+				<div class="service-icon">💼</div>
+				<h3>Firmenevents</h3>
+				<p>Business-Lunch, Teamevents oder Apéros – professionelles Catering für Ihr Unternehmen.</p>
+				<ul>
+					<li>Buffet oder Einzelportionen</li>
+					<li>Vegetarische Optionen</li>
+					<li>Pünktliche Lieferung</li>
+					<li>Auf Rechnung möglich</li>
+				</ul>
+			</div>
+
+			<div class="service-card">
+				<div class="service-icon">💒</div>
+				<h3>Hochzeiten</h3>
+				<p>Exotisches Thai-Catering für den schönsten Tag Ihres Lebens.</p>
+				<ul>
+					<li>Persönliche Beratung</li>
+					<li>Mehrgang-Menüs</li>
+					<li>Vegetarisch & Vegan</li>
+					<li>Elegante Präsentation</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Menu Section -->
+	<section class="menu-section" id="menu">
+		<h2 class="section-title">Unsere Menü-Pakete</h2>
+		<p class="section-subtitle">Wählen Sie aus unseren beliebten Thai-Menü-Paketen</p>
+		<div class="menu-container">
+			<div class="menu-grid">
+				<div class="menu-category">
+					<h3>Starter Paket</h3>
+					<p class="price">CHF 28.- pro Person</p>
+					<p class="description">Perfekt für kleinere Anlässe und erste Erfahrungen mit Thai-Catering.</p>
+					<ul>
+						<li>Frühlingsrollen (2 Stk.)</li>
+						<li>Pad Thai mit Poulet</li>
+						<li>Gemüsecurry mit Jasminreis</li>
+						<li>Thai-Salat</li>
+						<li>Mangosticky Rice</li>
+					</ul>
+				</div>
+
+				<div class="menu-category">
+					<h3>Deluxe Paket</h3>
+					<p class="price">CHF 42.- pro Person</p>
+					<p class="description">Unser beliebtestes Paket mit authentischen Thai-Klassikern.</p>
+					<ul>
+						<li>Satay-Spiesse mit Erdnusssauce</li>
+						<li>Tom Yum Suppe</li>
+						<li>Pad Thai (Wahl: Poulet/Shrimps)</li>
+						<li>Rotes oder Grünes Curry</li>
+						<li>Gebratener Reis</li>
+						<li>Som Tam Salat</li>
+						<li>Dessert-Auswahl</li>
+					</ul>
+				</div>
+
+				<div class="menu-category">
+					<h3>Premium Paket</h3>
+					<p class="price">CHF 58.- pro Person</p>
+					<p class="description">Das Beste der Thai-Küche für besondere Anlässe.</p>
+					<ul>
+						<li>Gegrillte Shrimps-Spieße</li>
+						<li>Tom Kha Gai Suppe</li>
+						<li>Pad Thai Premium</li>
+						<li>Massaman Curry mit Rindfleisch</li>
+						<li>Gebratene Ente mit Basilikum</li>
+						<li>Glasnudel-Salat</li>
+						<li>Jasminreis & Klebreis</li>
+						<li>Thai-Dessert-Platte</li>
+					</ul>
+				</div>
+			</div>
+			<p style="text-align: center; margin-top: 3rem; color: var(--text-medium);">
+				<strong>Hinweis:</strong> Alle Preise verstehen sich inkl. Lieferung im Zürcher Weinland. 
+				Mindestbestellmenge: 10 Personen. Vegetarische und vegane Optionen auf Anfrage verfügbar.
+			</p>
+		</div>
+	</section>
+
+	<!-- Process Section -->
+	<section class="process-section" id="process">
+		<h2 class="section-title">So einfach geht's</h2>
+		<p class="section-subtitle">In nur 4 Schritten zu Ihrem Thai-Catering</p>
+		<div class="process-container">
+			<div class="process-steps">
+				<div class="process-step">
+					<div class="step-number">1</div>
+					<h4>Anfrage senden</h4>
+					<p>Kontaktieren Sie uns mit Ihren Wünschen, Datum und Personenanzahl.</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">2</div>
+					<h4>Menü wählen</h4>
+					<p>Wir beraten Sie persönlich und stellen das perfekte Menü zusammen.</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">3</div>
+					<h4>Bestätigung</h4>
+					<p>Sie erhalten eine Bestätigung mit allen Details und dem finalen Preis.</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">4</div>
+					<h4>Genießen</h4>
+					<p>Wir liefern pünktlich – Sie genießen authentisches Thai-Essen!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="contact-section" id="contact">
+		<h2 class="section-title">Kontaktieren Sie uns</h2>
+		<p class="section-subtitle">Wir freuen uns auf Ihre Anfrage!</p>
+		<div class="contact-container">
+			<div class="contact-info">
+				<h3>Thai für Dihei</h3>
+				<div class="contact-item">
+					<h4>📍 Adresse</h4>
+					<p>Zürcher Weinland<br>Schweiz</p>
+				</div>
+				<div class="contact-item">
+					<h4>📞 Telefon</h4>
+					<p><a href="tel:+41000000000">+41 00 000 00 00</a></p>
+				</div>
+				<div class="contact-item">
+					<h4>✉️ E-Mail</h4>
+					<p><a href="mailto:info@thaifuerdihei.ch">info@thaifuerdihei.ch</a></p>
+				</div>
+				<div class="contact-item">
+					<h4>🕐 Bestellzeiten</h4>
+					<p>Mo-Fr: 09:00 - 18:00 Uhr<br>
+					Lieferung nach Vereinbarung</p>
+				</div>
+			</div>
+
+			<form class="contact-form" onsubmit="handleSubmit(event)">
+				<div class="form-group">
+					<label for="name">Name *</label>
+					<input type="text" id="name" name="name" required>
+				</div>
+				<div class="form-group">
+					<label for="email">E-Mail *</label>
+					<input type="email" id="email" name="email" required>
+				</div>
+				<div class="form-group">
+					<label for="phone">Telefon</label>
+					<input type="tel" id="phone" name="phone">
+				</div>
+				<div class="form-group">
+					<label for="event">Art des Anlasses *</label>
+					<select id="event" name="event" required>
+						<option value="">Bitte wählen...</option>
+						<option value="private">Private Feier</option>
+						<option value="business">Firmenanlass</option>
+						<option value="wedding">Hochzeit</option>
+						<option value="other">Sonstiges</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="guests">Anzahl Personen</label>
+					<input type="number" id="guests" name="guests" min="10" placeholder="Mindestens 10 Personen">
+				</div>
+				<div class="form-group">
+					<label for="date">Gewünschtes Datum</label>
+					<input type="date" id="date" name="date">
+				</div>
+				<div class="form-group">
+					<label for="message">Ihre Nachricht *</label>
+					<textarea id="message" name="message" required placeholder="Beschreiben Sie uns Ihre Wünsche..."></textarea>
+				</div>
+				<button type="submit" class="submit-btn">Anfrage senden</button>
+			</form>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-col">
+				<h4>Thai für Dihei</h4>
+				<p>Authentisches Thai-Catering für Events und Anlässe im Zürcher Weinland. Frisch zubereitet, pünktlich geliefert, unvergesslich lecker.</p>
+			</div>
+			<div class="footer-col">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="#about">Über uns</a></li>
+					<li><a href="#services">Angebote</a></li>
+					<li><a href="#menu">Menüs</a></li>
+					<li><a href="#contact">Kontakt</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Rechtliches</h4>
+				<ul>
+					<li><a href="#">Impressum</a></li>
+					<li><a href="#">Datenschutz</a></li>
+					<li><a href="#">AGB</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2025 Thai für Dihei. Alle Rechte vorbehalten.</p>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile Menu Toggle
+		function toggleMenu() {
+			const navLinks = document.querySelector('.nav-links');
+			navLinks.classList.toggle('active');
+		}
+
+		// Close mobile menu when clicking on a link
+		document.querySelectorAll('.nav-link, .cta-nav').forEach(link => {
+			link.addEventListener('click', () => {
+				document.querySelector('.nav-links').classList.remove('active');
+			});
+		});
+
+		// Form Submit Handler
+		function handleSubmit(event) {
+			event.preventDefault();
+			alert('Vielen Dank für Ihre Anfrage! Wir melden uns so schnell wie möglich bei Ihnen.');
+			event.target.reset();
+		}
+
+		// Navbar scroll effect
+		let lastScroll = 0;
+		window.addEventListener('scroll', () => {
+			const navbar = document.querySelector('.navbar');
+			const currentScroll = window.pageYOffset;
+
+			if (currentScroll > 100) {
+				navbar.style.padding = '0.8rem 3rem';
+				navbar.style.boxShadow = '0 4px 20px rgba(255, 107, 53, 0.15)';
+			} else {
+				navbar.style.padding = '1rem 3rem';
+				navbar.style.boxShadow = '0 4px 20px rgba(255, 107, 53, 0.1)';
+			}
+
+			lastScroll = currentScroll;
+		});
+	</script>
+</body>
+</html>
