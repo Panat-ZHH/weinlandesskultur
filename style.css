@@ -533,7 +533,7 @@ body {
 
 .company-stats {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 4rem;
 	margin: 6rem 0;
 	padding: 4rem;
@@ -684,7 +684,7 @@ body {
 
 .manager-photo {
 	width: 200px;
-	height: 200px;
+	height: 100px;
 	background: linear-gradient(135deg, #6B5D4F 0%, #8B7355 100%);
 	margin: 0 auto 2.5rem;
 	display: flex;
