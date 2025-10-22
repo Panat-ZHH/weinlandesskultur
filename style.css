@@ -1637,8 +1637,9 @@ html {
 	backdrop-filter: blur(20px);
 	border-left: 1px solid var(--glass-border);
 	z-index: 999;
-	padding: 4rem 3rem;
+	padding: 130px 3rem 4rem 3rem;
 	transition: right 0.3s ease;
+	overflow-y: auto;
 }
 
 /* Thai für Dihei Banner Styles */
@@ -1761,5 +1762,272 @@ html {
 	
 	.thai-dihei-banner:hover .banner-arrow {
 		transform: rotate(90deg) translateX(10px);
+	}
+}
+/* Sehr kleine Bildschirme: 340px - 410px */
+@media (max-width: 410px) {
+	/* Navigation */
+	.navbar { 
+		padding: 0.75rem 1rem;
+	}
+	.logo-img { 
+		height: 50px;
+	}
+	.navbar.scrolled .logo-img {
+		height: 40px;
+	}
+	.mobile-menu { 
+		width: 90vw;
+		max-width: 300px;
+		padding: 100px 1.5rem 2.5rem 1.5rem;
+	}
+	.mobile-menu-item {
+		padding: 0.9rem 1rem;
+		font-size: 0.9rem;
+	}
+	.burger-menu {
+		width: 28px;
+	}
+	.burger-menu span {
+		height: 2px;
+	}
+
+	/* Hero Section */
+	.hero {
+		min-height: 100vh;
+	}
+	.hero-content {
+		padding: 0 1rem;
+	}
+	.hero h1 {
+		font-size: clamp(2rem, 12vw, 3rem);
+		margin-bottom: 1rem;
+		letter-spacing: -0.01em;
+	}
+	.hero p {
+		font-size: clamp(1rem, 5vw, 1.2rem);
+		margin-bottom: 2rem;
+		padding: 0 0.5rem;
+	}
+	.hero-cta {
+		gap: 1rem;
+		width: 100%;
+		padding: 0 1rem;
+	}
+	.cta-button {
+		padding: 0.9rem 1.5rem;
+		font-size: 0.8rem;
+		width: 100%;
+		max-width: 260px;
+	}
+
+	/* Restaurant Section */
+	.restaurants-section {
+		padding: 5rem 1rem;
+	}
+	.restaurants-section h1 {
+		font-size: clamp(1.8rem, 10vw, 2.5rem);
+		margin-bottom: 2.5rem;
+		padding: 0 0.5rem;
+	}
+	.restaurants-section h1::after {
+		width: 60px;
+		height: 2px;
+	}
+	.restaurants-grid {
+		gap: 2rem;
+	}
+	.restaurant-card {
+		margin: 0;
+		padding: 1.8rem 1.2rem;
+	}
+	.restaurant-title {
+		font-size: 1.4rem;
+		margin-bottom: 0.8rem;
+	}
+	.restaurant-description {
+		font-size: 0.85rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.5;
+	}
+	.card-button {
+		padding: 0.8rem 1.5rem;
+		font-size: 0.8rem;
+	}
+
+	/* Thai Dihei Banner */
+	.thai-dihei-banner {
+		padding: 1.5rem 1rem;
+	}
+	.banner-content {
+		gap: 1rem;
+	}
+	.banner-icon {
+		font-size: 1.8rem;
+	}
+	.banner-text h3 {
+		font-size: 1.2rem;
+	}
+	.banner-text p {
+		font-size: 0.8rem;
+		line-height: 1.5;
+	}
+	.banner-arrow {
+		font-size: 1.5rem;
+	}
+
+	/* About Section */
+	.about-section {
+		padding: 5rem 1rem;
+	}
+	.about-section h1 {
+		font-size: clamp(1.8rem, 10vw, 2.5rem);
+		margin-bottom: 2rem;
+		padding: 0 0.5rem;
+	}
+	.about-content {
+		font-size: 0.9rem;
+		line-height: 1.6;
+		padding: 0;
+	}
+	.about-content p {
+		margin-bottom: 1.2rem;
+	}
+
+	/* Management Section */
+	.management-section {
+		padding: 5rem 1rem;
+	}
+	.section-title {
+		font-size: clamp(1.8rem, 10vw, 2.5rem);
+		margin-bottom: 2.5rem;
+		padding: 0 0.5rem;
+	}
+	.manager-card {
+		margin: 0;
+		padding: 1.8rem 1.2rem;
+	}
+	.manager-image {
+		width: 100px;
+		height: 100px;
+		margin-bottom: 1.2rem;
+	}
+	.manager-name {
+		font-size: 1.4rem;
+		margin-bottom: 0.5rem;
+	}
+	.manager-role {
+		font-size: 0.85rem;
+		margin-bottom: 1rem;
+	}
+	.manager-description {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+	.read-more-btn {
+		padding: 0.7rem 1.3rem;
+		font-size: 0.75rem;
+		margin-top: 1rem;
+	}
+
+	/* Timeline/CV */
+	.cv-container {
+		padding: 0 0.5rem;
+	}
+	.timeline-line {
+		left: 20px;
+	}
+	.timeline-dot {
+		left: 20px;
+		width: 10px;
+		height: 10px;
+	}
+	.flow-step:nth-child(even) .flow-node,
+	.flow-step:nth-child(odd) .flow-node {
+		margin-left: 50px;
+		width: calc(100% - 60px);
+	}
+	.flow-node {
+		padding: 15px;
+	}
+	.node-title {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	.node-content {
+		font-size: 0.8rem;
+		line-height: 1.5;
+	}
+	.timeline-indicator,
+	.timeline-indicator1 {
+		font-size: 0.75rem;
+		padding: 0.4rem 0.8rem;
+	}
+
+	/* Company Stats */
+	.company-stats {
+		padding: 2rem 1rem;
+		gap: 1.5rem;
+	}
+	.stat-item {
+		padding: 1.5rem 1rem;
+	}
+	.stat-item h3 {
+		font-size: 1.8rem;
+		margin-bottom: 0.5rem;
+	}
+	.stat-item p {
+		font-size: 0.85rem;
+	}
+
+	/* Footer */
+	.footer-container {
+		padding: 2.5rem 1rem 1.5rem;
+	}
+	.footer-row {
+		gap: 2rem;
+	}
+	.footer-col {
+		padding: 0;
+	}
+	.footer-col h3 {
+		font-size: 1rem;
+		margin-bottom: 0.8rem;
+	}
+	.footer-col ul {
+		gap: 0.4rem;
+	}
+	.footer-col li,
+	.footer-col span,
+	.footer-col a {
+		font-size: 0.8rem;
+		line-height: 1.5;
+	}
+	.footer-logo img {
+		height: 55px;
+	}
+	.footer-social {
+		gap: 0.8rem;
+	}
+	.footer-social svg {
+		width: 35px;
+		height: 35px;
+	}
+	.footer-bar {
+		font-size: 0.7rem;
+		padding: 0.8rem 0;
+		margin-top: 1.5rem;
+	}
+
+	/* Suppliers Section */
+	.suppliers-section {
+		padding: 4rem 1rem;
+	}
+	.supplier-logo {
+		width: 120px;
+		height: 90px;
+	}
+	.slider-track {
+		gap: 1.5rem;
 	}
 }
