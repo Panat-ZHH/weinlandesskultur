@@ -654,8 +654,9 @@ body {
 	display: flex;
 	gap: 8rem;
 	justify-content: center;
-	align-items: stretch; /* GEÄNDERT von flex-start zu stretch */
+	align-items: flex-start;
 }
+
 .manager-item {
 	flex: 1;
 	max-width: 500px;
