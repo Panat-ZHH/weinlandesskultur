@@ -118,11 +118,13 @@ window.addEventListener('scroll', function () {
 	const currentScroll = window.pageYOffset;
 
 	if (currentScroll > 100) {
-		navbar.style.background = 'rgba(107, 93, 79, 0.95)';
+		navbar.style.background = 'rgba(255, 255, 255, 0.98)';
 		navbar.style.backdropFilter = 'blur(25px)';
+		navbar.style.boxShadow = '0 2px 25px rgba(45, 37, 32, 0.15)';
 	} else {
-		navbar.style.background = 'rgba(107, 93, 79, 0.95)';
+		navbar.style.background = 'rgba(255, 255, 255, 0.95)';
 		navbar.style.backdropFilter = 'blur(20px)';
+		navbar.style.boxShadow = '0 2px 20px rgba(45, 37, 32, 0.1)';
 	}
 
 	lastScrollTop = currentScroll;
@@ -140,7 +142,7 @@ window.addEventListener('scroll', function () {
 });
 
 // Card tilt effect
-document.querySelectorAll('.restaurant-card, .manager-card').forEach((card) => {
+document.querySelectorAll('.restaurant-card, .dd').forEach((card) => {
 	card.addEventListener('mousemove', function (e) {
 		const rect = card.getBoundingClientRect();
 		const x = e.clientX - rect.left;
@@ -161,17 +163,17 @@ document.querySelectorAll('.restaurant-card, .manager-card').forEach((card) => {
 });
 
 // Counter animation for statistics
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, duration = 2000, hasPlus = false) {
 	let start = 0;
 	const increment = target / (duration / 16);
 
 	const timer = setInterval(() => {
 		start += increment;
 		if (start >= target) {
-			element.textContent = target + (target === 15 ? '+' : target === 50 ? '+' : '');
+			element.textContent = target + (hasPlus ? '+' : '');
 			clearInterval(timer);
 		} else {
-			element.textContent = Math.floor(start) + (target === 15 ? '+' : target === 50 ? '+' : '');
+			element.textContent = Math.floor(start) + (hasPlus ? '+' : '');
 		}
 	}, 16);
 }
@@ -183,8 +185,10 @@ const statsObserver = new IntersectionObserver(
 			if (entry.isIntersecting) {
 				const counters = entry.target.querySelectorAll('.stat-item h3');
 				counters.forEach((counter) => {
-					const target = parseInt(counter.textContent);
-					animateCounter(counter, target);
+					const originalText = counter.textContent;
+					const hasPlus = originalText.includes('+');
+					const target = parseInt(originalText.replace('+', ''));
+					animateCounter(counter, target, 2000, hasPlus);
 				});
 				statsObserver.unobserve(entry.target);
 			}
