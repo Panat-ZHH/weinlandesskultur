@@ -139,6 +139,8 @@
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   
   <!-- CSS -->
   <link rel="stylesheet" href="./style.css">
@@ -230,36 +232,36 @@
 			<h1>Unsere Restaurants</h1>
 			<div class="restaurants-grid">
 				<a href="./pages/thaiLodge.html" class="restaurant-card">
-					<img src="./pages/styles/thaiLodge/img/11.jpg" alt="Thai Lodge" class="card-image" />
+					<img src="./pages/styles/thaiLodge/img/11.jpg" alt="Thai Lodge" class="card-image" loading="lazy" />
 					<div class="card-content">
 						<h3>Thai Lodge</h3>
 						<p>
 							Moderne thailändische Fusionsküche trifft auf erstklassige Weine. Eine harmonische Verbindung von Ost und
 							West für anspruchsvolle Gaumen.
-						</p>
+						</p><br>
 						<button class="card-button">Restaurant besuchen</button>
 					</div>
 				</a>
 
 				<a href="./pages/rebthai.html" class="restaurant-card">
-					<img src="./img/rebthai.png" alt="RebThai" class="card-image" />
+					<img src="./img/rebthai.png" alt="RebThai" class="card-image" loading="lazy" />
 					<div class="card-content">
 						<h3>Reb-Thai</h3>
 						<p>
 							Authentische thailändische Küche in gemütlicher Atmosphäre. Erleben Sie die Vielfalt Thailands mit
 							traditionellen Rezepten und frischen Zutaten.
-						</p>
+						</p><br>
 						<button class="card-button">Restaurant besuchen</button>
 					</div>
 				</a>
 				
 
 				<a href="./pages/topolino.html" class="restaurant-card">
-					<img src="./img/topolino.png" alt="topolino" class="card-image" />
+					<img src="./img/topolino.png" alt="topolino" class="card-image" loading="lazy" />
 					<div class="card-content">
 						<h3>Casa Topolino</h3>
 						<p>
-							Italienische Küche mit Herz – familiär, traditionell und mit echter Gastfreundschaft im Herzen von Kleinandelfingen. 
+							Italienische Küche mit Herz - familiär, traditionell und mit echter Gastfreundschaft im Herzen von Kleinandelfingen. 
       						Ein kleines Stück Italien, das zum Verweilen einlädt.
 						</p>
 						
@@ -330,13 +332,12 @@
 				<div class="manager-item">
 					<div class="manager-card" data-name="bruno">
 						<div class="manager-photo"> 
-							<img src="./img/Bruno.jpeg" alt="Bruno Greuter"> 
+							<img src="./img/Bruno.jpeg" alt="Bruno Greuter" loading="lazy"> 
 						</div>
 						<h3>Bruno Greuter</h3>
 <p>
-	Die kaufmännische Führung unserer Betriebe ist für mich mehr als eine Aufgabe – ich übernehme sie mit echter Begeisterung und Engagement. In unseren Restaurants ist es mir ein persönliches Anliegen, ein stimmiges Gesamterlebnis zu schaffen – mit herzlichem Service, frischen und qualitativ hochwertigen Speisen sowie eine Atmosphäre, in der sich unsere Gäste willkommen und wohl fühlen.
-</p>
-						<button class="card-button" onclick="toggleBrunoLebenslauf()">Lebenslauf anzeigen</button>
+Die kaufmännische Führung unserer Betriebe übernehme ich mit Begeisterung und Engagement. In unseren Restaurants lege ich Wert auf ein stimmiges Gesamterlebnis – mit herzlichem Service, hochwertigen Speisen und einer einladenden Atmosphäre.						
+</p><button class="card-button" onclick="toggleBrunoLebenslauf()">Lebenslauf anzeigen</button>
 					</div>
 					
 					<!-- Bruno's CV -->
@@ -378,7 +379,7 @@
 				<div class="manager-item">
 					<div class="manager-card" data-name="ingrid">
 						<div class="manager-photo" data-name="ingrid">
-							<img src="./img/ingrid.jpg" style="width: 200px;" alt="Ingrid Lüthi"> 
+							<img src="./img/ingrid.jpg" style="width: 200px;" alt="Ingrid Lüthi" loading="lazy"> 
 						</div>
 						<h3>Ingrid Lüthi</h3>
 						<p>
@@ -582,7 +583,7 @@
       <!-- Social & Logo -->
       <div class="footer-col social-col">
         <div class="footer-logo">
-          <img src="./img/Logo-Weinland-Esskultur.png" alt="Logo Weinland Esskultur" />
+          <img src="./img/Logo-Weinland-Esskultur.png" alt="Logo Weinland Esskultur" loading="lazy" />
         </div>
         <div class="footer-social">
           <a href="https://facebook.com/" target="_blank" title="Facebook">
@@ -602,16 +603,29 @@
   </div>
 </footer>
 <script>
-	// Füge dies zu deinem JavaScript hinzu
-window.addEventListener('scroll', function() {
-	const navbar = document.querySelector('.navbar');
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	
-	if (scrollTop > 50) {
-		navbar.classList.add('scrolled');
-	} else {
-		navbar.classList.remove('scrolled');
-	}
-});
+	// Optimierter Scroll-Handler mit requestAnimationFrame für bessere Performance
+	(function() {
+		let ticking = false;
+		const navbar = document.querySelector('.navbar');
+		
+		function updateNavbar() {
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+			
+			if (scrollTop > 50) {
+				navbar.classList.add('scrolled');
+			} else {
+				navbar.classList.remove('scrolled');
+			}
+			
+			ticking = false;
+		}
+		
+		window.addEventListener('scroll', function() {
+			if (!ticking) {
+				window.requestAnimationFrame(updateNavbar);
+				ticking = true;
+			}
+		}, { passive: true });
+	})();
 </script>
 </html>

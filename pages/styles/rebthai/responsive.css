@@ -20,6 +20,71 @@ body {
 }
 
 /* ================================================
+   .CENTER - KEIN SCROLLING, RESPONSIVE BUTTONS
+   ================================================ */
+.center {
+	/* Scrolling komplett entfernen */
+	overflow: visible !important;
+	overflow-x: visible !important;
+	overflow-y: visible !important;
+	
+	/* Flexbox für responsive Buttons */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	
+	/* Volle Breite nutzen */
+	width: 100%;
+	max-width: 100%;
+	padding: 20px 10px;
+	margin: 0 auto;
+}
+
+/* Buttons innerhalb von .center responsive machen */
+.center .karte-btn {
+	/* Buttons flexibel machen */
+	flex: 0 1 auto;
+	min-width: 150px;
+	max-width: 100%;
+	
+	/* Padding für Touch-Freundlichkeit */
+	padding: 12px 24px;
+	
+	/* Text nicht umbrechen in den Buttons */
+	white-space: nowrap;
+	
+	/* Margin entfernen (gap übernimmt Abstand) */
+	margin: 0;
+	
+	/* Styling */
+	background-color: #ff6b35;
+	color: white;
+	border: 2px solid #ff6b35;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.center .karte-btn:hover {
+	background-color: white;
+	color: #ff6b35;
+}
+
+.center .karte-btn a {
+	color: inherit !important;
+	text-decoration: none;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	background: none;
+	border: none;
+}
+
+/* ================================================
    TABLET ANSICHT (max-width: 1060px)
    ================================================ */
 @media all and (max-width: 1060px) {
@@ -60,6 +125,18 @@ body {
 	#openmenu,
 	#closemenu {
 		display: inline-block;
+	}
+	
+	/* Center Buttons auf Tablet */
+	.center {
+		gap: 12px;
+		padding: 15px 10px;
+	}
+	
+	.center .karte-btn {
+		min-width: 130px;
+		padding: 10px 20px;
+		font-size: 14px;
 	}
 }
 
@@ -229,6 +306,24 @@ body {
 	.wrapper-header-content {
 		height: 650px;
 	}
+	
+	/* Center Buttons auf Mobile - untereinander stapeln */
+	.center {
+		flex-direction: column;
+		gap: 10px;
+		padding: 20px 20px;
+		margin: 0;
+	}
+	
+	.center .karte-btn {
+		/* Volle Breite auf Mobile für bessere Bedienbarkeit */
+		width: 100%;
+		max-width: 100%;
+		min-width: auto;
+		padding: 14px 24px;
+		font-size: 16px;
+		box-sizing: border-box;
+	}
 }
 
 /* ================================================
@@ -347,8 +442,6 @@ div.portfolio-content {
 		max-width: 100%;
 		height: auto;
 	}
-	
-	
 }
 
 /* ================================================
