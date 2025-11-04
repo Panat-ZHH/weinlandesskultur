@@ -1,9 +1,15 @@
 /**
  * Restaurant Hirschen V2 - Advanced JavaScript
  * Full interactivity, animations, and functionality
+ * EmailJS Integration aktiviert
  */
 
 document.body.style.opacity = '1';
+
+// EmailJS initialisieren
+document.addEventListener('DOMContentLoaded', function() {
+    emailjs.init("XhDQ4t09-1GA4YZiO"); // Hier deine EmailJS Public Key eintragen
+});
 
 // Initialize everything on load
 document.addEventListener('DOMContentLoaded', function() {
@@ -294,6 +300,134 @@ function initializeGalleryFilters() {
 }
 
 /**
+ * Booking Form mit EmailJS
+ */
+function initializeBookingForm() {
+    const form = document.getElementById('bookingForm');
+    if (!form) return;
+
+    // Popup für Bestätigung erstellen
+    const popup = document.createElement('div');
+    popup.id = 'booking-popup';
+    popup.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        z-index: 10000;
+        display: none;
+        max-width: 400px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+    `;
+    document.body.appendChild(popup);
+
+    function showPopup(html, color = "#005167") {
+        popup.innerHTML = html + `
+            <button id="close-popup" style="
+                margin-top: 1rem;
+                padding: 0.8rem 1.5rem;
+                background: ${color};
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: 600;
+                font-family: 'Montserrat', sans-serif;
+            ">Schließen</button>
+        `;
+        popup.style.display = 'block';
+        document.getElementById('close-popup').addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+        // Auto-close nach 8 Sekunden
+        setTimeout(() => { popup.style.display = 'none'; }, 8000);
+    }
+
+    // Öffnungszeiten prüfen
+    function isWithinOpeningHours(dateStr, timeStr) {
+        const date = new Date(`${dateStr}T${timeStr}`);
+        const day = date.getDay(); // 0 = Sonntag, 1 = Montag, ..., 6 = Samstag
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const totalMinutes = hours * 60 + minutes;
+
+        // Mo–Fr: 11:00–14:00 · 17:00–22:30
+        if (day >= 1 && day <= 5) {
+            if ((totalMinutes >= 11*60 && totalMinutes <= 14*60) ||
+                (totalMinutes >= 17*60 && totalMinutes <= 22*60+30)) {
+                return true;
+            }
+        }
+        // Sa: 17:00–22:30
+        if (day === 6) {
+            if (totalMinutes >= 17*60 && totalMinutes <= 22*60+30) {
+                return true;
+            }
+        }
+        // So: 11:00–20:00
+        if (day === 0) {
+            if (totalMinutes >= 11*60 && totalMinutes <= 20*60) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fullName = form.querySelector('input[name="full_name"]').value;
+        const email = form.querySelector('input[name="email"]').value;
+        const phone = form.querySelector('input[name="phone"]').value;
+        const guests = form.querySelector('input[name="guests"]').value;
+        const date = form.querySelector('input[name="date"]').value;
+        const time = form.querySelector('input[name="time"]').value;
+
+        // Öffnungszeiten prüfen
+        if (!isWithinOpeningHours(date, time)) {
+            showPopup(`
+                <h3 style="color: #f44336;">⚠️ Außerhalb der Öffnungszeiten</h3>
+                <p>Unsere Reservierungszeiten sind:</p>
+                <p style="font-size: 14px;">
+                    <strong>Mo–Fr:</strong> 11:00–14:00 · 17:00–22:30<br>
+                    <strong>Sa:</strong> 17:00–22:30<br>
+                    <strong>So:</strong> 11:00–20:00
+                </p>
+            `, "#f44336");
+            return;
+        }
+
+        // Email senden mit EmailJS
+        emailjs.sendForm('service_rvge11r', 'template_adlg53n', form)
+        .then(function(response) {
+            console.log("✅ Reservierung gesendet!", response);
+            showPopup(`
+                <h3 style="color: #4caf50;">✅ Reservierung erhalten!</h3>
+                <p><strong>Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Telefon:</strong> ${phone}</p>
+                <p><strong>Personen:</strong> ${guests}</p>
+                <p><strong>Datum:</strong> ${date}</p>
+                <p><strong>Uhrzeit:</strong> ${time}</p>
+                <p style="font-size: 12px; color: #666; margin-top: 1rem;">Wir melden uns in Kürze!</p>
+            `, "#4CAF50");
+            form.reset();
+        }, function(error) {
+            console.error("❌ Fehler:", error);
+            showPopup(`
+                <h3 style="color: #f44336;">❌ Fehler beim Senden</h3>
+                <p style="font-size: 14px;">${error.text || 'Bitte versuchen Sie es später erneut.'}</p>
+            `, "#f44336");
+        });
+    });
+}
+
+/**
  * Lightbox for Images
  */
 function initializeLightbox() {
@@ -345,38 +479,6 @@ function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.classList.remove('active');
-    }
-}
-
-/**
- * Booking Form
- */
-function initializeBookingForm() {
-    const form = document.getElementById('bookingForm');
-    
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Validate form
-            if (!data.name || !data.email || !data.phone || !data.date || !data.time || !data.guests) {
-                showNotification('Bitte füllen Sie alle erforderlichen Felder aus.', 'error');
-                return;
-            }
-            
-            // Show success message
-            showNotification('Reservierungsanfrage erhalten! Wir melden uns in Kürze.', 'success');
-            
-            // Reset form
-            form.reset();
-            
-            // Here you would send data to server
-            console.log('Booking data:', data);
-        });
     }
 }
 
@@ -590,4 +692,5 @@ document.addEventListener('keydown', (e) => {
 console.log('%c🦌 Restaurant Hirschen V2', 'font-size: 20px; color: #005167; font-weight: bold;');
 console.log('%cInteraktive moderne Website', 'font-size: 14px; color: #913535;');
 console.log('%cBenutze Tastenkombinationen: Ctrl+K (Menü) · Ctrl+R (Reservierung)', 'font-size: 12px; color: #666;');
+console.log('%c✓ EmailJS Integration aktiviert', 'font-size: 12px; color: #4caf50;');
 console.log('%c✓ Header Hide on Scroll aktiviert', 'font-size: 12px; color: #4caf50;');
