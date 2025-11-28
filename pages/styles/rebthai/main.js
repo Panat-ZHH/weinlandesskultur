@@ -8,6 +8,20 @@ window.addEventListener("load", function() {
     emailjs.init("XhDQ4t09-1GA4YZiO");
 
     const form = document.getElementById('booking-form');
+    if (!form) {
+        console.error("Booking form nicht gefunden!");
+        return;
+    }
+
+    // Erstelle/finde verstecktes Feld für formatiertes Datum
+    let formattedDateInput = form.querySelector('input[name="date_formatted"]');
+    if (!formattedDateInput) {
+        formattedDateInput = document.createElement('input');
+        formattedDateInput.type = 'hidden';
+        formattedDateInput.name = 'date_formatted';
+        form.appendChild(formattedDateInput);
+        console.log("✅ Verstecktes Datum-Feld erstellt");
+    }
 
     // Popup erstellen
     const popup = document.createElement('div');
@@ -67,19 +81,54 @@ window.addEventListener("load", function() {
         return false;
     }
 
+    // Function zur Datumformatierung
+    function formatDate(dateString) {
+        // dateString kommt im Format YYYY-MM-DD von HTML date input
+        if (!dateString || dateString.length !== 10) {
+            console.error("Ungültiges Datumsformat:", dateString);
+            return dateString;
+        }
+        
+        const parts = dateString.split('-');
+        const year = parts[0];   // YYYY
+        const month = parts[1];  // MM
+        const day = parts[2];    // DD
+        
+        const formatted = `${day}.${month}.${year}`;
+        console.log(`📅 Datum konvertiert: ${dateString} → ${formatted}`);
+        return formatted;
+    }
+
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Page Reload verhindern
-        console.log("Form submit event ausgelöst ✅");
+        console.log("✅ Form submit event ausgelöst");
 
         // Werte aus dem Formular
         const fullName = form.querySelector('input[name="full_name"]').value;
+        const email = form.querySelector('input[name="email"]').value;
         const phone = form.querySelector('input[name="phone"]').value;
         const guests = form.querySelector('input[name="guests"]').value;
-        const date = form.querySelector('input[name="date"]').value;
+        const dateInput = form.querySelector('input[name="date"]');
+        const originalDate = dateInput.value; // Format: YYYY-MM-DD
         const time = form.querySelector('input[name="time"]').value;
 
+        // Formatiere das Datum
+        const formattedDate = formatDate(originalDate);
+        
+        // Setze das versteckte Feld mit formattiertem Datum
+        formattedDateInput.value = formattedDate;
+        
+        console.log("Form Data vor Submit:");
+        console.log("- Name:", fullName);
+        console.log("- Email:", email);
+        console.log("- Phone:", phone);
+        console.log("- Guests:", guests);
+        console.log("- Datum (original):", originalDate);
+        console.log("- Datum (formatiert):", formattedDate);
+        console.log("- Zeit:", time);
+
         // Prüfen Öffnungszeiten
-        if (!isWithinOpeningHours(date, time)) {
+        if (!isWithinOpeningHours(originalDate, time)) {
             showPopup(`
                 <h3 style="color:red;">⚠️ Außerhalb der Öffnungszeiten</h3>
                 <p>Unsere Reservierungszeiten sind:</p>
@@ -96,12 +145,16 @@ window.addEventListener("load", function() {
             showPopup(`
                 <h3 style="color:green;">✅ Reservierungsanfrage verschickt!</h3>
                 <p><strong>Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Telefon:</strong> ${phone}</p>
                 <p><strong>Personen:</strong> ${guests}</p>
-                <p><strong>Datum:</strong> ${date}</p>
+                <p><strong>Datum:</strong> ${formattedDate}</p>
                 <p><strong>Uhrzeit:</strong> ${time}</p>
+                <p style="font-size: 12px; color: #666; margin-top: 1rem;">Wir melden uns in Kürze!</p>
             `, "#4CAF50");
             form.reset();
+            // Reset auch das versteckte Feld
+            formattedDateInput.value = '';
         }, function(error) {
             console.error("❌ EmailJS Fehler:", error);
             showPopup(`

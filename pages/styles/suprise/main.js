@@ -302,11 +302,22 @@ function initializeGalleryFilters() {
 /**
  * Booking Form mit EmailJS
  */
+/**
+ * Booking Form mit EmailJS
+ */
 function initializeBookingForm() {
     const form = document.getElementById('bookingForm');
     if (!form) return;
 
-    // Popup für Bestätigung erstellen
+    // Verstecktes Feld für formattiertes Datum erstellen
+    let formattedDateInput = form.querySelector('input[name="date_formatted"]');
+    if (!formattedDateInput) {
+        formattedDateInput = document.createElement('input');
+        formattedDateInput.type = 'hidden';
+        formattedDateInput.name = 'date_formatted';
+        form.appendChild(formattedDateInput);
+    }
+
     const popup = document.createElement('div');
     popup.id = 'booking-popup';
     popup.style.cssText = `
@@ -344,32 +355,27 @@ function initializeBookingForm() {
         document.getElementById('close-popup').addEventListener('click', () => {
             popup.style.display = 'none';
         });
-        // Auto-close nach 8 Sekunden
         setTimeout(() => { popup.style.display = 'none'; }, 8000);
     }
 
-    // Öffnungszeiten prüfen
     function isWithinOpeningHours(dateStr, timeStr) {
         const date = new Date(`${dateStr}T${timeStr}`);
-        const day = date.getDay(); // 0 = Sonntag, 1 = Montag, ..., 6 = Samstag
+        const day = date.getDay();
         const hours = date.getHours();
         const minutes = date.getMinutes();
         const totalMinutes = hours * 60 + minutes;
 
-        // Mo–Fr: 11:00–14:00 · 17:00–22:30
         if (day >= 1 && day <= 5) {
             if ((totalMinutes >= 11*60 && totalMinutes <= 14*60) ||
                 (totalMinutes >= 17*60 && totalMinutes <= 22*60+30)) {
                 return true;
             }
         }
-        // Sa: 17:00–22:30
         if (day === 6) {
             if (totalMinutes >= 17*60 && totalMinutes <= 22*60+30) {
                 return true;
             }
         }
-        // So: 11:00–20:00
         if (day === 0) {
             if (totalMinutes >= 11*60 && totalMinutes <= 20*60) {
                 return true;
@@ -381,15 +387,21 @@ function initializeBookingForm() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        const dateInput = form.querySelector('input[name="date"]');
+        const originalDate = dateInput.value;
+        
+        // Konvertiere Datum zu tag.monat.jahr
+        const [year, month, day] = originalDate.split('-');
+        const formattedDate = `${day}.${month}.${year}`;
+
         const fullName = form.querySelector('input[name="full_name"]').value;
         const email = form.querySelector('input[name="email"]').value;
         const phone = form.querySelector('input[name="phone"]').value;
         const guests = form.querySelector('input[name="guests"]').value;
-        const date = form.querySelector('input[name="date"]').value;
         const time = form.querySelector('input[name="time"]').value;
 
         // Öffnungszeiten prüfen
-        if (!isWithinOpeningHours(date, time)) {
+        if (!isWithinOpeningHours(originalDate, time)) {
             showPopup(`
                 <h3 style="color: #f44336;">⚠️ Außerhalb der Öffnungszeiten</h3>
                 <p>Unsere Reservierungszeiten sind:</p>
@@ -402,6 +414,9 @@ function initializeBookingForm() {
             return;
         }
 
+        // Setze das versteckte Feld mit formattiertem Datum
+        formattedDateInput.value = formattedDate;
+
         // Email senden mit EmailJS
         emailjs.sendForm('service_rvge11r', 'template_adlg53n', form)
         .then(function(response) {
@@ -412,7 +427,7 @@ function initializeBookingForm() {
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Telefon:</strong> ${phone}</p>
                 <p><strong>Personen:</strong> ${guests}</p>
-                <p><strong>Datum:</strong> ${date}</p>
+                <p><strong>Datum:</strong> ${formattedDate}</p>
                 <p><strong>Uhrzeit:</strong> ${time}</p>
                 <p style="font-size: 12px; color: #666; margin-top: 1rem;">Wir melden uns in Kürze!</p>
             `, "#4CAF50");

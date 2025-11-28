@@ -1,5 +1,5 @@
 /* ================================================
-   RESPONSIVE CSS - FINALE VERSION
+   RESPONSIVE CSS - COMPLETE FINALE VERSION
    ================================================ */
 
 /* Reset und Basis */
@@ -230,6 +230,185 @@ body {
 }
 
 /* ================================================
+   BOOKING SECTION - TABLET (max-width: 1024px)
+   ================================================ */
+
+@media (max-width: 1024px) {
+	#booking {
+		padding: 50px 20px;
+	}
+
+	.booking-title {
+		font-size: 2rem;
+		margin-bottom: 40px;
+	}
+
+	.wrapper-input {
+		margin-bottom: 25px;
+		gap: 25px;
+	}
+}
+
+/* ================================================
+   BOOKING SECTION - MOBILE (max-width: 768px)
+   ================================================ */
+
+@media (max-width: 768px) {
+	#booking {
+		padding: 40px 15px;
+		min-height: auto;
+	}
+
+	.wrapper-booking {
+		width: 100%;
+		padding: 0;
+	}
+
+	.booking-title {
+		font-size: 1.8rem;
+		margin-bottom: 35px;
+	}
+
+	.wrapper-input {
+		flex-direction: column;
+		gap: 0;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	.input-group {
+		flex: 1;
+		min-width: 100%;
+		margin-bottom: 30px;
+		width: 100%;
+	}
+
+	.input-label {
+		display: block !important;
+		font-size: 13px;
+		margin-bottom: 10px;
+		font-weight: 600;
+	}
+
+	.wrapper-booking input {
+		width: 100% !important;
+		padding: 12px 0;
+		font-size: 14px;
+		margin: 0;
+		min-width: 100%;
+		border-bottom: 1px solid var(--color-white);
+	}
+
+	.wrapper-booking input[type="text"],
+	.wrapper-booking input[type="email"],
+	.wrapper-booking input[type="tel"],
+	.wrapper-booking input[type="number"],
+	.wrapper-booking input[type="date"],
+	.wrapper-booking input[type="time"] {
+		width: 100% !important;
+		padding: 12px 0;
+		font-size: 14px;
+		margin: 0;
+		min-width: 100%;
+	}
+
+	.input-group input[type="date"],
+	.input-group input[type="time"] {
+		padding: 12px 0;
+		width: 100%;
+		margin: 0;
+	}
+
+	button[type='submit'] {
+		padding: 12px 30px;
+		font-size: 14px;
+		margin-top: 30px;
+		width: auto;
+		min-width: auto;
+	}
+}
+
+/* ================================================
+   BOOKING SECTION - SMALL MOBILE (max-width: 480px)
+   ================================================ */
+
+@media (max-width: 480px) {
+	#booking {
+		padding: 25px 12px;
+		min-height: auto;
+	}
+
+	.wrapper-booking {
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+
+	.booking-title {
+		font-size: 1.5rem;
+		margin-bottom: 25px;
+		letter-spacing: 1px;
+	}
+
+	.wrapper-input {
+		flex-direction: column;
+		gap: 0;
+		margin-bottom: 15px;
+		width: 100%;
+	}
+
+	.input-group {
+		flex: 1;
+		min-width: 100%;
+		margin-bottom: 25px;
+		width: 100%;
+	}
+
+	.input-label {
+		display: block !important;
+		font-size: 12px;
+		margin-bottom: 8px;
+		font-weight: 700;
+	}
+
+	.wrapper-booking input {
+		width: 100% !important;
+		padding: 10px 0;
+		font-size: 13px;
+		margin: 0;
+		min-width: 100%;
+	}
+
+	.wrapper-booking input[type="text"],
+	.wrapper-booking input[type="email"],
+	.wrapper-booking input[type="tel"],
+	.wrapper-booking input[type="number"],
+	.wrapper-booking input[type="date"],
+	.wrapper-booking input[type="time"] {
+		width: 100% !important;
+		padding: 10px 0;
+		font-size: 13px;
+		margin: 0;
+		min-width: 100%;
+	}
+
+	.input-group input[type="date"],
+	.input-group input[type="time"] {
+		padding: 10px 0;
+		width: 100%;
+		margin: 0;
+	}
+
+	button[type='submit'] {
+		padding: 12px 25px;
+		font-size: 13px;
+		width: 100%;
+		margin-top: 20px;
+		min-width: 100%;
+	}
+}
+
+/* ================================================
    MOBILE GERÄTE (max-width: 500px)
    ================================================ */
 @media all and (max-width: 500px) {
@@ -271,11 +450,6 @@ body {
 		text-align: center;
 		margin-bottom: 15px;
 		padding: 0 10px;
-	}
-
-	.wrapper-booking input {
-		width: 100%;
-		margin: 0 0px 20px 0;
 	}
 
 	.wrapper-contact > div {
@@ -479,5 +653,155 @@ div.portfolio-content {
 		padding: 20px;
 		background: #f9f9f9;
 		border-radius: 8px;
+	}
+}
+
+/* ================================================
+   HEADER RESPONSIVE ERGÄNZUNGEN
+   ================================================ */
+
+@media (max-width: 768px) {
+	/* Mobile Navigation */
+	.menu {
+		position: fixed;
+		top: 0;
+		left: -320px;
+		width: 320px;
+		height: 100vh;
+		background: rgba(24, 24, 24, 0.98);
+		backdrop-filter: blur(10px);
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 80px 30px 30px;
+		transition: left 0.3s ease;
+		z-index: 1001;
+		box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+	}
+
+	.menu.active {
+		left: 0;
+	}
+
+	.menu li {
+		float: none;
+		margin: 0 0 25px 0;
+		width: 100%;
+	}
+
+	.menu li a {
+		font-size: 22px;
+		color: white;
+		display: block;
+		padding: 15px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		width: 100%;
+	}
+
+	#openmenu {
+		display: block;
+	}
+
+	#closemenu {
+		display: block;
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		font-size: 35px;
+	}
+
+	/* Menu Overlay */
+	.menu-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 1000;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.menu-overlay.active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+/* ================================================
+   PORTFOLIO RESPONSIVE ERGÄNZUNGEN
+   ================================================ */
+
+@media (max-width: 768px) {
+	.portfolio-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	.portfolio-card-inner {
+		flex-direction: column;
+		min-height: auto;
+	}
+
+	.portfolio-image {
+		flex: 0 0 200px;
+	}
+
+	.portfolio-content {
+		padding: 25px;
+	}
+
+	.portfolio-content h3 {
+		font-size: 22px;
+		margin-bottom: 15px;
+	}
+
+	.portfolio-content p {
+		font-size: 14px;
+		line-height: 1.6;
+	}
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+	.menu li a {
+		font-size: 16px;
+	}
+
+	.menu li {
+		margin-left: 20px;
+	}
+
+	.portfolio-content {
+		padding: 30px;
+	}
+
+	.portfolio-content h3 {
+		font-size: 24px;
+	}
+}
+
+/* ================================================
+   KONTAKT RESPONSIVE
+   ================================================ */
+
+@media (max-width: 768px) {
+	.contact-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+	
+	.opening-hours {
+		grid-column: span 1;
+	}
+	
+	.contact-card {
+		padding: 30px 20px;
+	}
+	
+	.contact-header h2 {
+		font-size: 32px;
 	}
 }

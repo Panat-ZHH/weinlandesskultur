@@ -1,6 +1,6 @@
 /**
-* Reb-Thai Restaurant CSS - Simple Version with Fade-Up Animation
-* Original design preserved with minimal, clean animations
+* Reb-Thai Restaurant CSS - Complete Version
+* Original design preserved with booking optimizations
 */
 
 @import 'reset.css';
@@ -399,127 +399,6 @@ header {
 .social-link li a:hover {
 	color: var(--color-red);
 	transform: translateY(-2px);
-}
-
-/* RESPONSIVE HEADER ERGÄNZUNGEN */
-@media (max-width: 768px) {
-    /* Mobile Navigation */
-    .menu {
-        position: fixed;
-        top: 0;
-        left: -320px;
-        width: 320px;
-        height: 100vh;
-        background: rgba(24, 24, 24, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 80px 30px 30px;
-        transition: left 0.3s ease;
-        z-index: 1001;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .menu.active {
-        left: 0;
-    }
-
-    .menu li {
-        float: none;
-        margin: 0 0 25px 0;
-        width: 100%;
-    }
-
-    .menu li a {
-        font-size: 22px;
-        color: white;
-        display: block;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-    }
-
-    #openmenu {
-        display: block;
-    }
-
-    #closemenu {
-        display: block;
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        font-size: 35px;
-    }
-
-    /* Menu Overlay */
-    .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-/* RESPONSIVE PORTFOLIO ERGÄNZUNGEN */
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .portfolio-card-inner {
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    .portfolio-image {
-        flex: 0 0 200px;
-    }
-
-    .portfolio-content {
-        padding: 25px;
-    }
-
-    .portfolio-content h3 {
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-
-    .portfolio-content p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
-
-/* Tablet Styles */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .menu li a {
-        font-size: 16px;
-    }
-
-    .menu li {
-        margin-left: 20px;
-    }
-
-    .portfolio-content {
-        padding: 30px;
-    }
-
-    .portfolio-content h3 {
-        font-size: 24px;
-    }
 }
 
 /**************************************
@@ -923,12 +802,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 .wrapper-booking {
 	max-width: 1000px;
 	width: 100%;
+	padding: 0;
 }
 
 .booking-title {
@@ -949,23 +829,82 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	gap: 30px;
+	width: 100%;
 }
+
+/* ================================================
+   INPUT GROUP WITH LABEL - HIDDEN ON DESKTOP
+   ================================================ */
+
+.input-group {
+	flex: 1;
+	min-width: calc(50% - 15px);
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.input-label {
+	color: var(--color-white);
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 8px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	display: none;
+}
+
+/* ================================================
+   ALL INPUT FIELDS - UNIFIED STYLING
+   ================================================ */
 
 .wrapper-booking input {
 	background-color: transparent;
 	outline: none;
 	border: none;
 	display: block;
-	padding: 15px 0px;
-	margin: 0 20px 20px 0;
-	width: calc(50% - 40px);
+	padding: 15px 0;
+	width: calc(50% - 15px);
 	color: var(--color-white);
 	border-bottom: 1px solid var(--color-white);
 	transition: all 0.5s ease;
 	font-size: 16px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+}
+
+/* Consistent styling for all input types */
+.wrapper-booking input[type="text"],
+.wrapper-booking input[type="email"],
+.wrapper-booking input[type="tel"],
+.wrapper-booking input[type="number"],
+.wrapper-booking input[type="date"],
+.wrapper-booking input[type="time"] {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	display: block;
+	color: var(--color-white);
+	border-bottom: 1px solid var(--color-white);
+	transition: all 0.5s ease;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	box-sizing: border-box;
+	padding: 15px 0;
+	width: calc(50% - 15px);
+	margin-bottom: 15px;
+}
+
+.input-group input[type="date"],
+.input-group input[type="time"] {
+	padding: 15px 0;
+	width: 100%;
+	margin-bottom: 0;
 }
 
 .wrapper-booking input::placeholder {
@@ -986,17 +925,18 @@ header {
 	border-color: rgba(255, 255, 255, 0.9);
 }
 
-.wrapper-booking input[type="date"], 
-.wrapper-booking input[type="time"] {
-	color: var(--color-white);
-}
-
+/* Date and Time Picker Icons */
 .wrapper-booking input[type="date"]::-webkit-calendar-picker-indicator,
 .wrapper-booking input[type="time"]::-webkit-calendar-picker-indicator {
 	filter: invert(1);
 	cursor: pointer;
 	opacity: 0.8;
+	margin-right: 5px;
 }
+
+/* ================================================
+   SUBMIT BUTTON
+   ================================================ */
 
 button[type='submit'] {
 	background-color: transparent;
@@ -1028,7 +968,7 @@ button[type='submit']:active {
 }
 
 /**************************************
-*         CONTACTS - FINAL DESIGN
+*         CONTACTS
 ***************************************/
 
 #contacts {
@@ -1276,26 +1216,9 @@ button[type='submit']:active {
     }
 }
 
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .opening-hours {
-        grid-column: span 1;
-    }
-    
-    .contact-card {
-        padding: 30px 20px;
-    }
-    
-    .contact-header h2 {
-        font-size: 32px;
-    }
-}
-
-
+/**************************************
+*         RESPONSIVE DESIGN
+***************************************/
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1319,11 +1242,6 @@ button[type='submit']:active {
 		width: 100%;
 	}
 	
-	.wrapper-booking input {
-		width: calc(100% - 20px);
-		margin: 0 0 20px 0;
-	}
-	
 	h1 {
 		font-size: 50px;
 	}
@@ -1331,16 +1249,33 @@ button[type='submit']:active {
 	.menu li a {
 		font-size: 20px;
 	}
+
+	.contact-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+	
+	.opening-hours {
+		grid-column: span 1;
+	}
+	
+	.contact-card {
+		padding: 30px 20px;
+	}
+	
+	.contact-header h2 {
+		font-size: 32px;
+	}
 }
 
-/* Menu Tab Ergänzungen - fügen Sie dies zu Ihrem bestehenden CSS hinzu */
+/* Menu Tab Ergänzungen */
 
 .menu-item .item-list {
-    display: none; /* Standardmäßig versteckt */
+    display: none;
 }
 
 .menu-item .item-list:first-child {
-    display: flex; /* Erstes Element sichtbar */
+    display: flex;
 }
 
 .menu-list ul li a.active {
@@ -1349,7 +1284,6 @@ button[type='submit']:active {
     border: 1px solid var(--color-red) !important;
 }
 
-/* Wichtig: Stelle sicher, dass die item-product Elemente auch innerhalb versteckter Container sichtbar sind */
 .item-list .item-product {
     display: flex !important;
 }
